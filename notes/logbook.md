@@ -9,7 +9,7 @@ Week 1
 I received the *PAM.pdf* file outlining the case where a signal is sent through a channel with AWGN and received with a timing error at the receiver. I read
 through the file several times to get an understanding of the underlying equations.
 
-Leaving the Gram-Chandler series aside for the moment, I started getting to grips with Mathematica and implementing the transmission system model:
+Leaving the Gram-Charlier series aside for the moment, I started getting to grips with Mathematica and implementing the transmission system model:
 
 $$
 X = \omega_0 g_0 + \sum_{k=1}^{40} ( \omega_{-k} g_{k} + \omega_k g_k ) + \nu
@@ -72,3 +72,10 @@ $$
 X = \omega_0 g_0 + \sum_{k=1}^{40} ( \omega_{-k} g_{-k} + \omega_k g_k ) + \nu
 $$
 
+03/10/13 - Delving deeper into Mathematica
+------------------------------------------
+
+I devoted some time into looking through Michael Quinlan's notebooks and better understanding the workings of the `Table` functions and the various plotting
+options. Fortunately my notebook was corrupted so I was able to rewrite it and understand the model a bit more. I need to figure out what variance value the
+noise PDF should take on, as the noise appears to be overwhelming the timing error effects. Translating the resulting PDF's into patterns is another question that
+needs some thought.
