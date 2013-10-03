@@ -1,0 +1,16 @@
+Probability distribution under optimum synchronization
+------------------------------------------------------
+
+Example: 4-PAM. The received signal with the receiver synchronised is given by:
+
+$$
+X(t) = \omega_0(t) + n(t)
+$$
+
+where $n(t)$ is the Additive White Gaussian Noise (AWGN). $r_i(t)$ therefore has PDF:
+
+$$
+f_X(y) = \frac{1}{\sqrt{2 \Pi} \sigma} \e^{(-\frac{(y - \omega_0)^2}{2 \sigma^2})}
+$$
+
+
