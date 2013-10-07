@@ -79,3 +79,17 @@ I devoted some time into looking through Michael Quinlan's notebooks and better 
 options. Fortunately my notebook was corrupted so I was able to rewrite it and understand the model a bit more. I need to figure out what variance value the
 noise PDF should take on, as the noise appears to be overwhelming the timing error effects. Translating the resulting PDF's into patterns is another question that
 needs some thought.
+
+Week 2
+======
+
+07/10/13 - Matrix manipulations
+-------------------------------
+
+I decided to spend another day learning about the Mathematica environment, in particular matrix manipulation and generation. I looked into the `Apply`, `Map`
+and `Partition` functions and wrote some examples to figure out how to convert mathematical problems to Mathematica notation using matrices. I hope to convert
+the code to use matrices tomorrow to hopefully simplify and speed things up.
+
+I also implemented David's equation for properly calculating the AWGN function variance from SNR[^2], from last Friday's meeting.
+
+[^2]: See *davenotes.pdf*
