@@ -93,3 +93,44 @@ the code to use matrices tomorrow to hopefully simplify and speed things up.
 I also implemented David's equation for properly calculating the AWGN function variance from SNR[^2], from last Friday's meeting.
 
 [^2]: See *davenotes.pdf*
+
+08/10/13 - Fixed I.R. and Kernel Density Estimation
+---------------------------------------------------
+
+The first job was to rewrite the code to make use of the simple dot operator to calculate all the ISI components[^3]. With the new code I was able to carry out
+many more runs and get much more detailed output. In addition, when I was rewriting the code I noticed a typo in the Raised Cosine I.R. that was degrading
+performance in the perfectly synchronised case. With both of these changes made, I decided to use Kernel Density Estimation to see what effects the timing
+offset has.
+
+[^3]: The ISI components are now calculated using:
+$$
+\left [
+  \sum_{k=0}^{k=40} \left ( g_k \omega_k^1 + g_{-k} \omega_{-k}^1 \right ) \cdots \sum_{k=0}^{k=40} \left ( g_k \omega_k^m + g_{-k} \omega_{-k}^m \right )
+\right ] = \left [ 
+  g_{-40} \cdots g_{-1} g_{1} \cdots g_{40}
+\right ] \bullet \left [
+  \begin{matrix}
+    \omega_{-40}^1 & \cdots & \omega_{-40}^m \\
+    \vdots         &        & \vdots         \\
+    \omega_{-1}^1  & \cdots & \omega_{-1}^m  \\
+    \omega_{1}^1   & \cdots & \omega_{1}^m   \\
+    \vdots         &        & \vdots         \\
+    \omega_{40}^1  & \cdots & \omega_{40}^m  \\
+  \end{matrix}
+\right ]
+$$
+    where $\omega_{k}^j$ is the $k$'th ISI with the $j$'th timing offset.
+
+Using offsets of 10\textsuperscript{-15}, 0.05, 0.1 & 0.15, the following values of $g_k, k \in \{ -40 \dots -1, 1 \dots 40 \}$ were calculated.
+
+![gk linear plot](../plots/fyp1_w1_gklin.png)
+
+![gk log plot](../plots/fyp1_w1_gklog.png)
+
+Using `SmoothKernelDistribution` to perform Kernel Density Enstimation with 1 million points produced the following estimated PDFs for both possible transmitted
+values. As the timing error increases, we note that the PDF spreads out, but the mean remains steady.
+
+![kernel density estimation w0=1](../plots/fyp1_w1_kde.png)
+
+![kernel density estimation w0=-1](../plots/fyp1_w0_kde.png)
+
