@@ -123,14 +123,14 @@ $$
 
 Using offsets of 10\textsuperscript{-15}, 0.05, 0.1 & 0.15, the following values of $g_k, k \in \{ -40 \dots -1, 1 \dots 40 \}$ were calculated.
 
-![gk linear plot](../plots/fyp1_w1_gklin.png)
+![$g_k$ linear plot](../plots/fyp1_w1_gklin.png)
 
-![gk log plot](../plots/fyp1_w1_gklog.png)
+![$g_k$ log plot](../plots/fyp1_w1_gklog.png)
 
 Using `SmoothKernelDistribution` to perform Kernel Density Enstimation with 1 million points produced the following estimated PDFs for both possible transmitted
 values. As the timing error increases, we note that the PDF spreads out, but the mean remains steady.
 
-![kernel density estimation w0=1](../plots/fyp1_w1_kde.png)
+![kernel density estimation $\omega_0=1$](../plots/fyp1_w1_kde.png)
 
-![kernel density estimation w0=-1](../plots/fyp1_w0_kde.png)
+![kernel density estimation $\omega_0=-1$](../plots/fyp1_w0_kde.png)
 
