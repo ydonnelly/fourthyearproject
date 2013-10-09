@@ -139,4 +139,4 @@ values. As the timing error increases, we note that the PDF spreads out, but the
 
 With Ger's help, I set up an account on `Digital Comms Lab 1` & `Digital Comms Lab 2` and got the internet working. Mathematica 8 is installed and working on
 both machines, we will have to consider whether an upgrade to Mathematica 9 would be useful or not. Git and VNC or similar have to be installed next. A request
-was made to the Boole cluster for access for this machine, and I am waiting for a reply.
+was made to the Boole cluster for access for this machine, however the email given (`bcrisupport@bcri.ucc.ie`) was invalid.
