@@ -52,13 +52,19 @@ Username
 EDA machines
 ------------
 
-The EDA Lab is pretty quiet, and these machines are public and apparently run Mathematica, though what version is a good question. Might be useful when the
+The EDA Lab is pretty quiet, and these machines apparently run Mathematica, though what version is a good question. Might be useful when the
 desktop is tied up.
 
 OS
 :   CentOS
-IP
-:   TBD
 Username
 :   DonnellyY
+
+----------------------------------------------------
+Name      IP                OS     Description
+--------- ----------------- ------ -----------------
+`uews043` `143.239.132.178` RH4    Projector Machine
+`uews044`                   CentOS Always-on
+`uews045`                   CentOS Always-on
+----------------------------------------------------
 
