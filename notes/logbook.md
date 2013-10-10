@@ -140,3 +140,27 @@ values. As the timing error increases, we note that the PDF spreads out, but the
 With Ger's help, I set up an account on `Digital Comms Lab 1` & `Digital Comms Lab 2` and got the internet working. Mathematica 8 is installed and working on
 both machines, we will have to consider whether an upgrade to Mathematica 9 would be useful or not. Git and VNC or similar have to be installed next. A request
 was made to the Boole cluster for access for this machine, however the email given (`bcrisupport@bcri.ucc.ie`) was invalid.
+
+10/10/13 - Probing the Elec Eng network
+---------------------------------------
+
+After finding out the Boole cluster was no more, I used today to examine what hardware I had available to me. I got access from Ger to the public `UEPC004`
+server, and from there I am able to access machines on the elec eng network. I set up a *Remote Desktop Protocol* link to `Digital Comms Lab 1` through this
+server, allowing me to control the machine from any location. I am also able to log remotely into EDA lab machines, and run Mathematica 5 on those machines.[^4]
+Ger has been known to tweak machines in response to personal requests, so if asked nicely he may let me use two or three of these machines concurrently.
+
+[^4]: The GUI does not work when using `ssh` to access the EDA Lab machines, but using the command `math` to start and operate Mathematica kernels does.
+
+Given these resources, I feel there are three ways I could continue:
+
+* I could upgrade to the latest version of Mathematica on all machines, and set up a Mathematica cluster with `Digital Comms Lab 1` as the front end and the
+EDA Lab PCs as remote nodes. With this setup, all machines would act as one (as in a traditional cluster). This would be the easiest to use, but would require
+considerate work to set up.
+* I could use the `MathLink` interface to acheive a similar, lower-level version of the former, with the EDA Lab machines as independent, remote slaves and
+`Digital Comms Lab 1` sending commands to these slaves and collating the replies. This setup is distributed computing with a star topology, and would be easier
+to setup. The downside is that the code needs to manually divide the task between each of the nodes, and needs to be well designed to minimise network delays.
+* I could simply run the code in parrallel on each of the machines available to me, dumping the results to text files, and collate the data at the end. This
+would require no setup, and code written on any machine would only require porting to another version of Mathematica. Additionally this seems like it would deal
+best with hiccups such as machines going down and it does not depend on a connection between the machines. The downside is there would be some overhead with
+collecting the results afterwards.
+

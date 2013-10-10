@@ -12,9 +12,9 @@ Connection Diagram
 
 $$
 \begin{matrix}
-  \text{Laptop}  & \rightarrow & \text{UEPC004} & \rightarrow & \text{DigComms1} & \rightarrow & \text{Cluster} \\
-  \downarrow     & & & & & & \\
-  \text{EDA Lab} & & & & & & 
+  \text{Laptop}  & \rightarrow & \text{UEPC004} & \rightarrow & \text{DigComms1} & \\
+                 &             & \downarrow     & & \\
+                 &             & \text{EDA Lab} & & 
 \end{matrix}
 $$
 
@@ -26,7 +26,8 @@ The laptop is currently running Ubuntu 13.04 and has access to the eduroam netwo
 Desktop
 -------
 
-There are two desktops in the Digital Communications lab, `Digital Comms Lab 1/2`. I am planning to keep `Digital Comms Lab 1` to access the Boole cluster.
+There are two desktops in the Digital Communications lab, `Digital Comms Lab 1/2`. I am planning to keep `Digital Comms Lab 1`. Can be accessed from `UEPC004`
+using RDP on port 3389.
 
 OS
 :   Windows XP
@@ -52,8 +53,8 @@ Username
 EDA machines
 ------------
 
-The EDA Lab is pretty quiet, and these machines apparently run Mathematica, though what version is a good question. Might be useful when the
-desktop is tied up.
+The EDA Lab is pretty quiet, and these machines run Mathematica 5 (though only the command line interface works with `ssh`). Ger might be up to upgrading this if
+asked nicely. He has also been known to set aside machines for personal use.
 
 OS
 :   CentOS
