@@ -164,3 +164,34 @@ would require no setup, and code written on any machine would only require porti
 best with hiccups such as machines going down and it does not depend on a connection between the machines. The downside is there would be some overhead with
 collecting the results afterwards.
 
+Week 3
+======
+
+14/10/13 - Running longer scripts on the EDA machines
+-----------------------------------------------------
+
+Today I spent some time figuring out how to build and run scripts on the EDA machines. I found that defining a module in a text file and copying the Mathematica
+code into the module allows the code to be called with input arguments, and writing the output to a text file and placing the module in a loop allows each pass
+to be recorded for later parsing[^5]. After running the code overnight, this system appears to work, and is scaleable over multiple machines. The main disadvantage
+is the size of these files (7.7MB per 400,000 values), so I must either figure out how to transfer them over the network or see whether reducing the precision
+of the output values will reduce the file sizes.
+
+[^5]: Using the `Get` and `Put` methods. The `DumpSave` method is supposed to be more efficient, but was added after Mathematica 6.
+
+15/10/13 - Reducing output size
+-------------------------------
+
+Given the 15GB of samples produced the night before was far too much to pull off the machine, I copied 20 million of the samples and plotted them to make sure
+the script had worked in practice[^6]. I then looked into how I could reduce the size of the output produced, and decided to replace the `SmoothKernelDistribution`
+function (which came in after Mathematica 6.0 and therefore couldn't be used on the EDA machines) with a fine-grained histogram function[^7]. This allowed me to
+add the probabilities generated in each sweep to those generated before and keep the output to a handful of 1kB files. I ran the simulation overnight to check it.
+
+[^6]: For the record, I could only use a fraction of them, as loading all 20 million samples crashed the machine for over an hour.
+
+[^7]: I am assuming that both approach the true PDF as $\text{N} \! \rightarrow \! \infty$
+
+16/10/13 - Moving onto 4-PAM
+----------------------------
+
+Checking the output from the night before, I get a similar PDF plot as with the `SmoothKernelDistribution` function. I therefore modified the code to examine all
+3 decision region boundaries in a 4-PAM system and ran the simulation.
