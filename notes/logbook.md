@@ -194,4 +194,9 @@ add the probabilities generated in each sweep to those generated before and keep
 ----------------------------
 
 Checking the output from the night before, I get a similar PDF plot as with the `SmoothKernelDistribution` function. I therefore modified the code to examine all
-3 decision region boundaries in a 4-PAM system and ran the simulation.
+3 decision region boundaries in a 4-PAM system and ran the simulation for 100 million samples per condition. The resulting distributions shown below show
+increased probability of error with timing error, as expected, but decision region boundaries in this case remain the same.
+
+![PDF for 4-PAM, $\omega_0 \in {-3,-1,1,2}$, $10^8$ samples](../plots/4pamdecision.png)
+
+I could imagine finding a value for the probability of error and moving onto PSK systems as the next steps in the process.
