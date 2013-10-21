@@ -146,7 +146,7 @@ was made to the Boole cluster for access for this machine, however the email giv
 
 After finding out the Boole cluster was no more, I used today to examine what hardware I had available to me. I got access from Ger to the public `UEPC004`
 server, and from there I am able to access machines on the elec eng network. I set up a *Remote Desktop Protocol* link to `Digital Comms Lab 1` through this
-server, allowing me to control the machine from any location. I am also able to log remotely into EDA lab machines, and run Mathematica 5 on those machines.[^4]
+server, allowing me to control the machine from any location. I am also able to log remotely into EDA lab machines, and run Mathematica 6 on those machines.[^4]
 Ger has been known to tweak machines in response to personal requests, so if asked nicely he may let me use two or three of these machines concurrently.
 
 [^4]: The GUI does not work when using `ssh` to access the EDA Lab machines, but using the command `math` to start and operate Mathematica kernels does.
@@ -159,7 +159,7 @@ considerate work to set up.
 * I could use the `MathLink` interface to acheive a similar, lower-level version of the former, with the EDA Lab machines as independent, remote slaves and
 `Digital Comms Lab 1` sending commands to these slaves and collating the replies. This setup is distributed computing with a star topology, and would be easier
 to setup. The downside is that the code needs to manually divide the task between each of the nodes, and needs to be well designed to minimise network delays.
-* I could simply run the code in parrallel on each of the machines available to me, dumping the results to text files, and collate the data at the end. This
+* I could simply run the code in parralel on each of the machines available to me, dumping the results to text files, and collate the data at the end. This
 would require no setup, and code written on any machine would only require porting to another version of Mathematica. Additionally this seems like it would deal
 best with hiccups such as machines going down and it does not depend on a connection between the machines. The downside is there would be some overhead with
 collecting the results afterwards.
@@ -200,3 +200,20 @@ increased probability of error with timing error, as expected, but decision regi
 ![PDF for 4-PAM, $\omega_0 \in {-3,-1,1,2}$, $10^8$ samples](../plots/4pamdecision.png)
 
 I could imagine finding a value for the probability of error and moving onto PSK systems as the next steps in the process.
+
+Week 4
+======
+
+21/10/13 - Implementing the Gram-Charlier series
+------------------------------------------------
+
+Over the weekend, I implemented the $g_0$ term fix discussed in our Friday weekly meeting and re-ran the simulation, this time across two machines. Results
+showed that the Decision Region Boundary is displaced towards the origin as the timing offset increases. 
+
+![PDF for 4-PAM, $\omega_0 \in {-3,-1,1,2}$](../plots/4pamdecisionerror.png)
+
+I spent Monday carrying two tasks: 
+
+1.  I re-wrote Dave's Gram-Charlier equations[^2] for Mathematica, and should be ready to try them out tomorrow.
+2.  I modified the PAM simulation with a coarser-grained histogram, but more timing offset values, in order to see how the decision variate varies with timing
+    offset. The results should be available in the morning.
