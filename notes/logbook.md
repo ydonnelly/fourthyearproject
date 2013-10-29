@@ -243,3 +243,7 @@ The simulations ended, and I was able to compare simulated and gram-charlier PDF
 without encorporating fading.
 
 *TODO: Add plots*
+
+![Gram Charlier approximation of $P(\omega_0=1,R)-P(\omega_0=3,R)$](../plots/gcdrb.png)
+
+![Simulation of $P(\omega_0=1,R)-P(\omega_0=3,R)$, N=$3 \times 10^6$](../plots/simdrb.png)

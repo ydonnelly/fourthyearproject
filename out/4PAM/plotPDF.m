@@ -9,5 +9,13 @@ b = b + dlmread('decregbig/octave_3_4.txt');
 size(a)
 x = [1.5025:0.005:1.9975];
 size(x)
-d_ab = (a-b)/30000;
+timing = 0.01:0.01:0.3;
+size(timing)
+d_ab = (a-b)/3000000000;
 y = [d_ab];
+pick = [1,5,10,15,20];
+plot(x,y(pick,:))
+grid on
+xlim([1.86,2.0])
+ylim([-0.0002,0.0002])
+legend(num2str(timing(pick),"%.2f\n"))
