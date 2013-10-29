@@ -1,16 +1,13 @@
-a = dlmread('octave_-3.txt');
-b = dlmread('octave_-1.txt');
-c = dlmread('octave_1.txt');
-d = dlmread('octave_3.txt');
-size(d)
-x = [-3, -2.095:0.01:-1.905, -1, -0.095:0.01:0.095, 1, 1.905:0.01:2.095, 3];
+a = dlmread('decregbig/octave_1_1.txt');
+a = a + dlmread('decregbig/octave_1_2.txt');
+a = a + dlmread('decregbig/octave_1_3.txt');
+a = a + dlmread('decregbig/octave_1_4.txt');
+b = dlmread('decregbig/octave_3_1.txt');
+b = b + dlmread('decregbig/octave_3_2.txt');
+b = b + dlmread('decregbig/octave_3_3.txt');
+b = b + dlmread('decregbig/octave_3_4.txt');
+size(a)
+x = [1.5025:0.005:1.9975];
 size(x)
-n = sum(a(1,:))
-d_ab = (b-a)/n;
-d_bc = (c-b)/n;
-d_cd = (d-c)/n;
-y = [d_ab;d_bc;d_cd];
-subplot(1,3,1)
-plot(x,y,'r')
-xlim([-2,-1.9])
-ylim([n/1000])
+d_ab = (a-b)/30000;
+y = [d_ab];

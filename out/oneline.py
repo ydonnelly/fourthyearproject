@@ -2,7 +2,12 @@
 
     Useful for Mathematica -> MATLAB conversion
 """
-affix = "3"
-infile = open("4PAMtiming/output_"+affix+".txt")
-outfile = open("4PAMtiming/octave_"+affix+".txt","a")
-outfile.write(' '.join([line.strip() for line in infile.readlines()]).replace('}, {','\n').replace('{',' ').replace('}',' '))
+folder = "decregbig"
+symbols = map(str,{1,3})
+runs = map(str,{4})
+
+for symbol in symbols:
+    for run in runs:
+        infile = open("4PAM/"+folder+"/output_"+symbol+"_"+run+".txt")
+        outfile = open("4PAM/"+folder+"/octave_"+symbol+"_"+run+".txt","a")
+        outfile.write(' '.join([line.strip() for line in infile.readlines()]).replace('}, {','\n').replace('{',' ').replace('}',' '))
