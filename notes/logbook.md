@@ -1,7 +1,9 @@
 % Fourth Year Project Logbook
 
+
 Week 1
 ======
+
 
 30/09/13 - Exploring simple case with PAM modulation
 ----------------------------------------------------
@@ -30,6 +32,7 @@ complete solution.
 $$
 h_{RRC}(t) = \frac{2 \beta}{\pi \sqrt{T_s}} \frac{cos \left [ (1 + \beta) \frac{\pi t}{T_s} \right ] + \dfrac{sin \left [ (1 - \beta) \frac{\pi t}{T_s} \right ]}{\frac{4 \beta t}{T_s}}}{1 - \left ( \frac{4 \beta t}{T_s} \right )^2}
 $$
+
 
 01/10/13 - Implementing Raised Cosine functions
 -----------------------------------------------
@@ -61,6 +64,7 @@ After discussing the convolution issue with David, he suggested that the channel
 filter I.R. $g(t)$ can be defined as a Raised Cosine function, as defined above. I should therefore be ready to implement the simple ISI model
 tomorrow.
 
+
 02/10/13 - Wrapping Up the Initial PAM Model
 --------------------------------------------
 
@@ -72,6 +76,7 @@ $$
 X = \omega_0 g_0 + \sum_{k=1}^{40} ( \omega_{-k} g_{-k} + \omega_k g_k ) + \nu
 $$
 
+
 03/10/13 - Delving deeper into Mathematica
 ------------------------------------------
 
@@ -80,8 +85,25 @@ options. Fortunately my notebook was corrupted so I was able to rewrite it and u
 noise PDF should take on, as the noise appears to be overwhelming the timing error effects. Translating the resulting PDF's into patterns is another question that
 needs some thought.
 
+
+Week 1 Summary
+--------------
+
+Week 1 was mostly spent becoming acquainted with Mathematica and getting a feel for the equations underlying PAM transmissions. A simple model of a PAM receiver
+was constructed.
+
+
+Goals for Week 2
+----------------
+
+*   The PAM model will need to be extended to calculate the optimum decision region boundary from the estimated PDF.
+*   A better setup will be required to perform large-scale simulations within an acceptable time period. We will look into applying for an account on the Boole
+    cluster.
+
+
 Week 2
 ======
+
 
 07/10/13 - Matrix manipulations
 -------------------------------
@@ -93,6 +115,7 @@ the code to use matrices tomorrow to hopefully simplify and speed things up.
 I also implemented David's equation for properly calculating the AWGN function variance from SNR[^2], from last Friday's meeting.
 
 [^2]: See *davenotes.pdf*
+
 
 08/10/13 - Fixed I.R. and Kernel Density Estimation
 ---------------------------------------------------
@@ -134,12 +157,14 @@ values. As the timing error increases, we note that the PDF spreads out, but the
 
 ![kernel density estimation $\omega_0=-1$](../plots/fyp1_w0_kde.png)
 
+
 09/10/13 - Setting up Digital Comms Lab PC
 ------------------------------------------
 
 With Ger's help, I set up an account on `Digital Comms Lab 1` & `Digital Comms Lab 2` and got the internet working. Mathematica 8 is installed and working on
 both machines, we will have to consider whether an upgrade to Mathematica 9 would be useful or not. Git and VNC or similar have to be installed next. A request
 was made to the Boole cluster for access for this machine, however the email given (`bcrisupport@bcri.ucc.ie`) was invalid.
+
 
 10/10/13 - Probing the Elec Eng network
 ---------------------------------------
@@ -164,8 +189,23 @@ would require no setup, and code written on any machine would only require porti
 best with hiccups such as machines going down and it does not depend on a connection between the machines. The downside is there would be some overhead with
 collecting the results afterwards.
 
+
+Week 2 Summary
+--------------
+
+I fixed the code written last week and began setting up my simulation environment.
+
+
+Goals for Week 3
+----------------
+
+*   Work out a setup that will allow me to carry out largeer-scale simulations.
+*   Adapt the previous code to run in parallel and produce useful machine-readable output.
+
+
 Week 3
 ======
+
 
 14/10/13 - Running longer scripts on the EDA machines
 -----------------------------------------------------
@@ -177,6 +217,7 @@ is the size of these files (7.7MB per 400,000 values), so I must either figure o
 of the output values will reduce the file sizes.
 
 [^5]: Using the `Get` and `Put` methods. The `DumpSave` method is supposed to be more efficient, but was added after Mathematica 6.
+
 
 15/10/13 - Reducing output size
 -------------------------------
@@ -190,6 +231,7 @@ add the probabilities generated in each sweep to those generated before and keep
 
 [^7]: I am assuming that both approach the true PDF as $\text{N} \! \rightarrow \! \infty$
 
+
 16/10/13 - Moving onto 4-PAM
 ----------------------------
 
@@ -201,8 +243,26 @@ increased probability of error with timing error, as expected, but decision regi
 
 I could imagine finding a value for the probability of error and moving onto PSK systems as the next steps in the process.
 
+
+Week 3 Summary
+--------------
+
+Code was written that could be executed in parallel on multiple machines, and this was demonstrated in practice. The code was extended to the 4-PAM case, and
+showed no change in optimum decision region boundaries. Upon later consultation with Dave, it seems this is because the decision region boundaries shift due
+to a change in the $g_0$ term, and not the appearance of ISI components due to the $g_k$ terms; the latter was believed to be the expected cause, and so the
+$g_0$ term was assumed to be 1 in the code.
+
+
+Goals for Week 4
+----------------
+
+*   Re-run the simulations to see if implementing the change in $g_0$ with timing error changes the location of the optimum decision region boundaries.
+*   If so, it would be interesting to see if the Gram-Charlier approximation produces the same boundary locations.
+
+
 Week 4
 ======
+
 
 21/10/13 - Implementing the Gram-Charlier series
 ------------------------------------------------
@@ -218,6 +278,7 @@ I spent Monday carrying out two tasks:
 2.  I modified the PAM simulation with a coarser-grained histogram, but more timing offset values, in order to see how the decision variate varies with timing
     offset. The results should be available in the morning.
 
+
 22/10/13 - More Gram-Charlier series
 ------------------------------------
 
@@ -227,14 +288,30 @@ accurately determine the exact boundary locations, so the simulation was re-run 
 I fixed some bugs in my implementation of the Gram-Charlier series and was able to generate a few plots, which were very similar to those generated by the
 simulator, albeit with half the amplitude. A goal for tomorrow is to generate the plots with identical timing offsets to the simulation and compare both plots.
 
+
 23/10/13 - Proper Gram-Charlier plots
 -------------------------------------
 
 The simulation results had been appended to the previous set of results by accident, so the whole thing had to be run again for tomorrow. On a more positive
 note, I noticed a missing power in my implementation of the Gram-Charlier series, and the plots are now a lot closer to those generated previously.
 
+
+Week 4 Summary
+--------------
+
+I implemented the Gram-Charlier series and was able to compare the results from the simulationa dn the Gram-Charlier series. These are close, but not exact,
+so we will have to look closely at where the differences may be coming from.
+
+
+Goals for Week 5
+----------------
+
+*   I will make use of the long weekend to run some extra-long simulations and compare these to the Gram-Charlier series.
+
+
 Week 5
 ======
+
 
 29/10/13 - Comparing Gram-Charlier to Simulation
 ------------------------------------------------
@@ -248,40 +325,6 @@ of $2 g(\Delta)$, and found very close correlation.
 
 ![Comparison of Gram-Charlier Decision Region Boundaries and $2 g(\Delta)$ estimation ($0.01 \ge \Delta \ge 0.2$)](../plots/gc_vs_2g.png)
 
-### Table of Decision Region Boundaries
-
-Timing Error  DRB (sim)  DRB (G-C)  g($\Delta$)
-------------  ---------  ---------  -----------
-0.010000      1.995      2.000      2.000
-0.020000      1.995      1.999      1.998
-0.030000      1.995      1.997      1.997
-0.040000      1.995      1.995      1.994
-0.050000      1.990      1.991      1.991
-0.060000      1.985      1.987      1.987
-0.070000      1.980      1.982      1.982
-0.080000      1.975      1.977      1.976
-0.090000      1.970      1.971      1.970
-0.100000      1.965      1.964      1.963
-0.110000      1.955      1.956      1.955
-0.120000      1.945      1.948      1.946
-0.130000      1.935      1.939      1.937
-0.140000      1.925      1.930      1.927
-0.150000      1.915      1.920      1.917
-0.160000      1.905      1.910      1.905
-0.170000      1.895      1.899      1.893
-0.180000      1.880      1.888      1.881
-0.190000      1.865      1.876      1.867
-0.200000      1.855      1.864      1.854
-0.210000      1.840
-0.220000      1.825
-0.230000      1.810 
-0.240000      1.790 
-0.250000      1.775
-0.260000      1.755 
-0.270000      1.740
-0.280000      1.720
-0.290000      1.700 
-0.300000      1.680 
 
 30/10/13 - Applying the Tikhonov Distribution
 ---------------------------------------------
@@ -299,22 +342,41 @@ $$
 B_{\text{OPT}} \sim \sum_{\Delta} \text{P}(\Delta) B_{\text{OPT,}\Delta}
 $$
 
-### Obtimum Decision Region Boundaries for various timing error distributions and simulated data
-
-Varience  Optimum Boundary
---------  ----------------                
-0.001     1.996                                                      
-0.002     1.992                                                      
-0.003     1.988                                                      
-0.004     1.984                                                      
-0.005     1.979                                                      
-0.006     1.974                                                      
-0.007     1.970                                                      
-0.008     1.965                                                     
-0.009     1.961                                    
-0.010     1.957
-
 ![Optimum Decision Region Boundary for various timing error probability distributions](../plots/odrb_vs_tikhvar.png)
 
 It is important to note that with increasing variance, the probability density function places more weight on larger timing errors outside the range simulated,
 so these results are less accurate for higher variances.
+
+
+Week 5 Summary
+--------------
+
+In week 5, I calculated the optimum decision region boundary for a range of timing offsets, through simulation and the Gram-Charlier approximation. I
+demonstrated a close correlation between these boundaries and the $2 g_k$ term. A slight difference between the Gram-Charlier approximation was found to be due
+to a typo in its implementation. I applied the Tikhonov distribution to the calculated optimum decision region boundaries for each timing offset, in order to
+calculate an optimum decision region boundary for a given Tikhonov distribution of timing offsets
+
+
+Goals for Week 6
+----------------
+
+*   On the simulation side, a key goal for week 6 is to randomly generate timing offsets according to the Tikhonov distribution and apply these to the simulation
+    as timing offsets, in order to verify correlation with the Gram-Charlier and $2 g_k$ approximations.
+*   A typo in the Gram-Charlier implementation has been found and corrected, and it would be interesting to see if this approximation matches $2 g_k$.
+
+
+Week 6
+======
+
+
+04/11/13 - Fixing errors
+------------------------
+
+Dave took a look at my code and spotted errors which I fixed. The fixed Gram-Charlier implementation was found to match $2 g_k$ very closely. The fixed
+simulation was left to run overnight.
+
+
+05/11/13 - Corrected simulation results
+---------------------------------------
+
+
