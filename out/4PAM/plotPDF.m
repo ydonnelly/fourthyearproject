@@ -1,18 +1,19 @@
 timing = 0.001:0.001:0.01;
+foldernos = [1,8];
 a = zeros(length(timing),250);
 b = zeros(length(timing),250);
 
 for index=1:length(timing)-1
-    a(index,:) = dlmread(strcat('tikhonov/1/octave_',num2str(timing(index),'%.3f'),'_1.txt'));
-    b(index,:) = dlmread(strcat('tikhonov/1/octave_',num2str(timing(index),'%.3f'),'_3.txt'));
-    for folder=2:5
+    a(index,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_',num2str(timing(index),'%.3f'),'_1.txt'));
+    b(index,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_',num2str(timing(index),'%.3f'),'_3.txt'));
+    for folder=foldernos(1)+1:foldernos(2)
         a(index,:) = a(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_',num2str(timing(index),'%.3f'),'_1.txt'));
         b(index,:) = b(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_',num2str(timing(index),'%.3f'),'_3.txt'));
     end
 end
-a(10,:) = dlmread(strcat('tikhonov/1/octave_0.01_1.txt'));
-b(10,:) = dlmread(strcat('tikhonov/1/octave_0.01_3.txt'));
-for folder=2:5
+a(10,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_0.01_1.txt'));
+b(10,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_0.01_3.txt'));
+for folder=foldernos(1)+1:foldernos(2)
     a(10,:) = a(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_0.01_1.txt'));
     b(10,:) = b(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_0.01_3.txt'));
 end
