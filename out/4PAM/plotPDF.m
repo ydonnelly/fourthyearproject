@@ -1,21 +1,21 @@
 timing = 0.001:0.001:0.01;
-foldernos = [1,8];
+foldernos = [1,25];
 a = zeros(length(timing),250);
 b = zeros(length(timing),250);
 
 for index=1:length(timing)-1
-    a(index,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_',num2str(timing(index),'%.3f'),'_1.txt'));
-    b(index,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_',num2str(timing(index),'%.3f'),'_3.txt'));
+    a(index,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1),'%02d'),'/octave_',num2str(timing(index),'%.3f'),'_1.txt'));
+    b(index,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1),'%02d'),'/octave_',num2str(timing(index),'%.3f'),'_3.txt'));
     for folder=foldernos(1)+1:foldernos(2)
-        a(index,:) = a(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_',num2str(timing(index),'%.3f'),'_1.txt'));
-        b(index,:) = b(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_',num2str(timing(index),'%.3f'),'_3.txt'));
+        a(index,:) = a(index,:) + dlmread(strcat('tikhonov/',num2str(folder,'%02d'),'/octave_',num2str(timing(index),'%.3f'),'_1.txt'));
+        b(index,:) = b(index,:) + dlmread(strcat('tikhonov/',num2str(folder,'%02d'),'/octave_',num2str(timing(index),'%.3f'),'_3.txt'));
     end
 end
-a(10,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_0.01_1.txt'));
-b(10,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1)),'/octave_0.01_3.txt'));
+a(10,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1),'%02d'),'/octave_0.01_1.txt'));
+b(10,:) = dlmread(strcat('tikhonov/',num2str(foldernos(1),'%02d'),'/octave_0.01_3.txt'));
 for folder=foldernos(1)+1:foldernos(2)
-    a(10,:) = a(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_0.01_1.txt'));
-    b(10,:) = b(index,:) + dlmread(strcat('tikhonov/',num2str(folder),'/octave_0.01_3.txt'));
+    a(10,:) = a(index,:) + dlmread(strcat('tikhonov/',num2str(folder,'%02d'),'/octave_0.01_1.txt'));
+    b(10,:) = b(index,:) + dlmread(strcat('tikhonov/',num2str(folder,'%02d'),'/octave_0.01_3.txt'));
 end
 
 size(a)
@@ -73,7 +73,7 @@ locs = length(y(1,:))*ones(1,length(timing));
 size(locs)
 size(y)
 for index=3:length(timing)
-    locs(index) = find(yc(index,:)<0,1);
+    locs(index) = find(y(index,:)<0,1);
 endfor
 
 actlocs = x(locs)-0.001;
@@ -81,7 +81,7 @@ result = [timing',actlocs',-p(:,2)./p(:,1)];
 num2str(result,"%.3f\t%.3f\t%.3f\n")
 
 figure(2)
-plot(timing(1:end),[x(find(y(1,:)<0,1))-0.001 actlocs(2:end)],'or')
+plot(timing,actlocs,'or')
 xlim([0,0.01])
 ylim([1.95,2])
 grid on

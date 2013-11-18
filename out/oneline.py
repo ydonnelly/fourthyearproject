@@ -2,7 +2,7 @@
 
     Useful for Mathematica -> MATLAB conversion
 """
-folders = ["tikhonov/"+num for num in map(str,range(1,9))]
+folders = ["tikhonov/"+format(num,'02d') for num in range(25,26)]
 symbols = ['0.00'+num for num in map(str,range(1,10))]
 symbols.append('0.01')
 runs = map(str,{1,3})

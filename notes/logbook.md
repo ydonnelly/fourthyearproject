@@ -373,10 +373,32 @@ Week 6
 ------------------------
 
 Dave took a look at my code and spotted errors which I fixed. The fixed Gram-Charlier implementation was found to match $2 g_k$ very closely. The fixed
-simulation was left to run overnight.
+simulation was left to run overnight; unfortunately Mathematica 6.0 running on the Unix machines was unable to run it, so the number of points had to be reduced.
 
 
 05/11/13 - Corrected simulation results
 ---------------------------------------
 
+The produced PDFs were too inaccurate to properly calculate the zero crossing points, so the simulation will have to be run over several days.
 
+
+Week 6 Summary
+--------------
+
+A simulation was constructed that generated timing error offsets according to a Tikhonov distribution of predetermined variance, and used to produce received
+symbol PDFs. The simulation was found to run very slowly, and could only be run on Mathematica 9. Ger has been asked whether it would be possible to upgrade the
+Unix machines to this version and he will look into it.
+
+
+Goals for Week 7
+----------------
+
+*   Continue running the simulation, trying to speed it up if at all possible.
+
+
+Week 7
+======
+
+
+19/11/13 - 
+------------
