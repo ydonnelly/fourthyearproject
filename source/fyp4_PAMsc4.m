@@ -1,4 +1,4 @@
-f[count_,omega0_] := Module[{c = count,w0 = omega0},
+f[count_,omega0_,var_,tag_] := Module[{c = count,w0 = omega0,v=var,t=tag},
    l = 4;
    be = 0.5; 
    th = 0; 
@@ -10,10 +10,13 @@ f[count_,omega0_] := Module[{c = count,w0 = omega0},
  
    h[t_] := (Sinc[(Pi*t)/ts]*Cos[(Pi*be*t)/ts])/(1 - ((2*be*t)/ts)^2);
    g[kk_, de_] := h[ts*(de + kk)];
+   thikfactor[var_] := thikfactor[var] = 1/((2*Pi)^2*var);
+   thik[var_, y_] := thik[var, y] = E^(thikfactor[var]*Cos[2*Pi*y])/BesselI[0, thikfactor[var]];
+   thikdist = ProbabilityDistribution[thik[v, y], {y, -0.5, 0.5}]; 
 
    w = Join[RandomChoice[{-3,-1,1,3}, {nISI/2, npts}], {Table[w0, {npts}]}, RandomChoice[{-3,-1,1,3}, {nISI/2, npts}]];
    k = Range[-nISI/2, nISI/2];
-   dtiming = Range[0.02,0.3,0.02];
+   dtiming = Range[0.01,0.3,0.01];
    ndtiming = Length[dtiming];
    gk = Table[g[a,b],{b,dtiming},{a,k}];
    rk = gk.w;
@@ -23,14 +26,14 @@ f[count_,omega0_] := Module[{c = count,w0 = omega0},
    nu = RandomReal[NormalDistribution[0, var], {ndtiming, npts}];
    r = rk + nu;
 
-   histpts = Join[{-Infinity},Range[-2,-1.9,0.001],Range[1.9,2,0.001],{Infinity}];
+   histpts = Range[1.5,2,0.005];
    newprob = Table[BinCounts[r[[i,All]],{histpts}],{i,1,ndtiming}];
-   filename = "output_" <> ToString[w0] <> ".txt";
+   filename = "output_" <> ToString[w0] <> "_4.txt";
    If[c==0, oldprob=Array[0&,Dimensions[newprob][[1]]], oldprob=Get[filename]];
    prob = oldprob + newprob;
    Put[prob, filename];
-   Print[N[(c+1)/2000,2]];
+   Print[N[(c+1)/5000,2]];
    ];
 
-For[ic = 0, ic < 2000, ic++, f[ic,-1]]
-For[ic = 0, ic < 2000, ic++, f[ic,-3]]
+For[ic = 0, ic < 5000, ic++, f[ic,3]]
+For[ic = 0, ic < 5000, ic++, f[ic,1]]

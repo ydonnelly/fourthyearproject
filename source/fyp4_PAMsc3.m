@@ -25,12 +25,12 @@ f[count_,omega0_] := Module[{c = count,w0 = omega0},
 
    histpts = Range[1.5,2,0.005];
    newprob = Table[BinCounts[r[[i,All]],{histpts}],{i,1,ndtiming}];
-   filename = "output_" <> ToString[w0] <> ".txt";
+   filename = "output_" <> ToString[w0] <> "_3.txt";
    If[c==0, oldprob=Array[0&,Dimensions[newprob][[1]]], oldprob=Get[filename]];
    prob = oldprob + newprob;
    Put[prob, filename];
-   Print[N[(c+1)/2000,2]];
+   Print[N[(c+1)/5000,2]];
    ];
 
-For[ic = 0, ic < 10000, ic++, f[ic,3]]
-For[ic = 0, ic < 10000, ic++, f[ic,1]]
+For[ic = 0, ic < 5000, ic++, f[ic,3]]
+For[ic = 0, ic < 5000, ic++, f[ic,1]]
