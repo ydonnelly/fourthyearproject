@@ -400,5 +400,43 @@ Week 7
 ======
 
 
-19/11/13 - 
-------------
+11/11/13 - Returning to the UNIX machines
+-----------------------------------------
+
+The UNIX machines were upgraded to Mathematica 9 over the weekend, so I was able to port the code in order to run off these. In addition, Dave suggested that I
+look into parralising the code. Since these were dual-core machines I was able to make use of Mathematica's `ParallelTable` function to reduce run times a
+little. Th simulation will have to run over several days, however, as the expected deviation in optimum decision region boundary is very small.
+
+
+19/11/13 - Day 9 of Week 7
+--------------------------
+
+After several days of running the simulations, we found the optimum decision region boundaries given by the simulations, in red, converged to roughly those
+predicted by averaging the optimum decision region boundary of a timing offset over the tikhonov distribution of timing offsets, in blue, given by the equation:
+
+$$
+B_{\text{OPT}} \sim \sum_{\Delta} \text{P}(\Delta) B_{\text{OPT,}\Delta}
+$$
+
+![Optimum Decision Region Boundary for various timing error probability distributions](../plots/opt_dec_reg.png)
+
+
+Week 7 Summary
+--------------
+
+Simulations supported the theory that the optimum decision region boundary in the presence of statistically distributed receiver timing errors will decrease
+from the expected value. Additionally, it was shown through simulation that the new optimum decision region boundary can be aproximated, assuming a known
+distribution of these timing errors, by averaging the optimum decision region boundary given each timing offset over the distribution of timing offsets.
+
+
+Goals for Week 8
+----------------
+
+*   Verify that the Gram-Charlier series provides an adequate approximation to the received symbol PDF in the presence of timing errors.
+*   Provide numerical values for the probability of error $P_e$ in the presence of a distribution of timing errors.
+
+
+Week 8
+======
+
+

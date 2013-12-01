@@ -1,0 +1,400 @@
+\section{Meta-Description}
+
+The preliminary report is effectively a summary of progress at the end
+of Teaching Period 1, and a plan of the intended work during Teaching
+Period 2.
+
+The preliminary report should not exceed 15 pages (excluding the log
+book), and MUST contain the following:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  a brief summary (1 page maximum) of the achievements to date.
+\item
+  a description of the project, including the main aims and/or
+  objectives.
+\item
+  an introduction, putting the project into context with other work in
+  the same subject area, incorporating a comprehensive review of
+  relevant literature, including references to books, journal articles,
+  conference proceedings, manuals, and the Internet.
+\item
+  Evidence of use of the library and online databases should be
+  included.
+\item
+  an individual project plan for each student for the intended work
+  during Teaching Period 2, including specific aims, goals and
+  timescales, and a clear division of labour for students working
+  together on a joint project. A Gantt chart or similar visualization
+  aid should be included.
+\item
+  a detailed discussion of any ethical issues (environmental, societal,
+  legal, professional or medical) that may be applicable to the proposed
+  research, and any relevant industrial standards and Health and Safety
+  requirements.
+\end{itemize}
+
+Colin's Tips:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Focus on what you've learnt so far
+\item
+  Provide a detailed breakdown of how you expect to proceed in TP2, this
+  will be compared with the final report
+\item
+  2nd examiner may not be familiar with comms
+\end{itemize}
+
+\section{Summary of acheivements to date}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  The author has familiarised himself with relevent communications
+  theory, including modulation schemes, probability theory and optimum
+  detector design.
+\item
+  The author has become acquainted with the Mathematica programming
+  environment and used it to program a number of mathematical
+  simulations describing communications problems.
+\item
+  The author has examined the effects of receiver timing error on BPSK
+  and 4-PAM modulation schemes using root raised cosine filters, and
+  demonstrated sub-optimal detection performance with 4-PAM using
+  standard detector designs.
+\item
+  The author has characterised the change of optimum decision region
+  boundaries in the presence of non-deterministic timing errors
+  following a known probablistic model.
+\end{itemize}
+
+\section{Introduction and background to the project}
+
+This project seeks to examine the effects of receiver timing error in
+radio communications systems. Understanding how radio system performance
+decreases in sub-optimal conditions is key to assessing a system's
+performance and designing more robust and performng radio systems. The
+author hopes to be able to characterise the effects of timing error such
+that a receiver may be optimised to account for it.
+
+A typical radio communications system consists of a transmitter, a
+receiver and a communications channel, that may contain any number of
+non-idealities. For this reason, if a transmitter sends a particular
+symbol down a real communications channel, the received symbol may be
+substantially different to the sent symbol. Therefore, careful attention
+is required to the design of the receiver symbol detector.
+
+If we imagine a binary transmission system that sends one of two
+possible signals: a 1V$_{RMS}$ wave if a `0' is to be sent, and a
+3V$_{RMS}$ if a `1' is to be sent. After being distorted by the
+communications channel, the receiver could in theory see a signal of any
+amplitude, an must make a decision as to what amplitude was originally
+sent. It would be helpful to know the probability density function (PDF)
+of the received signal, ie. the probability of receiving a signal
+amplitude if a known amplitude was sent. If we assume the communications
+channel distorted the signal by adding zero-mean white Gaussian noise,
+the received signal PDF will be a Gaussian distribution centred on the
+sent signal amplitude.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{4-PAM_PDF.png}
+\caption{Gaussian noise corrupts a sent signal, resulting in a
+probability density function for each possible sent symbol}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{4-PAM_samples.png}
+\caption{As an example, 2000 of each symbol has been send down the
+communications channel. The received values distorted by noise are
+plotted above. Note the overlap in received values corresponding to both
+symbols: it is impossible to detect the signal with 100\% accuracy.}
+\end{figure}
+
+An ideal detector would always pick whichever signal was most likely to
+be sent. Therefore, the treshold between picking one value or the other
+will be where both symbols are equally likely to be sent, the point of
+intersection of both PDF's. Since the Gaussian distribution is symmetric
+about its mean, in this case the treshold (or \textbf{Decision Region
+Boundary}) is exactly midway between both sent amplitudes. Intuitively
+this makes sense: it says that if we receive a signal amplitude, we
+should assume whichever possible sent amplitude is nearest. However this
+is not generally the case, and in more complicated cases picking the
+point of intersection of both PDF's is a good solution.
+
+One issue that complicates detection is \textbf{inter-symbol
+interference} (ISI). It is possible for signals representing symbols in
+the future or past to bleed into the current symbol clock period,
+distorting the signal further. For this reason transmtters and receivers
+are designed such that they apply a \textbf{raised cosine function} that
+is fully transparent at exactly the symbol's sample time, and blocks
+completely at every other symbol's sample time, ie at every interval of
+$T_{clk}$ for $T \neq 0$. If both receiver and transmitter are perfectly
+synchronised, this ensures that the receiver will only see signals
+corresponding to the current transmitted symbol, after distortion via
+the communications channel.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{rrc_sync.png}
+\caption{A filter with a root raised cosine function is often used, as
+it evaluates to 1 at the current sample time and 0 at all other sample
+times}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{rrc_err.png}
+\caption{If a timing offset is added to the root raised cosine it no
+longer evaluates to 0 or 1 at the sampling points. This results in
+reduced receiver performance when the receiver and transmitter are not
+properly synchronised.}
+\end{figure}
+
+If the receiver and the transmitter are poorly synchronised, however,
+the root cosine filter response is shifted in time with respect to the
+receiver and looses some of its essential property. Current literature
+has considered\ldots{} However, the effects of a poorly synchronised
+receiver on detection performance has not to date been publicised. This
+project seeks to examine this matter further, and ascertain whether
+design decisions can be made to mitigate its effects.
+
+\section{Description of the project}
+
+To get started on the project I began by reading up on the underlying
+theory. I consulted Proakis \emph{(ref)} and learnt about probability
+theory, coding theory and optimum receiver design. I became familiar
+with the concept of representing received signal characteristics using
+probablistic models, and the rationale for doing so in the Additive
+White Gaussian Noise (AWGN) case described before. I learnt about
+designing receivers using both Maximum Likelihood and Maximum A
+Posteriori optimisation, and how this might be done using a known
+probablistic model for the received signal. I also spent some time
+understanding research done by a UCC graduate, David McCarthy, into
+estimating these probablistic models using a Gram-Charlier probability
+distribution. Additionally, I started learning the Mathematica language
+from scratch, with emphasis on statistics and plot generation.
+
+In order to familiarise myself further with these concepts, I built a
+simple model for a two-symbol BPSK communications system in Mathematica.
+I extended this to the 4-symbol 4-PAM system. With some help I also
+implemented the Gram-Charlier distribution. Using these programs as a
+base I then wrote a simulation that would a PDF of the receiver input
+with a known timing offset. Using this, I was able to examine how the
+sent symbol is distorted by the channel and timing error, and found that
+increasing amounts of offset reduced the effective amplitude of the
+signal while increasing noise due to ISI. Additionally, it was found
+that the optimum decision region boundary was decreased by a factor
+equal to the value of the root raised cosine function at the timing
+offset.
+
+My attention at this stage turned to increasing the speed of the
+simulations, and much work was done studying Mathematica's potential for
+parallisation. I was able to acquire remote access to a number of Unix
+machines, and ported the simulations to run across multiple machines,
+paying attention to taking advantage of the dual-core processors and
+making the code robust to premature termination (due to power outages,
+illiterate students etc.).
+
+A more realistic model was created by assuming that the timing error is
+not a fixed value, but could be described by a Tikhonov distribution.
+Two approaches were taken: an initial, quick approach was to calculated
+the optimum decision region boundary of each timing error, and average
+this over the probability of each timing error occuring. This assumes
+that multiple possible optimum decision region boundary locations could
+be averaged to give the overall optimum decision region boundary
+location, which I learnt was not generally the case, and this was later
+proven analytically by David. I therefore tried a second, more realistic
+approach, where for each simulated transmission a new timing offset was
+chosen from the Tikhonov distribution. An optimum decision region
+boundary was then determined for multiple Tikhonoc distribution widths
+(or variances). It was found that the optimum decision region boundary
+decreased as the variance of the Tikhonov distribution increased.
+
+To summarise, my work in TP1 helped introduce me to radio communications
+systems, and concepts of signal corruption and optimum detectors. I
+learnt how to translate signal transmission into mathematical
+simulations, and how to extract meaningful conclusions from the output.
+Using the theory and simulations developped during this time I was able
+to demonstrate a changing optimum decision region boundary in the
+presence of a non-deterministic timing offset using 4-PAM signalling. It
+is believed this behavior can be generalised to L-PAM signalling. This
+will serve as a foundation from which to explore the effects of a
+non-deterministic timing offse in more general cases.
+
+\section{Plan for Teaching Period 2}
+
+In TP2, I aim to extend the scope of my project to address the issue of
+timing error offset in communications channels subject to fading effects
+such as in urban areas or for very long-range communications. In either
+case, line-of-sight communication is very weak or non-existant, and the
+signal is scattered and received as a combination of multiple
+``bounced'' signals with different propagation delays and amplitudes. I
+will model these using a Rayleigh distribution, and asuming an Equal
+Gain Combining (EGC or additive) receiver, determine the effects of
+timing error described above on this type of model. I will stick to
+L-PAM signalling, as PSK signalling formats rely solely on phase
+detection and therefore the optimum decision region boundaries are
+unaffected by amplitude changes.
+
+Once we have a description of the optimum detector in the presence of
+Rayleigh fading, the next goal will be to compare it to the optimum
+detector described in (\emph{ref}), which assumes perfect
+synchronisation (ie. no timing offset).
+
+A project plan is presented here as a guide to how work is expected to
+proceed in TP2. This plan is to be considered a mere guide, as
+Hopfstadter's Rule ensures that no project plan can be accepted as
+gospel truth. In order to account for this timescales have been made
+purposefully conservative. Should the work laid out below be terminated
+early, additional exploration of the effects of non-deterministic timing
+error on other communications systems will be undertaken.
+
+\begin{longtable}[c]{@{}llll@{}}
+\hline\noalign{\medskip}
+\begin{minipage}[b]{0.26\columnwidth}\raggedright
+Description
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright
+Time Allowed
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
+Start Date
+\end{minipage} & \begin{minipage}[b]{0.46\columnwidth}\raggedright
+Goals
+\end{minipage}
+\\\noalign{\medskip}
+\hline\noalign{\medskip}
+\begin{minipage}[t]{0.26\columnwidth}\raggedright
+Review of Rayleigh fading
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+1 week
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+6 Jan
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Develop an understanding of Rayleigh fading.
+\item
+  Have built a basic Mathematica model of Rayleigh fading assuming
+  perfect synchronisation.
+\end{itemize}
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.26\columnwidth}\raggedright
+Implement Rayleigh fading model with timing error
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+1 week
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+13 Jan
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Extend previous model to account for timing errors following a
+  Tikhonov distribution model.
+\item
+  Evaluate optimum decision region boundary in the presence of timing
+  error offsets and Rayleigh fading.
+\end{itemize}
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.26\columnwidth}\raggedright
+Additional simulation time
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+1 week
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+20 Jan
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Characterise the effect of non-deterministic timing error on the
+  optimum decision region boundary for L-PAM signalling in the presence
+  of Rayleigh fading.
+\end{itemize}
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.26\columnwidth}\raggedright
+Compare described receiver to optimum receiver described in literature
+(\emph{ref})
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+2 weeks
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
+27 Jan
+\end{minipage} & \begin{minipage}[t]{0.46\columnwidth}\raggedright
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Provide a detailed comparison of the optimum described above, to the
+  optimum receiver described in (\emph{ref}), paying particular
+  attention to performance in the presence of non-deterministic timing
+  error.
+\end{itemize}
+\end{minipage}
+\\\noalign{\medskip}
+\hline
+\end{longtable}
+
+(\emph{insert Gantt chart here - pdfgantt})
+
+\section{Discussion of ethical issues}
+
+In communications systems, as in any area seeing considerable
+technological developments, the question of whether these developments
+are ethically sound naturally arises. The advent and spread of radio
+throughout the 20th century brought about an era of increased
+connectedness and information transfer, as information could be rapidly
+spread across large distances with little effort. The advent of the
+internet in 1969 (\emph{disputed - check this}) and the mobile phone
+boom of the 90s accelerated these changes as almost-instant,
+asynchronous and on-demand information transfer became available to the
+general public, and current Web 2.0 developments such as social
+networking are but continuations of this trend. With the smart-phone
+industry putting internet access into the pockets of consumers, many
+believe that these changes, driven by advances in communications
+technology, have had a considerable impact on our societies. While the
+positives are too numerous to note, the skeptic would also readily see
+the disadvantages.
+
+Engineering developments can lend themselves to applications with both
+positive and negative intentions, as with any scientific advancement.
+Improving wireless communications can play into the hands of military
+and terrorist leaders, as cheap and reliable wireless communications can
+aid the organisation and execution of manoeuvres. In addition the remote
+detonation of explosives using mobile phones is considered a real threat
+to many cities. (\emph{ref}) Increase in mobile cell phone usage has
+also helped drug trafficking (\emph{check}) gangs, as they are able to
+operate a decentralised operation with little face-to-face
+communication. (\emph{ref})
+
+Paradoxically, these same developments have created privacy concerns as
+most citizens find themselves communicating through the internet and the
+cell phone network. At the bottom of the internet heirarchy, endpoint
+routers are naturally trusting, and prone to exploitation; in addition,
+they are generally visible to all other internet users. At the top, most
+communications are routed through a small number of Tier 1 networks. As
+the distance over which an individual can send a piece of information to
+its intended recipient has increased, so has the number of individuals
+capable of intercepting this information. Thus as users embrace the
+internet and smart phones, they also find themselves increasingly
+exposed to spying from a number of groups with varying intentions. Even
+outside of the ``online'' world, increasing the efficiency of radio
+receivers can lead to the exploitation of security-sensitive short-range
+communications. (\emph{eg. radio credit cards})
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Two-sided coin: Use of increase range for red or blue team
+\item
+  Privacy issues
+\item
+  Liability issues involving over-reliance on RF comms
+\end{itemize}
+
+(\emph{See
+http://www2.unescobkk.org/elib/publications/ethic\_in\_asia\_pacific/239\_325ETHICS.PDF})
