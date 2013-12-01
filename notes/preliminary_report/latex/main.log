@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.8.25)  1 DEC 2013 02:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.8.25)  1 DEC 2013 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -972,8 +972,7 @@ Package tocbibind Note: Using chapter style headings, unless overridden.
 )) (./main.aux (./FrontBackMatter/Titlepage.aux)
 (./FrontBackMatter/Titleback.aux) (./FrontBackMatter/Declaration.aux)
 (./FrontBackMatter/Abstract.aux) (./FrontBackMatter/Contents.aux) (./prelim.aux
-) (./logbook.aux) (./FrontBackMatter/Bibliography.aux)
-(./FrontBackMatter/Colophon.aux))
+) (./logbook.aux) (./FrontBackMatter/Bibliography.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
@@ -1209,13 +1208,13 @@ ons prob-lems.
 
 ] [3] [4]
 Chapter 2.
-<4-PAM_PDF.png, id=205, 925.056pt x 301.928pt>
+<4-PAM_PDF.png, id=206, 925.056pt x 301.928pt>
 File: 4-PAM_PDF.png Graphic file (type png)
  <use 4-PAM_PDF.png>
 Package pdftex.def Info: 4-PAM_PDF.png used on input line 63.
 (pdftex.def)             Requested size: 336.0pt x 109.66608pt.
 
-<4-PAM_samples.png, id=207, 578.16pt x 200.75pt>
+<4-PAM_samples.png, id=208, 578.16pt x 200.75pt>
 File: 4-PAM_samples.png Graphic file (type png)
  <use 4-PAM_samples.png>
 Package pdftex.def Info: 4-PAM_samples.png used on input line 70.
@@ -1224,34 +1223,34 @@ Package pdftex.def Info: 4-PAM_samples.png used on input line 70.
 [5
 
 
- <./4-PAM_PDF.png>] <rrc_sync.png, id=217, 578.16pt x 358.138pt>
+ <./4-PAM_PDF.png>] <rrc_sync.png, id=218, 578.16pt x 358.138pt>
 File: rrc_sync.png Graphic file (type png)
 
 <use rrc_sync.png>
-Package pdftex.def Info: rrc_sync.png used on input line 103.
+Package pdftex.def Info: rrc_sync.png used on input line 102.
 (pdftex.def)             Requested size: 336.0pt x 208.13004pt.
- <rrc_err.png, id=218, 578.16pt x 358.138pt>
+ <rrc_err.png, id=219, 578.16pt x 358.138pt>
 File: rrc_err.png Graphic file (type png)
 
 <use rrc_err.png>
-Package pdftex.def Info: rrc_err.png used on input line 111.
+Package pdftex.def Info: rrc_err.png used on input line 110.
 (pdftex.def)             Requested size: 336.0pt x 208.13004pt.
  [6 <./4-PAM_samples.png>] [7 <./rrc_sync.png> <./rrc_err.png>] [8
 
 
 ]
 Chapter 3.
-[9] <../../../plots/opt_dec_reg.png, id=257, 578.16pt x 433.62pt>
+[9] <../../../plots/opt_dec_reg.png, id=258, 578.16pt x 433.62pt>
 File: ../../../plots/opt_dec_reg.png Graphic file (type png)
 
 <use ../../../plots/opt_dec_reg.png>
-Package pdftex.def Info: ../../../plots/opt_dec_reg.png used on input line 165.
+Package pdftex.def Info: ../../../plots/opt_dec_reg.png used on input line 164.
 
 (pdftex.def)             Requested size: 336.0pt x 251.99602pt.
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <10.95> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 177.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 176.
 LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <9> not available
-(Font)              Font shape `T1/pplj/m/it' tried instead on input line 177.
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 176.
  [10 <../../../plots/opt_dec_reg.png>]
 [11
 
@@ -1262,7 +1261,7 @@ Chapter 4.
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 292
+Underfull \vbox (badness 10000) detected at line 287
  []
 
 [14
@@ -1276,7 +1275,7 @@ Underfull \vbox (badness 10000) detected at line 292
 ]
 Chapter 5.
 
-Overfull \hbox (1.67917pt too wide) in paragraph at lines 353--360
+Overfull \hbox (1.67917pt too wide) in paragraph at lines 348--357
 []\T1/pplj/m/n/10.95 Engineering de-vel-op-ments can lend them-selves to ap-pli
 -ca-tions with
  []
@@ -1290,56 +1289,56 @@ Overfull \hbox (1.67917pt too wide) in paragraph at lines 353--360
 
  (./logbook.tex
 Appendix A.
-LaTeX Font Info:    Try loading font information for T1+fvm on input line 45.
+LaTeX Font Info:    Try loading font information for T1+fvm on input line 42.
 (/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 45.
+(Font)              scaled to size 9.30756pt on input line 42.
  [21
 
 
 
 ] [22] [23]
-<../../../plots/fyp1_w1_gklin.png, id=344, 578.16pt x 278.9622pt>
+<../../../plots/fyp1_w1_gklin.png, id=346, 578.16pt x 278.9622pt>
 File: ../../../plots/fyp1_w1_gklin.png Graphic file (type png)
 
 <use ../../../plots/fyp1_w1_gklin.png>
-Package pdftex.def Info: ../../../plots/fyp1_w1_gklin.png used on input line 17
-0.
+Package pdftex.def Info: ../../../plots/fyp1_w1_gklin.png used on input line 16
+7.
 (pdftex.def)             Requested size: 336.0pt x 162.11743pt.
 
-<../../../plots/fyp1_w1_gklog.png, id=345, 578.16pt x 283.2984pt>
+<../../../plots/fyp1_w1_gklog.png, id=347, 578.16pt x 283.2984pt>
 File: ../../../plots/fyp1_w1_gklog.png Graphic file (type png)
 
 <use ../../../plots/fyp1_w1_gklog.png>
 Package pdftex.def Info: ../../../plots/fyp1_w1_gklog.png used on input line 17
-6.
+3.
 (pdftex.def)             Requested size: 336.0pt x 164.63739pt.
 
-<../../../plots/fyp1_w1_kde.png, id=346, 578.16pt x 307.1475pt>
+<../../../plots/fyp1_w1_kde.png, id=348, 578.16pt x 307.1475pt>
 File: ../../../plots/fyp1_w1_kde.png Graphic file (type png)
 
 <use ../../../plots/fyp1_w1_kde.png>
-Package pdftex.def Info: ../../../plots/fyp1_w1_kde.png used on input line 187.
+Package pdftex.def Info: ../../../plots/fyp1_w1_kde.png used on input line 184.
 
 (pdftex.def)             Requested size: 336.0pt x 178.49716pt.
 
-<../../../plots/fyp1_w0_kde.png, id=347, 578.16pt x 311.4837pt>
+<../../../plots/fyp1_w0_kde.png, id=349, 578.16pt x 311.4837pt>
 File: ../../../plots/fyp1_w0_kde.png Graphic file (type png)
 
 <use ../../../plots/fyp1_w0_kde.png>
-Package pdftex.def Info: ../../../plots/fyp1_w0_kde.png used on input line 193.
+Package pdftex.def Info: ../../../plots/fyp1_w0_kde.png used on input line 190.
 
 (pdftex.def)             Requested size: 336.0pt x 181.01714pt.
 
-Overfull \hbox (10.54842pt too wide) in paragraph at lines 199--206
+Overfull \hbox (10.54842pt too wide) in paragraph at lines 196--203
 \T1/pplj/m/n/10.95 With Ger's help, I set up an ac-count on \T1/fvm/m/n/10.95 D
 igital Comms Lab 1 \T1/pplj/m/n/10.95 & \T1/fvm/m/n/10.95 Digital
  []
 
 
-Overfull \hbox (84.73409pt too wide) in paragraph at lines 199--206
+Overfull \hbox (84.73409pt too wide) in paragraph at lines 196--203
 \T1/pplj/m/n/10.95 clus-ter for ac-cess for this ma-chine, how-ever the email g
 iven (\T1/fvm/m/n/10.95 bcrisupport@bcri.ucc.ie\T1/pplj/m/n/10.95 )
  []
@@ -1347,65 +1346,70 @@ iven (\T1/fvm/m/n/10.95 bcrisupport@bcri.ucc.ie\T1/pplj/m/n/10.95 )
 [24 <../../../plots/fyp1_w1_gklin.png (PNG copy)>] [25 <../../../plots/fyp1_w1_
 gklog.png (PNG copy)> <../../../plots/fyp1_w1_kde.png (PNG copy)> <../../../plo
 ts/fyp1_w0_kde.png (PNG copy)>]
-LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 7.65005pt on input line 218.
- [26] [27]
-<../../../plots/4pamdecision.png, id=377, 385.44pt x 289.08pt>
+LaTeX Font Info:    Font shape `T1/fvm/m/sl' will be
+(Font)              scaled to size 7.65005pt on input line 215.
+ [26]
+LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <7> not available
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 296.
+LaTeX Font Info:    Font shape `T1/pplj/m/sl' in size <5> not available
+(Font)              Font shape `T1/pplj/m/it' tried instead on input line 296.
+ [27]
+<../../../plots/4pamdecision.png, id=380, 385.44pt x 289.08pt>
 File: ../../../plots/4pamdecision.png Graphic file (type png)
 
 <use ../../../plots/4pamdecision.png>
-Package pdftex.def Info: ../../../plots/4pamdecision.png used on input line 316
+Package pdftex.def Info: ../../../plots/4pamdecision.png used on input line 313
 .
 (pdftex.def)             Requested size: 336.0pt x 252.00041pt.
  [28 <../../../plots/4pamdecision.png (PNG copy)>] <../../../plots/4pamdecision
-error.png, id=385, 578.16pt x 433.62pt>
+error.png, id=388, 578.16pt x 433.62pt>
 File: ../../../plots/4pamdecisionerror.png Graphic file (type png)
 
 <use ../../../plots/4pamdecisionerror.png>
 Package pdftex.def Info: ../../../plots/4pamdecisionerror.png used on input lin
-e 358.
+e 355.
 (pdftex.def)             Requested size: 336.0pt x 251.99602pt.
 
-Overfull \hbox (4.14886pt too wide) in paragraph at lines 372--376
+Overfull \hbox (4.14886pt too wide) in paragraph at lines 369--373
 []\T1/pplj/m/n/10.95 I mod-i-fied the PAM sim-u-la-tion with a coarser-grained 
 his-togram,
  []
 
 [29 <../../../plots/4pamdecisionerror.png>]
-<../../../plots/gcdrb.png, id=396, 331.2375pt x 192.72pt>
+<../../../plots/gcdrb.png, id=399, 331.2375pt x 192.72pt>
 File: ../../../plots/gcdrb.png Graphic file (type png)
 
 <use ../../../plots/gcdrb.png>
-Package pdftex.def Info: ../../../plots/gcdrb.png used on input line 426.
+Package pdftex.def Info: ../../../plots/gcdrb.png used on input line 423.
 (pdftex.def)             Requested size: 336.0pt x 195.50137pt.
 
-<../../../plots/simdrb.png, id=397, 578.16pt x 433.62pt>
+<../../../plots/simdrb.png, id=400, 578.16pt x 433.62pt>
 File: ../../../plots/simdrb.png Graphic file (type png)
 
 <use ../../../plots/simdrb.png>
-Package pdftex.def Info: ../../../plots/simdrb.png used on input line 433.
+Package pdftex.def Info: ../../../plots/simdrb.png used on input line 430.
 (pdftex.def)             Requested size: 336.0pt x 251.99602pt.
 
-<../../../plots/gc_vs_2g.png, id=398, 555.07375pt x 286.06876pt>
+<../../../plots/gc_vs_2g.png, id=401, 555.07375pt x 286.06876pt>
 File: ../../../plots/gc_vs_2g.png Graphic file (type png)
 
 <use ../../../plots/gc_vs_2g.png>
-Package pdftex.def Info: ../../../plots/gc_vs_2g.png used on input line 440.
+Package pdftex.def Info: ../../../plots/gc_vs_2g.png used on input line 437.
 (pdftex.def)             Requested size: 336.0pt x 173.16597pt.
  [30] [31 <../../../plots/gcdrb.png> <../../../plots/simdrb.png>]
-<../../../plots/odrb_vs_tikhvar.png, id=415, 578.16pt x 433.62pt>
+<../../../plots/odrb_vs_tikhvar.png, id=418, 578.16pt x 433.62pt>
 File: ../../../plots/odrb_vs_tikhvar.png Graphic file (type png)
 
 <use ../../../plots/odrb_vs_tikhvar.png>
 Package pdftex.def Info: ../../../plots/odrb_vs_tikhvar.png used on input line 
-465.
+462.
 (pdftex.def)             Requested size: 336.0pt x 251.99602pt.
  [32 <../../../plots/gc_vs_2g.png (PNG copy)>] [33 <../../../plots/odrb_vs_tikh
 var.png>]
 File: ../../../plots/opt_dec_reg.png Graphic file (type png)
 
 <use ../../../plots/opt_dec_reg.png>
-Package pdftex.def Info: ../../../plots/opt_dec_reg.png used on input line 562.
+Package pdftex.def Info: ../../../plots/opt_dec_reg.png used on input line 559.
 
 (pdftex.def)             Requested size: 336.0pt x 251.99602pt.
  [34]) [35] [36
@@ -1413,49 +1417,66 @@ Package pdftex.def Info: ../../../plots/opt_dec_reg.png used on input line 562.
 
 
 ]
+Appendix B.
+
+Overfull \hbox (16.86311pt too wide) in paragraph at lines 117--118
+\T1/pplj/m/n/10.95 root-raised co-sine fil-ter with a ran-dom tim-ing off-set f
+ol-low-ing a Tikhonov
+ []
+
+
+Overfull \hbox (17.2026pt too wide) in paragraph at lines 117--118
+\T1/pplj/m/n/10.95 PDF. The al-go-rithm sim-u-lates 100,000 trans-mis-sions for
+ a sin-gle Tikhonov
+ []
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 119.
+ (./fyp9_PAM1.sc [37]) [38]
 \openout2 = `FrontBackMatter/Bibliography.aux'.
 
-
-(./FrontBackMatter/Bibliography.tex
-Appendix B.
-[37
-
-
-
-]) [38]
-\openout2 = `FrontBackMatter/Colophon.aux'.
-
- (./FrontBackMatter/Colophon.tex) [39
+ (./FrontBackMatter/Bibliography.tex
+Appendix C.
+[39
 
 
 
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
- (./main.aux
-(./FrontBackMatter/Titlepage.aux) (./FrontBackMatter/Titleback.aux)
-(./FrontBackMatter/Declaration.aux) (./FrontBackMatter/Abstract.aux)
-(./FrontBackMatter/Contents.aux) (./prelim.aux) (./logbook.aux)
-(./FrontBackMatter/Bibliography.aux) (./FrontBackMatter/Colophon.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 128.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
+
+]) [40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+ (./main.aux (./FrontBackMatter/Titlepage.aux)
+(./FrontBackMatter/Titleback.aux) (./FrontBackMatter/Declaration.aux)
+(./FrontBackMatter/Abstract.aux) (./FrontBackMatter/Contents.aux) (./prelim.aux
+) (./logbook.aux) (./FrontBackMatter/Bibliography.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 998171CEEA01B79F59EA38E16362FE4D;1516.
+(rerunfilecheck)             Checksum: 16EDCD75618CBFF7C5DC735CDC9E256E;1537.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
  ) 
 Here is how much of TeX's memory you used:
- 23829 strings out of 495059
- 414162 string characters out of 3182030
- 670675 words of memory out of 3000000
- 26199 multiletter control sequences out of 15000+200000
- 90317 words of font info for 150 fonts, out of 3000000 for 9000
+ 26303 strings out of 495059
+ 452095 string characters out of 3182030
+ 1106859 words of memory out of 3000000
+ 28621 multiletter control sequences out of 15000+200000
+ 93242 words of font info for 154 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 77i,14n,77p,1277b,887s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 77i,14n,77p,1322b,3942s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
@@ -1469,13 +1490,14 @@ amsfonts/euler/eusm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/euler/eusm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fpl
 rc8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (47 pages, 1403829 bytes).
+ive/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (48 pages, 1415600 bytes).
 PDF statistics:
- 558 PDF objects out of 1000 (max. 8388607)
- 466 compressed objects within 5 object streams
- 160 named destinations out of 1000 (max. 500000)
- 16685 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 621 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
+ 207 named destinations out of 1000 (max. 500000)
+ 18221 words of extra memory for PDF output out of 20736 (max. 10000000)
 

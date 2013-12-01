@@ -112,6 +112,12 @@
 
 \include{logbook}
 
+\chapter{Example source code listing}
+
+The code below simulates transmitting a random array of "interference" symbols surrounding a given symbol through a memoryless communications channel with AWGN, and receiving it through a root-raised cosine filter with a random timing offset following a Tikhonov PDF. The algorithm simulates 100,000 transmissions for a single Tikhonov distribution, and is run 100 times for each of 10 Tikhonov distributions, for symbols 1 and 3.
+
+\lstinputlisting[language=Mathematica]{fyp9_PAM1.sc}
+
 %\include{Chapters/Chapter0A} % Appendix A
 %\include{Chapters/Chapter0B} % Appendix B - empty template
 
@@ -121,7 +127,7 @@
 
 \cleardoublepage\include{FrontBackMatter/Bibliography} % Bibliography
 
-\cleardoublepage\include{FrontBackMatter/Colophon} % Colophon
+%\cleardoublepage\include{FrontBackMatter/Colophon} % Colophon
 
 %----------------------------------------------------------------------------------------
 

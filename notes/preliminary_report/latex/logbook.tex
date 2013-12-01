@@ -27,10 +27,7 @@ and channel impulse responses (I.R.). I need to double-check the
 definition of the Root-Raised Cosine (RRC) Filter, as the impulse
 response wasn't as expected.
 
-Later, I found the
-\href{http://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20120008631_2012008365.pdf}{correct
-form for the RRC} and double-checked it using Octave. The equation used
-is listed below. A plot showed that this equation is invalid at
+Later, I found the correct form for the RRC \cite{[12]} and double-checked it using Octave. The equation used is listed below. A plot showed that this equation is invalid at
 $t = \left [ - \frac{T_s}{ 4 \beta } , 0 , \frac{T_s}{ 4 \beta } \right ]$,
 so I plan to find its limit at these points using Mathematica to obtain
 the complete solution.
@@ -130,7 +127,7 @@ problems to Mathematica notation using matrices. I hope to convert the
 code to use matrices tomorrow to hopefully simplify and speed things up.
 
 I also implemented David's equation for properly calculating the AWGN
-function variance from SNR\footnote{See \emph{davenotes.pdf}}, from last
+function variance from SNR\footnote{See Dave's notes}, from last
 Friday's meeting.
 
 \subsection{08/10/13 - Fixed I.R. and Kernel Density Estimation}
@@ -212,7 +209,7 @@ what hardware I had available to me. I got access from Ger to the public
 the elec eng network. I set up a \emph{Remote Desktop Protocol} link to
 \texttt{Digital Comms Lab 1} through this server, allowing me to control
 the machine from any location. I am also able to log remotely into EDA
-lab machines, and run Mathematica 6 on those machines.\footnote{The GUI
+lab machines, and run Mathematica 6 on those machines.\marginpar{The GUI
   does not work when using \texttt{ssh} to access the EDA Lab machines,
   but using the command \texttt{math} to start and operate Mathematica
   kernels does.} Ger has been known to tweak machines in response to
@@ -276,7 +273,7 @@ EDA machines. I found that defining a module in a text file and copying
 the Mathematica code into the module allows the code to be called with
 input arguments, and writing the output to a text file and placing the
 module in a loop allows each pass to be recorded for later
-parsing\footnote{Using the \texttt{Get} and \texttt{Put} methods. The
+parsing\marginpar{Using the \texttt{Get} and \texttt{Put} methods. The
   \texttt{DumpSave} method is supposed to be more efficient, but was
   added after Mathematica 6.}. After running the code overnight, this
 system appears to work, and is scaleable over multiple machines. The
@@ -287,15 +284,15 @@ sizes.
 
 \subsection{15/10/13 - Reducing output size}
 
-Given the 15GB of samples produced the night before was far too much to
-pull off the machine, I copied 20 million of the samples and plotted
-them to make sure the script had worked in practice\footnote{For the
+\marginpar{For the
   record, I could only use a fraction of them, as loading all 20 million
-  samples crashed the machine for over an hour.}. I then looked into how
+  samples crashed the machine for over an hour.}Given the 15GB of samples produced the night before was far too much to
+pull off the machine, I copied 20 million of the samples and plotted
+them to make sure the script had worked in practice. I then looked into how
 I could reduce the size of the output produced, and decided to replace
 the \texttt{SmoothKernelDistribution} function (which came in after
 Mathematica 6.0 and therefore couldn't be used on the EDA machines) with
-a fine-grained histogram function\footnote{I am assuming that both
+a fine-grained histogram function\marginpar{I am assuming that both the smooth kernel distribution and the histogram
   approach the true PDF as $\text{N} \! \rightarrow \! \infty$}. This
 allowed me to add the probabilities generated in each sweep to those
 generated before and keep the output to a handful of 1kB files. I ran
@@ -366,7 +363,7 @@ I spent Monday carrying out two tasks:
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   I re-wrote Dave's Gram-Charlier equations\footnote{See
-    \emph{davenotes.pdf}} for Mathematica, and should be ready to try
+    Dave's notes} for Mathematica, and should be ready to try
   them out tomorrow.
 \item
   I modified the PAM simulation with a coarser-grained histogram, but
@@ -539,7 +536,7 @@ version and he will look into it.
 
 The UNIX machines were upgraded to Mathematica 9 over the weekend, so I
 was able to port the code in order to run off these. In addition, Dave
-suggested that I look into parralising the code. Since these were
+suggested that I look into paralllelising the code. Since these were
 dual-core machines I was able to make use of Mathematica's
 \texttt{ParallelTable} function to reduce run times a little. Th
 simulation will have to run over several days, however, as the expected
@@ -570,7 +567,7 @@ Simulations supported the theory that the optimum decision region
 boundary in the presence of statistically distributed receiver timing
 errors will decrease from the expected value. Additionally, it was shown
 through simulation that the new optimum decision region boundary can be
-aproximated, assuming a known distribution of these timing errors, by
+approximated, assuming a known distribution of these timing errors, by
 averaging the optimum decision region boundary given each timing offset
 over the distribution of timing offsets.
 

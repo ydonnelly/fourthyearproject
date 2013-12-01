@@ -27,12 +27,12 @@
 \contentsline {section}{\numberline {A.3}Week 3}{27}{section.A.3}
 \contentsline {subsection}{\numberline {A.3.1}14/10/13 - Running longer scripts on the EDA machines}{27}{subsection.A.3.1}
 \contentsline {subsection}{\numberline {A.3.2}15/10/13 - Reducing output size}{27}{subsection.A.3.2}
-\contentsline {subsection}{\numberline {A.3.3}16/10/13 - Moving onto 4-PAM}{28}{subsection.A.3.3}
+\contentsline {subsection}{\numberline {A.3.3}16/10/13 - Moving onto 4-PAM}{27}{subsection.A.3.3}
 \contentsline {subsection}{\numberline {A.3.4}Week 3 Summary}{28}{subsection.A.3.4}
-\contentsline {subsection}{\numberline {A.3.5}Goals for Week 4}{29}{subsection.A.3.5}
+\contentsline {subsection}{\numberline {A.3.5}Goals for Week 4}{28}{subsection.A.3.5}
 \contentsline {section}{\numberline {A.4}Week 4}{29}{section.A.4}
 \contentsline {subsection}{\numberline {A.4.1}21/10/13 - Implementing the Gram-Charlier series}{29}{subsection.A.4.1}
-\contentsline {subsection}{\numberline {A.4.2}22/10/13 - More Gram-Charlier series}{30}{subsection.A.4.2}
+\contentsline {subsection}{\numberline {A.4.2}22/10/13 - More Gram-Charlier series}{29}{subsection.A.4.2}
 \contentsline {subsection}{\numberline {A.4.3}23/10/13 - Proper Gram-Charlier plots}{30}{subsection.A.4.3}
 \contentsline {subsection}{\numberline {A.4.4}Week 4 Summary}{30}{subsection.A.4.4}
 \contentsline {subsection}{\numberline {A.4.5}Goals for Week 5}{30}{subsection.A.4.5}
@@ -52,4 +52,5 @@
 \contentsline {subsection}{\numberline {A.7.3}Week 7 Summary}{35}{subsection.A.7.3}
 \contentsline {subsection}{\numberline {A.7.4}Goals for Week 8 onwards}{35}{subsection.A.7.4}
 \contentsline {section}{\numberline {A.8}Week 8}{35}{section.A.8}
-\contentsline {chapter}{\numberline {B}\spacedlowsmallcaps {Bibliography}}{37}{appendix.B}
+\contentsline {chapter}{\numberline {B}\spacedlowsmallcaps {Example source code listing}}{37}{appendix.B}
+\contentsline {chapter}{\numberline {C}\spacedlowsmallcaps {Bibliography}}{39}{appendix.C}
