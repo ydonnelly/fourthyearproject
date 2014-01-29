@@ -439,4 +439,114 @@ Goals for Week 8
 Week 8
 ======
 
+Week 8 Summary
+--------------
+
+After spending the Christmas break reviewing the literature on Rayleigh fading, mainly *Proakis*, I implemented the Rayleigh distribution as a modified Nagakami-n distribution \footnote{The Rayleigh distribution is a special case of the Nagakami-n distribution, with n=1} I implemented this as well as a multi-receiver combining system and added it to the existing simulation. Following a meeting with Dave and Colin, we decided to proceed as follows:
+
+*   Run simulations similar to those run before Christmas to determine numerically the optimum decision region boundaries and corresponding error probabilities in the presence of Rayleigh fading with Equal Gain Combining (EGC).
+*   Alongside this, attempt to provide an analytical derivation for the optimum decision region boundaries in the presence of timing errors in a non-fading environment. Should the above simulations show merit in modifying the decision region boundaries, this could then be adapted to the fading case later on.
+
+
+Goals for Week 9
+----------------
+
+*   Implement the simulation. This is expected to run for the duration of Week 8, and demonstrate the optimum decision region boundaries for an EGC receiver with Rayleigh fading. The main goal is to determine if different decision region boundaries would reduce the probability of error.
+*   Attempt to describe the system analytically, ignoring fading. This will be based on a Gram-Charlier aproximation.
+
+
+Week 9
+======
+
+13/01/14 - Examining combining and fading
+-----------------------------------------
+
+Over the weekend, three separate approximate simulations were run to examine receiver performance in three cases:
+
+1.  Similar to before Christmas, a single-receiver system in a non-fading environment
+2.  A multi-antenna system using EGC in a non-fading environment
+3.  An EGC system in the presence of Rayleigh fading
+
+Initial simulations for case 3. showed reduced optimum decision region boundaries in the presence of Rayleigh fading, which appeared to remain constant with changing timing offset variance. A simulation of case 2. showed changing optimum decision region boundaries for different timing offset variances. A more detailed simulation of case 3. examining more variances was commenced, and is expected to finish mid-week.
+
+
+14/01/14 - Planning an analytical analysis of the non-fading case
+-----------------------------------------------------------------
+
+I found an implementation of the Gram-Charlier series and Tikhonov distribution I had developped previously that could be used as a basis for an analytical exploration of the project topic. The code produces a Gram-Charlier PDF for a range of timing offsets, calculates the optimum decision region boundary for each, and averages these boundaries over the Tikhonov distribution. Dave suggested that while this approach wasn't mathematically correct, if the Gram-Charlier PDF's were averaged over the Tikhonov distriution to provide an overall PDF, the optimum decision region boundary could be calculated from this.
+
+
+15/01/14 - Evaluating the Gram-Charlier distribution over the Tikhonov distribution
+-----------------------------------------------------------------------------------
+
+I carried out the changes detailed above, and added a loop to numerically estimate the location of the PDF crossings, thereby estimating the optimum decision region boundaries. Unfortunately there was not enough time to run the code over all possible conditions.
+
+One of the simulations begun at the start of the week quit unexpectedly, and had to be restarted, moving back the expected end-date for the simulations to Friday.
+
+
+16/01/14 - Results for the above
+--------------------------------
+
+I was able to run the Tikhonov-Gram-Charlier code described above and thus plot the optimum decision region boundaries for Tikhonov-distributed timing offsets, assuming a Gram-Charlier approximation for the received symbol. These correlated strongly with the optimum boundaries found through simulation.
+
+![Plot of optimum decision region boundaries versus Tikhonov-distributed timing error variance, from Gram-Charlier approximation and simulation respectively](../plots/opt_dec_reg_analytic.png)
+
+
+Week 9 Summary
+--------------
+
+A simulation covering the 4-PAM case studied before Christmas was extended with a 4-channel EGC system and simulated Rayleigh channel fading. This simulation was run over the course of the week and (*proved xyz*...)
+
+A rough analytical study of the non-fading timing error model examined before Christmas was carried out. The PDF's of various cases with a fixed timing offset were generated, and averaged over a discretised Tikhonov distribution to estimate the PDF of the system in the presence of Tikhonov distributed timing offsets. This was carried out for a range of Tikhonov distribution variances to examine different conditions. The optimum decision region boundary for each condition was found numerically and found to correlate strongly with the locations determined through simulation previously, with the exception of some low-variance points.
+
+
+Goals for Week 10
+-----------------
+
+*   Examine the performance of the system in the presence of Rayleigh distributed channel fading.
+*   Determine the probability of error of the system in the non-fading case, and evaluate any performance gains from using the calculated optimum decision region boundaries.
+
+
+Week 10
+=======
+
+20/01/14 - Rayleigh Fading Results
+----------------------------------
+
+Simulation ended over the weekend and showed an optimum decision region boundary around 1.72, for Tikhonov variances of 0.001 to 0.010. This is an interesting result, as it suggests that in this particular case the optimum decision region boundary is only loosely related to the Tikhonov variance, which would imply that knowledge of the timing statistics is less important in implementation than previously thought.
+
+Dave produced an analytical solution for the optimum decision region boundary in the non-fading case, which demonstrated clear BER gains (20-33%).
+
+
+21/01/14 - Implementing Dave's suggestions
+------------------------------------------
+
+Following some consideration, Dave suggested that the SNR of 8dB used in the simulation was too low for 4-PAM, and it's possible that the ODRB of 1.72 seen was the lower bound for the ODRB. We settled on a more reasonable SNR of 20dB, and decided to apply each set of random conditions to both posble sent symbols $\omega_0$ = 1,3 so that we would only have to run the simulations once. Another suggestion made by Dave was to apply a different timing offset to each channel, as each channel has a separate receiver, and therefore independent timing. I also implemented Maximal-Ratio Combining as an option in order to compare the performance of both systems.
+
+
+Week 10 Summary
+---------------
+
+This week we were able to show reduced optimum decision region boundaries in the presence of Rayleigh fading with Equal-Gain Combining. These results showed that the performance of the EGC receiver could be considerably improved when facing low SNR. It was decided that the short-term goal would be to evaluate the receiver's performance with a more reasonable SNR, and compare it to the performance of a Maximal-Ratio Combining system under similar conditions.
+
+Work stopped mid-week to facilitate the author's funding application, and is expected to resume in full next week.
+
+
+Goals for Week 11
+-----------------
+
+*   Evaluate the error rate of an EGC receiver with optimised decision region boundaries in Rayleigh fading with an SNR of 20dB.
+*   Similarly, evaluate the error rate of a MRC receiver in similar conditions.
+*   Compare and contrast the performance of each, taking into account the higher area and power requirements of the latter.
+
+
+Week 11
+=======
+
+27/01/14 - Simulating EGC and MRC
+---------------------------------
+
+The changes discussed in the last entry were implemented, and both simulations started.
+
+
 
