@@ -41,52 +41,44 @@
 \renewcommand{\>}{\end{column}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
 \begin{document}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\scshape Introduction}
 \begin{frame}
-\title{Presentation Title}
-%\subtitle{SUBTITLE}
+\title{Final Year Project}
+\subtitle{Effects of ISI on Equal Gain Combining and Maximal-Ratio Combining with Sub-Optimal Design}
 \author{
-	Cameron Bracken\\
-	{\it Humboldt State University}\\
+	Yann Donnelly\\
+	{\it University College Cork}\\
 }
 \date{
-	\begin{tikzpicture}[decoration=Koch curve type 2] 
-		\draw[DeepSkyBlue4] decorate{ decorate{ decorate{ (0,0) -- (3,0) }}}; 
-	\end{tikzpicture}  
-	\\
 	\vspace{1cm}
-	\today
+	7th February 2014
 }
 \titlepage
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Pointers}
-\begin{frame}{Pointers}
-\begin{itemize}
-\item 15 mins - 12 mins presentation, 3 mins questions
-\begin{itemize}
-\item brief context,  theory
-\item project aims and goals
-\item work acheived to date
-\item problems and solutions
-\item work to be performed
-\end{itemize}
-\item 1 slide per minute
-\item large fonts
-\item avoid formulae, complex diagrams
-\item uncluttered slides with block diagrams and lists are good
-\end{itemize}
-\end{frame}
+%\subsection{Pointers}
+%\begin{frame}{Pointers}
+%\begin{itemize}
+%\item 15 mins - 12 mins presentation, 3 mins questions
+%\begin{itemize}
+%\item brief context,  theory
+%\item project aims and goals
+%\item work acheived to date
+%\item problems and solutions
+%\item work to be performed
+%\end{itemize}
+%\item 1 slide per minute
+%\item large fonts
+%\item avoid formulae, complex diagrams
+%\item uncluttered slides with block diagrams and lists are good
+%\end{itemize}
+%\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,40 +90,75 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\scshape Background}
 \subsection{Communications Overview}
-\begin{frame}{Communication Overview}
-\emph{Image of typical comms system}
+\begin{frame}{A Typical Communications System}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=\textwidth]{comms.png}
+\end{figure}
+%\emph{Image of typical comms system}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Detection Basics}
 \begin{frame}{Detection Basics}
-\emph{Image of received signal PDF}
+Likelihood of receiving a signal
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{../../plots/seminar_gaussian_sync.png}
+%\emph{Image of received signal PDF}
+\end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Detection Basics}
-\emph{Image of RRC response}
+Received signal response
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{../../plots/seminar_rrc_sync.png}
+\end{figure}
+%\emph{Image of RRC response}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Detection Basics}
-\emph{Image of RRC response with offset}
+Received signal response with timing error
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{../../plots/seminar_rrc_error.png}
+\end{figure}
+%\emph{Image of RRC response with offset}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Detection Basics}
-\emph{Image of received signal PDF with offset}
+Likelihood of receiving a signal
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{../../plots/seminar_gaussian_sync.png}
+\end{figure}
+%\emph{Image of received signal PDF}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Detection Basics}
+Likelihood of receiving a signal with timing error
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.8\textwidth]{../../plots/seminar_gaussian_error.png}
+\end{figure}
+%\emph{Image of received signal PDF with offset}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Aims of Project}
 \begin{frame}{Aims of Project}
-To determine the effects of timing offset on receiver performance, and develop a means of improving performance through detector redesign.
+To determine the effects of Tikhonov-distributed timing offset on receiver performance, and develop a means of improving performance through redefining the decision region boundaries.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -140,11 +167,11 @@ To determine the effects of timing offset on receiver performance, and develop a
 \subsection{Achievements}
 \begin{frame}{Achievements}
 \begin{itemize}
-\item Developed models of 4-PAM communications systems in Mathematica
-\item Examined performance in non-fading (line-of-sight) environment
-\item Examined performance in Rayleigh fading environment with EGC
-\item Examined performance in Rayleigh fading environment with MRC
-\item Positive results:
+\item<2-> Developed models of 4-PAM communications systems in Mathematica
+\item<3-> Examined performance in non-fading (line-of-sight) environment
+\item<4-> Examined performance in Rayleigh fading environment with EGC
+\item<5-> Examined performance in Rayleigh fading environment with MRC
+\item<6-> Positive results:
 	\begin{itemize}
 	\item Lower optimum decision region boundaries in the presence of timing error
 	\item Performance increase from redesigning detector to take this into account
@@ -156,23 +183,53 @@ To determine the effects of timing offset on receiver performance, and develop a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Results}
 \begin{frame}{Results}
-\emph{Plot of ER}
+\begin{itemize}
+\item EGC: Improvements of 20-33\%
+\item MRC: Improvements of 7-20\%
+\end{itemize}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=0.9\textwidth]{egc_mrc_cropped.png}
+\end{figure}
+%\emph{Plot of ER}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{\scshape Obastacles}
+\section{\scshape Obstacles}
 \subsection{Problems Encountered}
 \begin{frame}{Problems Encountered}
-\emph{Plot of ER}
+\begin{itemize}
+\item<2-> Simulation speed: 6 ways to do anything, only one is “fast”
+	\begin{itemize}
+	\item Solution: Read up on Mathematica functions, testing and timing each method
+	\item Solution: Reduce how often you have to do something
+	\item Solution: Functions with memory
+	\item Solution: Parallel computing
+	\end{itemize}
+\item<3-> Running simulations across multiple headless machines
+	\begin{itemize}
+	\item Solution: Remote access
+	\end{itemize}
+\item<4-> Running simulations across multiple machines that can be switched off at any point
+	\begin{itemize}
+	\item Solution: Output regularly
+	\item Solution: Make sure outputs are descriptive
+	\item Solution: Easily reconfigurable code
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\scshape Future Work}
-\subsection{Frame 1}
-\begin{frame}{Frame 1}
-
+\subsection{Future Work}
+\begin{frame}{Future Work}
+\begin{itemize}
+\item<2-> Describe the effects of timing error offset analytically
+\item<3-> Determine the Gram-Charlier PDF approximation
+\item<4-> Summarize findings in a publication
+\end{itemize}
 \end{frame}
 
 \end{document}

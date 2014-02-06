@@ -549,4 +549,51 @@ Week 11
 The changes discussed in the last entry were implemented, and both simulations started.
 
 
+30/01/14 - EGC vs MRC results
+-----------------------------
+
+These simulations took a little longer than expected due to the extra processing required for MRC. Error rates were found to decrease after redefining the
+decision region boundary of the EGC receiver. The MRC system suffered more from the effects of the timing error, but the reduced EGC error rates were still a
+good bit higher than the equivalent error rates using MRC. Nonetheless, a 20-33\% improvement was found over the un-tweaked decision region boundaries.
+
+Redefining the decision region boundary for the MRC also showed improvements, although these were a more modest 7-20\%.
+
+![EGC and MRC error rates, SNR=20dB](../plots/egc_mrc_20db.png)
+
+
+01/02/14 - SNR increase to 28dB
+-------------------------------
+
+In order to determine how much of an effect noise has on the system in the presence of fading, the simulation was restarted with an SNR of 28dB.
+
+
+Week 11 Summary
+---------------
+
+The simulations ran this week proved that an error rate reduction could be obtained by merely redefining the location of the decision region boundaries, in the
+Rayleigh fading case. Although the EGC system could not be made to perform with comparable performance to the MRC system, we demonstrated rapidly deteriorating
+MRC performance with more severe timing offsets, vindicating our study of the issue.
+
+
+Goals for Week 12
+-----------------
+
+*   Examine other conditions to gain a more general understanding of the effects of timing offsets in Rayleigh fading channels.
+*   Start on the analytical examination of timing offset.
+*   Compile a presentation for the seminars.
+
+
+Week 12
+=======
+
+03/02/14 - Presentation work
+----------------------------
+
+The results from the 28dB run showed very similar error rates, confirming my suspicion that the effects of fading are dominating over the effects due to AWGN
+seen in the non-fading case. A simulation at 12dB was started to see if this remained true at lower SNR's.
+
+![EGC and MRC error rates, SNR=28dB](../plots/egc_mrc_28db.png)
+
+The seminar presentation was also compiled.
+
 
