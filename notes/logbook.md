@@ -597,3 +597,160 @@ seen in the non-fading case. A simulation at 12dB was started to see if this rem
 The seminar presentation was also compiled.
 
 
+06/02/14 - Presentation test run and rework
+-------------------------------------------
+
+The presentation was given a test-run, leading to improvements in the clarity of the descriptions.
+
+The simulation ended, but unfortunately it turned out that the EGC simulation had been ran with an SNR of 8dB, so had to be run again.
+
+Dave announced he has been able to start the analytical proof of the timing offset, and we should be able to hear from him at the start of next week.
+
+
+Week 12 Summary
+---------------
+
+A relatively quiet week, with a focus on the seminar presentation.
+
+
+Week 13
+=======
+
+11/02/14 - Analytical description of non-fading case
+----------------------------------------------------
+
+Dave provided a proof for the Gram-Charlier approximation of the non-fading case, along with some accompanying code. Used the Gauss-Legendre method to combine
+the Gram-Charlier solution for a fixed timing offset with the Tikhonov timing offset distribution to provide a solution for the PDF at the input to the receiver,
+which is too long to reproduce here in full, but is approximately given by:
+
+$$
+\dfrac{b-a}{2} \sum\limits_{i=1}^N \omega_i \: T \left (\dfrac{b-a}{2} z_i - \dfrac{b+1}{2} \right ) \: GC \left (\dfrac{b-a}{2} z_i - \dfrac{b+1}{2} \right )
+$$
+
+where $\omega_i = \dfrac{2}{(1-z_i)(P(z_i))^2}$ and $z_i$ are the roots of the Legendre polynomial $P_n(z)$.
+
+I spent some time examining the Mathematica code he used to examine the above, and decided as an introduction to try to extend it to the Equal-Gain comining
+case. I used the property that for the PDF of the sum of two independent variants is the convolution of each variant's PDF (ie. for two variants $X_1$ and $X_2$
+with PDF $f_1(x)$ and $f_2(x)$, the PDF of $Y=X_1+X_2$ is $f_Y(x) = f_1(x) \ast f_2(x)$) to express the PDF of an m+1 antenna EGC system as
+
+$$
+f_{EGC}(x) = f^{m \ast}(x)
+$$
+
+where $f(x)$ is the PDF at each antenna and $f^{2 \ast}(x)$, for example, is the double convolution $f(x) \ast f(x) \ast f(x)$).
+
+I was then able to use the Gauss-Legendre method to describe this as an m-fold sum:
+
+$$
+\begin{matrix*}[l]
+f_{EGC}(y) = f^{m \ast}(y) \simeq \sum\limits_{a_1=1}^{n_f} \sum\limits_{a_2=1}^{n_f} \cdots \sum\limits_{a_m=1}^{n_f} \: 3^m \omega_{a_1} \omega_{a_2} \cdots \omega_{a_m} \\
+f(3 z_{a_m} - 3 z_{a_{m-1}}) \: f(3 z_{a_{m-1}} - 3 z_{a_{m-2}}) \cdots f(3 z_{a_2} - 3 z_{a_1}) \: f(3 z_{a_1} + 2) \: f(y - 3 z_{a_m} - 2) 
+\end{matrix*}
+$$
+
+I was unfortunately unable to test this code before end of day.
+
+
+12/02/14 - Viability of independent variate route
+-------------------------------------------------
+
+During an email conversation with Dave, he suggested that the convolution route might be difficult to implement in terms of processing requirements, and
+suggested instead that in the case of the MRC system, the independence of the timing error and fading statistics of each receive channel means that a "joint"
+PDF describing the probability of all timing and fading variabled can be constructed by taking the product of each timing and fading PDF. Therefore we can derive
+a Gram-Charlier distribution conditioned on a particular set of timing offsets and fading factors, calculate the BER of this theoretical system, and average
+this over the distribution of timing offsets and fading factors described by the joint PDF.
+
+
+13/04/14 - MRC adaptation of Gram-Charlier distribution
+-------------------------------------------------------
+
+I went over the process described yesterday in more detail with Dave, and began to implement it by replacing all the $g_k(\Delta)$ terms in his implementation
+of the  non-fading Gram-Charlier series with $\alpha_1^2 g_k(\Delta_1) + \alpha_2^2 g_k(\Delta_2)$ to reflect the effects of fading with a 2 antenna system.
+In this case, the expected (synchronized) DRB which was previously simply $2 g_0(0) = 2$ is now given by
+$2(\alpha_1^2 g_0(0) + \alpha_2^2 g_0(0)) = 2(\alpha_1^2 + \alpha_2^2)$.
+
+Testing this model, I noticed oscillations at the tails of the distributions which made it impossible to calculate the optimum DRBs, as there were multiple PDF
+crossings.
+
+
+14/04/14 - Explaning the oscillations
+-------------------------------------
+
+I raised the issue with Dave, and it turned out that I had forgotten the effects of fading on the channel Gaussian noise. The variance of this noise is scaled by
+the effects of noise, in this case by $(\alpha_1 + \alpha_2)$. Making this correction I was able to determine the optimum DRB to be equal to
+$2(\alpha_1^2 g_0(\Delta_1) + \alpha_2^2 g_0(\Delta_2))$, as expected.
+
+
+Week 13 Summary
+---------------
+
+In this week I examined Dave's derivation and modeling of the non-fading case using the Gram-Charlier series, and make a start on my own piece of the analytical
+work. I successfully extended his derivation to describe the decoder input PDF for a 2 antenna MRC system given known fading statistics and timing offsets, which
+puts me in a good position to extend this to a more thorough analytical exploration of receiver performance with diversity.
+
+
+Goals for Week 14
+-----------------
+
+*   Evaluate the BER for given fading and timing statistics.
+*   Average the BER over fading and timing offset distributions to determine the average BER for a given system.
+
+
+Week 14
+=======
+
+16/02/14 - Bit Error Rate Calculation
+-------------------------------------
+
+I implemented the BER calculation for fixed fading and timing statistics as two integrals over the Gram-Charlier PDF approximations, using a given decision region
+boundary to bound the integrals. Using this I was able to determine the BERs using both the sub-optimum decision region boundaries $2(\alpha_1^2 + \alpha_2^2)$ and
+the optimum decision region boundaries calculated using last week's code.
+
+
+18/02/14 - Averaging BER over Tikhonov and Rayleigh distributions
+-----------------------------------------------------------------
+
+The code was extended to average the BER for each timing error and channel gain over Tikhonov and Rayleigh distributions, respectively, using Gauss-Legendre
+Quadrature. In this way the average BER for given timing offset and fading statistics can be calculated. Progress was slow as some of the previous code has to be
+rewritten to fit with its new application. Gauss-Legendre Quadrature was found to be unsuited to the Rayleigh distribution, for reasons I am not yet sure of,
+so a discrete sampling of the distribution was used instead. At the end of the day the *FindRoot* method used to determine the optimum decision region boundaries
+refused to converge for certain ranges of timing error and channel gain, so more work must be done to finish it off.
+
+
+19/02/14 - Root-finding tweaks
+------------------------------
+
+I noted that the *FindRoot* method had difficulty converging for both very high and very low channel gains, as the optimum decision region boundary in these
+cases are much higher or lower than usual. Since the nature of the Rayleigh distribution dictates that these extreme gains are still likely, I used the
+oservation that the gain can be roughly given by $2(\alpha_1^2 + \alpha_2^2)$ for low timing error offsets, and instructed the *FindRoot* method to start the
+search at this point. This improved both the speed and possibility of converging.
+
+The algorithm was still having difficulty converging for any significant timing error offset, so I greatly reduced the accuracy requirements of the root finding
+algorithm, under the understanding that we are dealing with average error rates and the goal is to show the rough gain in performance. This brought the algorithm
+under control, but nonetheless some issues remained:
+
+*   For very large timing error offsets, the algorithm converged to an unlikely value. This is uninportant, as in these cases the system has failed to perform
+    any sort of detection.
+*   The response is somewhat oscillatory. This could be due to the accuracy of the Gram-Charlier series, or less likely the *FindRoot* method. I must ask Dave
+    if he has any idea of how to fix this.
+*   Even more complexing, the algorithm seems to fail to converge for certain combinations of timing error offset. At first glance it looks like there is a
+    pole or zero at these points. Again, perhaps Dave could suggest a fix for these points.
+
+*Insert timing error 2D density plot*
+
+
+20/02/14 - Discussion of Gram-Charlier accuracy
+-----------------------------------------------
+
+I discussed the issue described above with Dave and Colin, and Dave suggested increasing that it could be a machine precision problem, and that increasing the
+precision of the variables used in the Gram-Charlier series calculation could solve the problem. Alternatively, Colin suggested that an acceptable answer could
+be obtained by truncating the sweep to remove the areas where the *FindRoot* algorithm does not converge.
+
+
+21/02/14 - Overcoming the timing error problems
+-----------------------------------------------
+
+Through some exploration, the timing error issues were found to disappear at higher AWGN variances. I therefore rose the SNR to 20dB and found that all the
+problems seen when sweeping the timing offset magically disappeared.
+
+*IN PROGRESS: Averaging over the Tikhonov and Rayleigh distributions to obtain an overall average BER*

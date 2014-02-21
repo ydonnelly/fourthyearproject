@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.12.31)  6 FEB 2014 22:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.12.31)  7 FEB 2014 10:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -923,18 +923,18 @@ LaTeX Info: Redefining \includegraphics on input line 44.
  (./seminar.nav)
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
-(hyperref)                setting the option has no effect on input line 61.
+(hyperref)                setting the option has no effect on input line 62.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ] (./seminar.toc) [2
 
 ]
-<comms.png, id=187, 715.67375pt x 444.66125pt>
+<comms.png, id=187, 729.72626pt x 460.72125pt>
 File: comms.png Graphic file (type png)
  <use comms.png>
-Package pdftex.def Info: comms.png used on input line 99.
-(pdftex.def)             Requested size: 307.28987pt x 190.92242pt.
+Package pdftex.def Info: comms.png used on input line 100.
+(pdftex.def)             Requested size: 307.28987pt x 194.00777pt.
  [3
 
  <./comms.png>] <../../plots/seminar_gaussian_sync.png, id=230, 361.35pt x 233.
@@ -943,7 +943,7 @@ File: ../../plots/seminar_gaussian_sync.png Graphic file (type png)
 
 <use ../../plots/seminar_gaussian_sync.png>
 Package pdftex.def Info: ../../plots/seminar_gaussian_sync.png used on input li
-ne 111.
+ne 112.
 (pdftex.def)             Requested size: 245.83282pt x 159.11053pt.
  [4
 
@@ -953,7 +953,7 @@ File: ../../plots/seminar_rrc_sync.png Graphic file (type png)
 
 <use ../../plots/seminar_rrc_sync.png>
 Package pdftex.def Info: ../../plots/seminar_rrc_sync.png used on input line 12
-2.
+3.
 (pdftex.def)             Requested size: 245.83282pt x 152.2236pt.
  [5
 
@@ -963,7 +963,7 @@ File: ../../plots/seminar_rrc_error.png Graphic file (type png)
 
 <use ../../plots/seminar_rrc_error.png>
 Package pdftex.def Info: ../../plots/seminar_rrc_error.png used on input line 1
-33.
+34.
 (pdftex.def)             Requested size: 245.83282pt x 152.2236pt.
  [6
 
@@ -971,7 +971,7 @@ Package pdftex.def Info: ../../plots/seminar_rrc_error.png used on input line 1
 File: ../../plots/seminar_gaussian_sync.png Graphic file (type png)
  <use ../../plots/seminar_gaussian_sync.png>
 Package pdftex.def Info: ../../plots/seminar_gaussian_sync.png used on input li
-ne 144.
+ne 145.
 (pdftex.def)             Requested size: 245.83282pt x 159.11053pt.
  [7
 
@@ -981,19 +981,19 @@ File: ../../plots/seminar_gaussian_error.png Graphic file (type png)
 
 <use ../../plots/seminar_gaussian_error.png>
 Package pdftex.def Info: ../../plots/seminar_gaussian_error.png used on input l
-ine 155.
+ine 156.
 (pdftex.def)             Requested size: 245.83282pt x 159.11053pt.
  [8
 
  <../../plots/seminar_gaussian_error.png (PNG copy)>] [9
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 180.
+LaTeX Font Info:    Try loading font information for U+msa on input line 181.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 180.
+LaTeX Font Info:    Try loading font information for U+msb on input line 181.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1014,7 +1014,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: egc_mrc_cropped.png Graphic file (type png)
 
 <use egc_mrc_cropped.png>
-Package pdftex.def Info: egc_mrc_cropped.png used on input line 195.
+Package pdftex.def Info: egc_mrc_cropped.png used on input line 196.
 (pdftex.def)             Requested size: 276.559pt x 158.41573pt.
  [16
 
@@ -1073,14 +1073,14 @@ Missing character: There is no  in font pplr7t!
 \tf@snm=\write8
 \openout8 = `seminar.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 235.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 235.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 236.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 236.
  (./seminar.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 235.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 235.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 236.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 236.
 Package rerunfilecheck Info: File `seminar.out' has not changed.
 (rerunfilecheck)             Checksum: B40684FC7DE28C10CD26E36A23431A60;678.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 235.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 236.
  ) 
 Here is how much of TeX's memory you used:
  18687 strings out of 495031
@@ -1095,7 +1095,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/palatino/uplri8a.pfb>
-Output written on seminar.pdf (24 pages, 209999 bytes).
+Output written on seminar.pdf (24 pages, 205739 bytes).
 PDF statistics:
  1132 PDF objects out of 1200 (max. 8388607)
  1061 compressed objects within 11 object streams
