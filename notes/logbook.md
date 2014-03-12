@@ -750,7 +750,145 @@ be obtained by truncating the sweep to remove the areas where the *FindRoot* alg
 21/02/14 - Overcoming the timing error problems
 -----------------------------------------------
 
-Through some exploration, the timing error issues were found to disappear at higher AWGN variances. I therefore rose the SNR to 20dB and found that all the
-problems seen when sweeping the timing offset magically disappeared.
+Through some exploration, the random non-convergent regions were found to disappear at higher AWGN variances. I therefore rose the SNR to 20dB, and found that
+the oscillations in the root estimates also disappeared.
 
-*IN PROGRESS: Averaging over the Tikhonov and Rayleigh distributions to obtain an overall average BER*
+
+22/02/14 - Further problems for high timing offsets
+---------------------------------------------------
+
+I observed that the root finding algorithm failed to converge for large timing error offsets. Noting that it definitely converged for timing offsets of 0.3 and
+below, and that timing offsets greater than this were extremely unlikely, I decided to truncate the timing offset averaging to $-0.3 \le \Delta \le 0.3$.
+
+*Plot of roots verses timing error*
+
+After implementing this I discovered that the root-finding algorithm results still became increasingly inaccurate for higher timing offsets. This will require
+further investigation to determine its cause, as left untouched it could significantly reduce the accuracy of the model.
+
+
+Week 14 Summary
+---------------
+
+This week saw the implementation of Bit Error Rate calculations for given fading and timing variates, and the averaging of these over the timing and fading
+probability distributions was the final step in the implementation of a mathematical model for the described MRC system and allowed a figure for the average
+BER of the system to be determined. While testing the corners of the implementation, it was found that the analytical approximation failed at certain timing
+offsets at low SNR values, but this was ignored as larger SNR values are of interest to us. Additionally the optimum DRB finding algorithm does not converge
+for higher timing error offsets, leading to the decision to ignore the statistically unlikely larger timing offsets. More work will have to be done on
+reducing the error of the algorithm at middle timing offsets, however.
+
+
+Goals for Week 15
+-----------------
+
+*   Improve the accuracy of the model for large timing error offsets.
+
+
+Week 15
+=======
+
+24/02/14 - Root-finding-defying wiggles
+---------------------------------------
+
+I found that the source of the root-finding errors is in "wiggles" near the roots of the $f_1(y)=f_3(y)$ function used to find the optimum DRB. These seem to
+be caused by inaccuracies in the Gram-Charlier approximation. Increasing the numerical accuracy did not seem to have any difference, and increasing the length
+of the Gram-Charlier series only made the oscillations much worse.
+
+!["Wiggles" near the roots](../plots/rootfindingconfusion_M20_cropped.png)
+
+
+25/02/14 - Correct optimum DRB measurements
+-------------------------------------------
+
+A brief email exchange with Dave helped me understand the source of the problem. In the model I had built, it was assumed that the instantaneous channel gains
+and timing offsets were known, and used to make an estimate of the optimum DRB, and the resulting BER was averaged over the fading and timing error PDFs to
+obtain the average BER. However as mentioned earlier, while the instantaneous channel gains are known in a MRC system (but not an EGC system!), the timing
+offsets aren't. Hence, the correct approach is to obtain an average PDF for each pair of channel gains, deduce the optimum DRB and BER for each of those channel
+gains, and then average over the fading and timing error PDFs. Therefore the "wiggles" seen before will be reduced when averaging over the Tikhonov, and
+shouldn't be present when the optimum DRB is calculated.
+
+I implemented the averaging of the GC PDFs over the Tikhonov timing offset distributions to provide an overall PDF for given channel gains and Tikhonov
+variances, and from these determined the optimum decision region boundaries. These are now used to determine the BER for different channel gains and timing
+offsets, which are averaged over the Rayleigh and Tikhonov distributions to determine the average BER.
+
+
+26/02/14 - Integration
+----------------------
+
+After a suggestion from Dave, I tried implementing a closed-form solution for the integration of the Gram-Charlier PDF approximation, given solutions for the
+integration of other identities. In this manner I hoped to significantly reduce the time to determine the average BER.
+
+Starting with the Gram-Charlier definition described earlier,
+
+$$
+f_{X|\Delta}(y) = \frac{1}{\sigma_X} \: \phi \! \left ( \frac{y-\mu_X}{\sigma} \right ) + \sum \limits_{m=2}^M \frac{\alpha_{2m}}{(2m)! \sigma_X^{2m}} \left [ \frac{1}{\sigma_X} \: \phi \! \left ( \frac{y-\mu_X}{\sigma} \right ) \: H_{2m} \! \left ( \frac{y-\mu_X}{\sigma_X} \right ) \right ]
+$$
+
+and incorporating the given identites,
+
+$$
+\int \limits_{-\infty}^x \frac{1}{\sigma} \: \phi \! \left ( \frac{y-\mu}{\sigma} \right ) dy =
+\frac{1}{2} \left ( 1 + \text{erf} \! \left ( \frac{x-\mu}{\sqrt{2} \sigma} \right ) \right )
+$$
+
+$$
+\int \limits_{-\infty}^x \frac{1}{\sigma} \: \phi \! \left ( \frac{y-\mu}{\sigma} \right ) H_m \! \left ( \frac{y-\mu}{\sigma} \right ) dy =
+- \phi \! \left ( \frac{x-\mu}{\sigma} \right ) H_{m-1} \! \left ( \frac{x-\mu}{\sigma} \right )
+$$
+
+the solution for the integral of the Gram-Charlier series was found to be:
+
+$$
+\int \limits_{- \infty}^x f_{X|\Delta}(y) = \frac{1}{2} \left ( 1 + \text{erf} \! \left ( \frac{x-\mu_X}{\sqrt{2} \sigma_X} \right ) \right ) - \sum \limits_{m=2}^M \frac{\alpha_{2m}}{(2m)! \sigma_x^{2m}} \: \: \phi \! \left ( \frac{x-\mu_X}{\sigma_X} \right ) H_{2m-1} \! \left ( \frac{x-\mu_X}{\sigma_X} \right )
+$$
+
+I found that while the resulting equation approximated the result found using numerical integration (*NIntegrate*), the two did not match exactly. An interesting
+question is which correct. My own gut feeling is that the value found using *NIntegrate* is correct, as the algorithm converges to a very precise result and I
+have very little confidence in my own mathematical abilities, so for the moment I will stick with it. Then again, it is possible that numerical integration is
+reflecting some unforeeseen innaccuracies in my implementation of the Gram-Charlier series, and the closed-form solutions, being mathematically-based, are
+accurate.
+
+
+Week 15 Summary
+---------------
+
+In week 15 I fixed a significant innaccuracy in the model I had built to determine the average BER, stemming from a misconception I had acquired from getting
+caught up with implementation and forgetting the top-level picture. The numerical implementation of the analytical model seems to be close to finished, and a
+few tentative tries showed poorer results than those found through simulation. Hopefully work next week will produce the definitive model alongside some
+quantitative results.
+
+
+Goals for Week 16
+-----------------
+
+*   Complete the implementation of the analytical model.
+*   Try a few test runs to determine the performance of the standard and modified MRC system.
+
+
+Week 16
+=======
+
+03/03/14 - Rewriting analytical implementation
+----------------------------------------------
+
+My machine turned off on Friday afternoon, and I returned from the weekend to find that my *Mathematica* notebook had been corrupted. After some time trying to
+manually fix the corrupted file I decided the task was too large and reverted to a week-old backup of the file. As much work had been done in the time between
+I took the opportunity to rewrite much of the implementation to make it clearer.
+
+
+04/03/14 - Strengthening the implementation
+-------------------------------------------
+
+Some time was spent improving the speed of execution of the implementation and testing it at intermediate points to ensure the results given made intuitive
+sense. Currently the implementation takes roughly 25mins to run for 5 timing error and channel gain points per channel.
+
+
+05/03/14 - Assessing the accuracy of the implementation
+-------------------------------------------------------
+
+I spent some more time tweaking the accuracy and precision parameters of the *FindRoot* and *NIntegrate* function to reduce the speed of execution without
+compromising the accuracy of the system. By looking through the intermediate results of the implementation I found that inaccuracies in the Gram-Charlier
+approximation for high timing offsets is creating such large error rate estimations for the traditional decision region boundaries that their reduced weighting
+is insufficient to prevent their effects appearing in the averaged BER value. Unfortunately I cannot imagine how this could be mitigated without ignoring more
+than the most trivial timing offsets, which wouldn't allow us to show off the full utility of out method.
+
+I added memory to the Gram-Charlier distribution definition to try to speed up the implementation a little more, and started a sweep of timing error variances.
