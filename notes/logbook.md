@@ -885,10 +885,44 @@ sense. Currently the implementation takes roughly 25mins to run for 5 timing err
 05/03/14 - Assessing the accuracy of the implementation
 -------------------------------------------------------
 
-I spent some more time tweaking the accuracy and precision parameters of the *FindRoot* and *NIntegrate* function to reduce the speed of execution without
-compromising the accuracy of the system. By looking through the intermediate results of the implementation I found that inaccuracies in the Gram-Charlier
-approximation for high timing offsets is creating such large error rate estimations for the traditional decision region boundaries that their reduced weighting
-is insufficient to prevent their effects appearing in the averaged BER value. Unfortunately I cannot imagine how this could be mitigated without ignoring more
-than the most trivial timing offsets, which wouldn't allow us to show off the full utility of out method.
+I spent some more time tweaking the accuracy and precision parameters of the *FindRoot* and *NIntegrate* function to reduce the speed of execution without compromising the accuracy of the system. By looking through the intermediate results of the implementation I found that inaccuracies in the Gram-Charlier approximation for high timing offsets are creating such large error rate estimations for the traditional decision region boundaries that their reduced weighting is insufficient to prevent their effects appearing in the averaged BER value. Unfortunately I cannot imagine how this could be mitigated without ignoring more than the most trivial timing offsets, which wouldn't allow us to show off the full utility of out method.
 
 I added memory to the Gram-Charlier distribution definition to try to speed up the implementation a little more, and started a sweep of timing error variances.
+
+
+Week 17
+=======
+
+14/03/14 - Pre-open day progress
+--------------------------------
+
+The past weekend was spent trying to account for differences between the analytical and simulation models. Both successdully demonstrated reduced optimum decision region boundaries in the presence of timing errors; however the reduction is much more severe in the simulation than using the analytically derived results. Since I was hoping to be able to derive the optimum DRB values analytically, this was and still remains a major stumbling block.
+
+Dave suggested a modification to the *FindRoot* method which mixes Newton's Method and the Bisection Method in order to prevent divergence, however since this isn't currently an issue I doubt I'll have time to implement it.
+
+
+Week 18
+=======
+
+17/03/14 - Comparing Analytic and Simulation results side-by-side
+-----------------------------------------------------------------
+
+I spent the weekend combining the conditional analytical and simulation code to provide comparisons between both methods. I found that the analytic solution grossly underestimated the spread of the received symbol, suggesting an issue with the SNR calculations. I was able to confirm that while the analytic method broke down somewhat at higher timing offsets, the response remained somewhat approximate to the pdf generated through simulation. Overall, it did demonstrate similar characteristics to the simulation, just not to the same extent.
+
+Suspecting that this meant that there was a simple mistake in calculating the parameters of the Gram-Charlier approximation, I made a simplified version and asked Dave to look over it.
+
+
+18/03/14 - Fixing the Gram-Charlier code
+----------------------------------------
+
+Dave got back to me with two mistakes in the code:
+
+*   The variable *L* represents the number of symbols (4 in the case of 4-PAM), not the number of diversity branches as I had mistakenly believed.
+*   The SNR in the case of channel fading is gained by the RMS sum of the channel gains ($\sqrt{\sum \alpha_i^2}$) and not the sum of the gains ($\sum \alpha_i$).
+
+Implementing these changes, I saw instant improvements in the correlation between the analytical and simulation PDFs. I restarted both the standalone realistic simulation and the conditional simulation/analytical for 2 diversity branches with the changes made to see how closely both methods match.
+
+
+
+
+
