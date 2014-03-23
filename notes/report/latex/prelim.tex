@@ -1,0 +1,162 @@
+%Sample Headers:
+%Introduction and objectives
+%Background information and previous work in the subject area (referenced)
+%Theoretical aspects/modelling/simulation/strategies
+%Experimental techniques/methods/apparatus/rationale
+%Results
+%Discussion of results/critical analysis/comparison with other work
+%Suggestions for future work
+%Conclusions
+%References
+%Appendices (equations/program code/equipment specifications)
+%Logbook (for Teaching Periods 1 and 2 – ensure there is an entry for every week)
+
+\chapter{Introduction and Objectives}
+
+This project is focused on examining the effects of non-deterministic timing error in digital amplitude-modulation radio signal receivers. Timing errors remain an important issue in modern digital receivers, despite considerable research into improved clock generation and recovery circuits. This project takes a novel approach to the problem, as instead of trying to reduce the level of timing error, it assumes statistical knowledge of the timing error present and attempts to mitigate its effects at the decoding stage.
+
+Work was divided into two parts:
+
+\begin{itemize}
+\item
+The effects of timing error on the received signal at the input to the decoder were examined, in order to determine the probability density function seen by the decoder.
+\item
+Using knowledge of the nature of the signal at the input of the decoder, communications theory was used to determine the optimum decoder for the given signal.
+\end{itemize}
+
+The ultimate goal was to demonstrate an optimum decoder that would perform significantly better than traditional decoders designed assuming perfect timing synchronisation. Numerical simulation work was backed up with a mathematical analysis.
+
+\chapter{Background Information}
+
+\section{The Communications system Model}
+
+A typical radio communications system consists of a transmitter, a
+receiver and a communications channel, that may contain any number of
+non-idealities typically caused by stochastic processes. By modeling these non-idealities using fitting statistical probability distributions, a statistical description of the received signal can be derived and used to inform correct design of the receiver.
+
+One could imagine a binary transmission system that sends one of two
+possible signals: a 1V$_{RMS}$ wave if a `0' is to be sent, and a
+3V$_{RMS}$ if a `1' is to be sent. After being distorted by the
+communications channel, the receiver could in theory see a signal of any
+amplitude, and must make a decision as to which amplitude was originally
+sent. It would be helpful for the designer to know the probability density function (PDF)
+of the received signal, ie. the probability of receiving a signal
+amplitude if a known amplitude was sent. If one assumes the communications
+channel is memoryless and distorts the signal by adding zero-mean white Gaussian noise,
+the received signal PDF will be a Gaussian distribution centred on the
+sent signal amplitude, as shown below. If both symbols are equiprobable, their PDF's will be of equal height, and therefore shifted copies of each other.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{4-PAM_PDF.png}
+\caption{Gaussian noise corrupts a sent signal, resulting in a
+probability density function for each possible sent symbol}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{4-PAM_samples.png}
+\caption{As an example, 2000 of each symbol has been send down the
+communications channel. The received values distorted by noise are
+plotted above. Note the overlap in received values corresponding to both
+symbols: it is impossible to detect the signal with 100\% accuracy.}
+\end{figure}
+
+A \emph{maximum-likelihood (ML) detector} seeks to minimise the probability of
+error by always picking whichever signal was most likely to be sent, given
+the received signal. The derived probability distributions can give us this information. The threshold between picking one value or the other
+will be where both symbols are equally likely to be sent, the point of
+intersection of both PDF's. Since the Gaussian distribution is symmetric
+about its mean, in this case the threshold (or \emph{Decision Region
+Boundary}) is exactly midway between both sent amplitudes. Intuitively
+this makes sense: it says that in the simplest case if one receives a particular
+signal, one should assume whichever possible sent signal is nearest. However in more complicated cases picking the point of intersection of both PDF's
+is the more general solution. 
+
+While applicable to cable channels, radio systems have to deal with numerous reflections from the environment, known as fading effects. A superposition of reflected signals, with different levels of attenuation, is therefore seen at the receiver. Traditional communications theory models fading as a random gain. Performance in this case can be improved by capturing multiple signals using multiple antennae, and combining these signals, either using equal weighting (Equal-Gain Combining), or by weighting each channel by its channel gain (Maximal-Ratio Combining).
+
+\section{Transmitter-Receiver Synchronisation}
+
+One issue that complicates detection is \emph{inter-symbol
+interference} (ISI). It is possible for signals representing symbols in
+the future or past to bleed into the current symbol clock period,
+distorting the signal further. For this reason transmitters and receivers
+are designed with filtering that applies a \emph{raised cosine function} to the signal.
+This filter passes the signal at exactly the symbol's sample time, and attenuates
+completely at every other symbol's sample time, ie. at every interval of
+$T_{clk}$ for $T \neq 0$. If both receiver and transmitter are perfectly
+synchronised, this ensures that the receiver will only see signals
+corresponding to the current transmitted symbol, after distortion via
+the communications channel.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{rrc_sync.png}
+\caption{A filter with a root raised cosine function is often used, as
+it evaluates to 1 at the current sample time and 0 at all other sample
+times}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{rrc_err.png}
+\caption{If a timing offset is added to the root raised cosine it no
+longer evaluates to 0 or 1 at the sampling time. This results in
+reduced receiver performance when the receiver and transmitter are not
+properly synchronised.}
+\end{figure}
+
+If the receiver and the transmitter are poorly synchronised, however,
+the root cosine filter response is shifted in time with respect to the
+receiver; adjacent symbols bleed into the current symbol, and the current symbol is attenuated according to the raised cosine function of the timing error. This last point is crucial to this project:
+
+\begin{propo}
+An amplitude-modulated system with a given channel function $g[t]$ and a timing error $\delta t$ will experience an attenuation due to the timing error of the transmitted symbol equal to $g[\delta t]$.
+\end{propo}
+
+In practice, the adjacent symbols can be modelled as Gaussian noise, and we can therefore express the effects of timing error as a gain dependent on the instantaneous timing error. 
+
+\section{Previous Work}
+
+
+\chapter{Methodology}
+
+This project models channel noise as additive and Gaussian. Fading is assumed to be Rayleigh-distributed and Maximal-Ratio Combining is considered as a counter-measure (Equal-Gain Combining was examined and found to perform too poorly to be of interest). Timing error is assumed to be Tikhonov-distributed, and knowledge of both channel gain and approximate timing error variance is assumed to be available to the decoder.
+
+A simplified model of a communications system ignoring fading was developed in order to allow the author to familiarise himself with the problem, its associated theory and the \emph{Mathematica} environment. This model was used to verify Proposition 1 above.
+
+The effects of fading were incorporated and the performance of the system in the presence of timing error was examined thoroughly through simulation. An analytical verification of these results was attempted by approximating the received symbol PDF conditioned on know timing offsets and channel gains by a Gram-Charlier series and averaging over the respective distributions.
+
+\chapter{Results}
+
+Simulation found that, in all cases, the addition of timing offset results in a decrease in the amplitude of the received signal with respect to the perfectly synchronised case. The optimum decision boundary was therefore found to reduce accordingly.
+
+With a 4-PAM MRC system and Rayleigh channel, the Tikhonov-distributed timing offset was found to result a large increase in Symbol Error Rate regardless of decision region boundary. Use of an optimum decision region boundary informed by the timing error statistics resulted in gains of up to 11\%.
+
+TODO: SER vs Tikh Var
+
+The received signal PDF of the MRC system conditioned on timing offsets and channel gains was approximated using a Gram-Charlier series. Timing errors were found to result in similar reductions in signal amplitude and optimum decision region boundaries.
+
+TODO: GC comparison
+
+\chapter{Discussion of results}
+
+This project has demonstrated a fundamental effect present to a certain degree in a large number of communications systems. The particular system used to illustrate the problem is representative of a large number of systems; the channel response need not necessarily be Raised-Cosine, merely relatively low-bandwidth, and the effect could occur with any similar choice of fading or timing distribution.
+
+The proposition that the conditional effects of timing error on the received symbol could be approximated by an attenuation was proven through simulation. Furthermore, it was shown that this property could be used to reduce the effects of timing error offset through redesigning the symbol detection algorithm, and the effectiveness of this route was proven.
+
+While the improvements may not seem massive, it is key to note that the change is made \emph{without adding any stages to the detector}. The proposed changes can be implemented with minimum complexity - the factor change in decision region boundary for a given timing error can be pre-determined and stored in a look-up table,  and current timing statistics can be used to address the relevant correction factor.
+
+TODO: system image
+
+\chapter{Future Work}
+
+This project has theoreticized a fundamental issue present in amplitude-modulated communications systems prone to timing errors. It would be complemented with a practical description of the problem. The described 4-PAM MRC system could be implemented and either the timing offsets artificially added in or the hardware's own timing error monitored.
+
+While the project was successful in determining through simulation the optimum decision region boundaries conditioned on the timing error variances, an analytical way of determining the same would be useful as a design tool. An attempt was made to determine the received symbol PDF by averaging the conditional Gram-Charlier approximation over the fading and timing error distributions, using Gauss-Legendre quadrature. Unfortunately a satisfactory result couldn't be determined within a reasonable timeframe, but future work using a different method could yield an analytical solution. With this solution, it would be possible to determine the correction factor conditioned on timing error variances and channel gains, which could provide a much more effective decoding method.
+
+\chapter{Conclusions}
+
+
+
+

@@ -920,7 +920,45 @@ Dave got back to me with two mistakes in the code:
 *   The variable *L* represents the number of symbols (4 in the case of 4-PAM), not the number of diversity branches as I had mistakenly believed.
 *   The SNR in the case of channel fading is gained by the RMS sum of the channel gains ($\sqrt{\sum \alpha_i^2}$) and not the sum of the gains ($\sum \alpha_i$).
 
-Implementing these changes, I saw instant improvements in the correlation between the analytical and simulation PDFs. I restarted both the standalone realistic simulation and the conditional simulation/analytical for 2 diversity branches with the changes made to see how closely both methods match.
+Implementing these changes, I saw instant improvements in the correlation between the analytical and simulation PDFs. I also, after some consultation with Dave, rewrote the simulation to make the timing error on each branch independent, as he noted that while both branches run off the same frequency generator, the clock regeneration circuits on each branch will lead to different timing offsets, I restarted both the standalone realistic simulation and the conditional simulation/analytical for 2 diversity branches with the changes made to see how closely both methods match.
+
+
+20/03/14 - A much closer match
+------------------------------
+
+The comparison finished, I was able to see that the Gram-Charlier approximation and simulation results now match very closely, even at higher timing offset variances. To double-check that this confirms the Gram-Charlier approximation's suitability for our purposes, I restarted the comparison zoomed into the boundary region, as can be seen below.
+
+![Sample comparison between simulation (solid) and analytic (dashed) received symbol PDF's](../plots/comparison_f08.png)
+
+![Sample comparison between simulation (solid) and analytic (dashed) received symbol PDF's](../plots/comparison_f08_boundary.png)
+
+
+21/03/14 - A slight mistake
+---------------------------
+
+The simulation ended, and I realised that I had accidently build on the code used to determine the results for the EGC system. Substituting the description of the MRC system, I restarted the simulation.
+
+
+22/03/14 - Revised MRC simulation results
+-----------------------------------------
+
+The MRC simulation finished, and I was able to observe that our revised system still gave us gains of up to 14% in the presence of strong timing offsets, for a 2-channel diversity system.
+
+For added precision, I ran the simulation again. I also returned to the analytical description to see if the optimum decision region boundaries could be determined from the latter.
+
+![Symbol Error Rate for 2-channel MRC system with Tikhonov-distributed timing error](../plots/MRC_SER.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
