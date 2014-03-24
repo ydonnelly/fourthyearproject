@@ -6,39 +6,42 @@
 \BOOKMARK [1][-]{lot.1}{List of Tables}{chapter*.4}% 6
 \BOOKMARK [1][-]{lol.1}{Listings}{chapter*.4}% 7
 \BOOKMARK [1][-]{acronyms.1}{Acronyms}{chapter*.4}% 8
-\BOOKMARK [0][]{chapter.1}{1 Introduction and Objectives}{}% 9
-\BOOKMARK [0][]{chapter.2}{2 Background Information}{}% 10
-\BOOKMARK [1][-]{section.2.1}{2.1 The Communications system Model}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.2}{2.2 Transmitter-Receiver Synchronisation}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.3}{2.3 Previous Work}{chapter.2}% 13
-\BOOKMARK [0][]{chapter.3}{3 Methodology}{}% 14
-\BOOKMARK [0][]{chapter.4}{4 Results}{}% 15
-\BOOKMARK [1][-]{section.4.1}{4.1 Effects of timing error on the non-fading system}{chapter.4}% 16
-\BOOKMARK [1][-]{section.4.2}{4.2 Effects of timing error on the Rayleigh-fading system}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.3}{4.3 Optimal decoding in the presence of timing error}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.4}{4.4 Analytical study of timing error}{chapter.4}% 19
-\BOOKMARK [0][]{chapter.5}{5 Discussion of results}{}% 20
-\BOOKMARK [0][]{chapter.6}{6 Future Work}{}% 21
-\BOOKMARK [0][]{chapter.7}{7 Conclusions}{}% 22
-\BOOKMARK [-1][]{part.1}{Appendix}{}% 23
-\BOOKMARK [0][]{appendix.A}{A Logbook}{part.1}% 24
-\BOOKMARK [1][-]{section.A.1}{A.1 Week 1}{appendix.A}% 25
-\BOOKMARK [1][-]{section.A.2}{A.2 Week 2}{appendix.A}% 26
-\BOOKMARK [1][-]{section.A.3}{A.3 Week 3}{appendix.A}% 27
-\BOOKMARK [1][-]{section.A.4}{A.4 Week 4}{appendix.A}% 28
-\BOOKMARK [1][-]{section.A.5}{A.5 Week 5}{appendix.A}% 29
-\BOOKMARK [1][-]{section.A.6}{A.6 Week 6}{appendix.A}% 30
-\BOOKMARK [1][-]{section.A.7}{A.7 Week 7}{appendix.A}% 31
-\BOOKMARK [1][-]{section.A.8}{A.8 Week 8}{appendix.A}% 32
-\BOOKMARK [1][-]{section.A.9}{A.9 Week 9}{appendix.A}% 33
-\BOOKMARK [1][-]{section.A.10}{A.10 Week 10}{appendix.A}% 34
-\BOOKMARK [1][-]{section.A.11}{A.11 Week 11}{appendix.A}% 35
-\BOOKMARK [1][-]{section.A.12}{A.12 Week 12}{appendix.A}% 36
-\BOOKMARK [1][-]{section.A.13}{A.13 Week 13}{appendix.A}% 37
-\BOOKMARK [1][-]{section.A.14}{A.14 Week 14}{appendix.A}% 38
-\BOOKMARK [1][-]{section.A.15}{A.15 Week 15}{appendix.A}% 39
-\BOOKMARK [1][-]{section.A.16}{A.16 Week 16}{appendix.A}% 40
-\BOOKMARK [1][-]{section.A.17}{A.17 Week 17}{appendix.A}% 41
-\BOOKMARK [1][-]{section.A.18}{A.18 Week 18}{appendix.A}% 42
-\BOOKMARK [0][]{appendix.B}{B Example source code listing}{part.1}% 43
-\BOOKMARK [0][]{appendix.C}{C Bibliography}{part.1}% 44
+\BOOKMARK [-1][]{part.1}{Introduction}{}% 9
+\BOOKMARK [0][]{chapter.1}{1 Introduction and Objectives}{part.1}% 10
+\BOOKMARK [0][]{chapter.2}{2 Background Information}{part.1}% 11
+\BOOKMARK [1][-]{section.2.1}{2.1 The Communications system Model}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.2}{2.2 Transmitter-Receiver Synchronisation}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.3}{2.3 Previous Work}{chapter.2}% 14
+\BOOKMARK [-1][]{part.2}{Project}{}% 15
+\BOOKMARK [0][]{chapter.3}{3 Methodology}{part.2}% 16
+\BOOKMARK [0][]{chapter.4}{4 Results}{part.2}% 17
+\BOOKMARK [1][-]{section.4.1}{4.1 Effects of timing error on the non-fading system}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.2}{4.2 Effects of timing error on the Rayleigh-fading system}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.3}{4.3 Optimal decoding in the presence of timing error}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.4}{4.4 Analytical study of timing error}{chapter.4}% 21
+\BOOKMARK [0][]{chapter.5}{5 Discussion of results}{part.2}% 22
+\BOOKMARK [-1][]{part.3}{Conclusions}{}% 23
+\BOOKMARK [0][]{chapter.6}{6 Future Work}{part.3}% 24
+\BOOKMARK [0][]{chapter.7}{7 Conclusions}{part.3}% 25
+\BOOKMARK [-1][]{part.4}{Appendix}{}% 26
+\BOOKMARK [0][]{appendix.A}{A Logbook}{part.4}% 27
+\BOOKMARK [1][-]{section.A.1}{A.1 Week 1}{appendix.A}% 28
+\BOOKMARK [1][-]{section.A.2}{A.2 Week 2}{appendix.A}% 29
+\BOOKMARK [1][-]{section.A.3}{A.3 Week 3}{appendix.A}% 30
+\BOOKMARK [1][-]{section.A.4}{A.4 Week 4}{appendix.A}% 31
+\BOOKMARK [1][-]{section.A.5}{A.5 Week 5}{appendix.A}% 32
+\BOOKMARK [1][-]{section.A.6}{A.6 Week 6}{appendix.A}% 33
+\BOOKMARK [1][-]{section.A.7}{A.7 Week 7}{appendix.A}% 34
+\BOOKMARK [1][-]{section.A.8}{A.8 Week 8}{appendix.A}% 35
+\BOOKMARK [1][-]{section.A.9}{A.9 Week 9}{appendix.A}% 36
+\BOOKMARK [1][-]{section.A.10}{A.10 Week 10}{appendix.A}% 37
+\BOOKMARK [1][-]{section.A.11}{A.11 Week 11}{appendix.A}% 38
+\BOOKMARK [1][-]{section.A.12}{A.12 Week 12}{appendix.A}% 39
+\BOOKMARK [1][-]{section.A.13}{A.13 Week 13}{appendix.A}% 40
+\BOOKMARK [1][-]{section.A.14}{A.14 Week 14}{appendix.A}% 41
+\BOOKMARK [1][-]{section.A.15}{A.15 Week 15}{appendix.A}% 42
+\BOOKMARK [1][-]{section.A.16}{A.16 Week 16}{appendix.A}% 43
+\BOOKMARK [1][-]{section.A.17}{A.17 Week 17}{appendix.A}% 44
+\BOOKMARK [1][-]{section.A.18}{A.18 Week 18}{appendix.A}% 45
+\BOOKMARK [0][]{appendix.B}{B Example source code listing}{part.4}% 46
+\BOOKMARK [0][]{appendix.C}{C Bibliography}{part.4}% 47

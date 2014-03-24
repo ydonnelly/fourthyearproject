@@ -11,6 +11,8 @@
 %Appendices (equations/program code/equipment specifications)
 %Logbook (for Teaching Periods 1 and 2 – ensure there is an entry for every week)
 
+\part{Introduction}
+
 \chapter{Introduction and Objectives}
 
 This project is focused on examining the effects of non-deterministic timing error in digital amplitude-modulation radio signal receivers. Timing errors remain an important issue in modern digital receivers, despite considerable research into improved clock generation and recovery circuits. This project takes a novel approach to the problem, as instead of trying to reduce the level of timing error, it assumes statistical knowledge of the timing error present and attempts to mitigate its effects at the decoding stage.
@@ -28,7 +30,7 @@ The ultimate goal was to demonstrate an optimum decoder that would perform signi
 
 \chapter{Background Information}
 
-\section{The Communications system Model}
+\section{The Communications System Model}
 
 A typical radio communications system consists of a transmitter, a
 receiver and a communications channel, that may contain any number of
@@ -117,6 +119,9 @@ In practice, the adjacent symbols can be modelled as Gaussian noise, and we can 
 
 \section{Previous Work}
 
+Current literaturehas considered the effects of a Tikhonov-distributed timing offset in a Nagakami-\emph{m} channel with rectangular signalling and diversity combining \cite{[2]}, and a uniformly distributed timing offset in a Rayleigh fading channel \cite{[6]}. The effects of timing offset in the BPSK and QAM cases have been studied in \cite{[3]} \& \cite{[4]}, and \cite{[5]}, respectively However, the effects of a poorly synchronised receiver on detection performance in the root-cosine filter case has not to date been published. This project seeks to examine this matter further, and present an improved detector to reduce these effects.
+
+\part{Project}
 
 \chapter{Methodology}
 
@@ -217,13 +222,15 @@ While the improvements may not seem massive, it is key to note that the change i
 \caption[Improved decoder implementation]{Improved decoder implementing the described corrections as a LUT and multiplier block.}
 \end{figure}
 
+\part{Conclusions}
+
 \chapter{Future Work}
 
 Future work will be carried out by the author on extending the analytical solution to the conditional PDF to an analytical solution for the overall PDF, with a goal to deriving the optimum decision region boundary for a given timing error variance. This would allow the correction terms for a practical system to be determined without having to perform extensive simulation work.
 
 Given a complete analytical solution for the overall received symbol PDF, it would be possible to generate the optimum decision region boundary conditioned on factors other than timing error variance, such as channel gain and channel SNR. The performance gains from such a system would have to be offset against system cost, but these parameters are readily available to the system.
 
-An extension of the theory presented here to other receiver architectures, channel models and conditions would be a logical continuation to this project, and would help determine the areas in which timing errors are of most concern. In particular, Nakagami-n fading and the effects of increased diversity were not studied, and could yield some interesting results.
+An extension of the theory presented here to other receiver architectures, channel models and conditions would be a logical continuation to this project, and would help determine the areas in which timing errors are of most concern. In particular, Nakagami-m fading and the effects of increased diversity were not studied, and could yield some interesting results.
 
 This project has theoreticized a fundamental issue present in amplitude-modulated communications systems prone to timing errors. It would be complemented with a practical description of the problem. The described 4-PAM MRC system could be implemented and either the timing offsets artificially added in or the hardware's own timing error monitored.
 
