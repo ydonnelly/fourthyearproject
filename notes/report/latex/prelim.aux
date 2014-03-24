@@ -13,13 +13,13 @@
 \@writefile{lol}{\addvspace {10\p@ }}
 \def\mph@nr{2}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}The Communications system Model}{3}{section.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Gaussian noise corrupts a sent signal, resulting in a probability density function for each possible sent symbol\relax }}{3}{figure.caption.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Ideal received signal PDF}}{3}{figure.caption.6}}
 \mph@setcol{ii:3}{\mph@nr}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces As an example, 2000 of each symbol has been send down the communications channel. The received values distorted by noise are plotted above. Note the overlap in received values corresponding to both symbols: it is impossible to detect the signal with 100\% accuracy.\relax }}{4}{figure.caption.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces AWGN channel simulation}}{4}{figure.caption.7}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Transmitter-Receiver Synchronisation}{4}{section.2.2}}
 \mph@setcol{ii:4}{\mph@nr}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A filter with a root raised cosine function is often used, as it evaluates to 1 at the current sample time and 0 at all other sample times\relax }}{5}{figure.caption.8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces If a timing offset is added to the root raised cosine it no longer evaluates to 0 or 1 at the sampling time. This results in reduced receiver performance when the receiver and transmitter are not properly synchronised.\relax }}{5}{figure.caption.9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Synchronized raised-cosine response}}{5}{figure.caption.8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Unsynchronized raised-cosine response}}{5}{figure.caption.9}}
 \mph@setcol{ii:5}{\mph@nr}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Previous Work}{6}{section.2.3}}
 \mph@setcol{ii:6}{\mph@nr}
@@ -35,35 +35,44 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \def\mph@nr{4}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Symbol Error Rate versus timing error variance\relax }}{9}{figure.caption.10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Overleaf, left: Comparison between simulated received signal PDF (solid) and Gram-Charlier approximation (dashed)\relax }}{9}{figure.caption.11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Overleaf, right: Comparison between simulated received signal optimum decision region boundary (solid) and Gram-Charlier approximation (dashed)\relax }}{9}{figure.caption.12}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Effects of timing error on the non-fading system}{9}{section.4.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Non-fading received symbol PDF}}{9}{figure.caption.10}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Effects of timing error on the Rayleigh-fading system}{9}{section.4.2}}
 \mph@setcol{ii:9}{\mph@nr}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Optimal decoding in the presence of timing error}{10}{section.4.3}}
+\def\mph@nr{5}
 \mph@setcol{ii:10}{\mph@nr}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces MRC Symbol Error Rate}}{11}{figure.caption.11}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Analytical study of timing error}{11}{section.4.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Received signal PDF: Gram-Charlier approximation vs simulation}}{11}{figure.caption.12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Received signal optimum DRB: Gram-Charlier approximation vs simulation}}{11}{figure.caption.13}}
 \mph@setcol{ii:11}{\mph@nr}
 \mph@setcol{ii:12}{\mph@nr}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}\spacedlowsmallcaps  {Discussion of results}}{13}{chapter.5}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lol}{\addvspace {10\p@ }}
-\def\mph@nr{5}
 \mph@setcol{ii:13}{\mph@nr}
 \mph@setcol{ii:14}{\mph@nr}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}\spacedlowsmallcaps  {Future Work}}{15}{chapter.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}\spacedlowsmallcaps  {Discussion of results}}{15}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \def\mph@nr{6}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Improved decoder implementation}}{15}{figure.caption.16}}
 \mph@setcol{ii:15}{\mph@nr}
 \mph@setcol{ii:16}{\mph@nr}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}\spacedlowsmallcaps  {Conclusions}}{17}{chapter.7}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}\spacedlowsmallcaps  {Future Work}}{17}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \def\mph@nr{7}
 \mph@setcol{ii:17}{\mph@nr}
+\mph@setcol{ii:18}{\mph@nr}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}\spacedlowsmallcaps  {Conclusions}}{19}{chapter.7}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\def\mph@nr{8}
+\mph@setcol{ii:19}{\mph@nr}
 \@setckpt{prelim}{
-\setcounter{page}{18}
+\setcounter{page}{20}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -78,7 +87,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{7}
+\setcounter{figure}{9}
 \setcounter{table}{0}
 \setcounter{dummy}{6}
 \setcounter{lips@count}{0}
@@ -94,7 +103,7 @@
 \setcounter{lotdepth}{1}
 \setcounter{lstnumber}{1}
 \setcounter{Item}{0}
-\setcounter{bookmark@seq@number}{18}
+\setcounter{bookmark@seq@number}{22}
 \setcounter{listings}{0}
 \setcounter{loldepth}{1}
 \setcounter{LT@tables}{0}

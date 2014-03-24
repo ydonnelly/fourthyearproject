@@ -185,13 +185,13 @@ note that the PDF spreads out, but the mean remains steady.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{../../../plots/fyp1_w1_kde.png}
-\caption{kernel density estimation $\omega_0=1$}
+\caption{Kernel density estimation $\omega_0=1$}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{../../../plots/fyp1_w0_kde.png}
-\caption{kernel density estimation $\omega_0=-1$}
+\caption{Kernel density estimation $\omega_0=-1$}
 \end{figure}
 
 \subsection{09/10/13 - Setting up Digital Comms Lab PC}
@@ -314,7 +314,7 @@ case remain the same.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{../../../plots/4pamdecision.png}
-\caption{PDF for 4-PAM, $\omega_0 \in {-3,-1,1,2}$, $10^8$ samples}
+\caption[(Incorrect) non-fading received symbol PDF]{PDF for 4-PAM, $\omega_0 \in {-3,-1,1,2}$, $10^8$ samples}
 \end{figure}
 
 I could imagine finding a value for the probability of error and moving
@@ -356,7 +356,7 @@ towards the origin as the timing offset increases.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{../../../plots/4pamdecisionerror.png}
-\caption{PDF for 4-PAM, $\omega_0 \in {-3,-1,1,2}$}
+\caption[Non-fading received symbol PDF]{PDF for 4-PAM, $\omega_0 \in {-3,-1,1,2}$}
 \end{figure}
 
 I spent Monday carrying out two tasks:
@@ -559,7 +559,8 @@ B_{\text{OPT}} \sim \sum_{\Delta} \text{P}(\Delta) B_{\text{OPT,}\Delta}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{../../../plots/opt_dec_reg.png}
-\caption{Optimum Decision Region Boundary for various timing error
+\caption[Optimum Decision Region Boundary for various timing error
+probability distributions]{Optimum Decision Region Boundary for various timing error
 probability distributions. Black: estimate found by averaging fixed timing errors over Tikhonov distribution; Blue: analytical result determined by David Murphy; Red: simulation results.}
 \end{figure}
 
@@ -690,7 +691,7 @@ the optimum boundaries found through simulation.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{../../../plots/opt_dec_reg_analytic.png}
-\caption{Plot of optimum decision region boundaries versus
+\caption[Optimum DRb vs. timing error variance]{Plot of optimum decision region boundaries versus
 Tikhonov-distributed timing error variance, from Gram-Charlier
 approximation and simulation respectively}
 \end{figure}
@@ -1106,7 +1107,7 @@ only made the oscillations much worse.
 \begin{figure}[htbp]
 \centering
 \includegraphics{../../../plots/rootfindingconfusion_M20_cropped.png}
-\caption{``Wiggles'' near the roots}
+\caption{"Wiggles" near the roots}
 \end{figure}
 
 \subsection{25/02/14 - Correct optimum DRB measurements}
@@ -1310,7 +1311,7 @@ the comparison zoomed into the boundary region, as can be seen below.
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=\textheight]{comparison_scaled.png}
-\caption{Sample comparison between simulation (solid) and analytic
+\caption[Simulation vs. analytical received symbol PDFs]{Sample comparison between simulation (solid) and analytic
 (dashed) received symbol PDF's}
 \end{figure}
 

@@ -3,35 +3,37 @@
 \select@language {american}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces Gaussian noise corrupts a sent signal, resulting in a probability density function for each possible sent symbol\relax }}{3}{figure.caption.6}
-\contentsline {figure}{\numberline {2}{\ignorespaces As an example, 2000 of each symbol has been send down the communications channel. The received values distorted by noise are plotted above. Note the overlap in received values corresponding to both symbols: it is impossible to detect the signal with 100\% accuracy.\relax }}{4}{figure.caption.7}
-\contentsline {figure}{\numberline {3}{\ignorespaces A filter with a root raised cosine function is often used, as it evaluates to 1 at the current sample time and 0 at all other sample times\relax }}{5}{figure.caption.8}
-\contentsline {figure}{\numberline {4}{\ignorespaces If a timing offset is added to the root raised cosine it no longer evaluates to 0 or 1 at the sampling time. This results in reduced receiver performance when the receiver and transmitter are not properly synchronised.\relax }}{5}{figure.caption.9}
+\contentsline {figure}{\numberline {1}{\ignorespaces Ideal received signal PDF}}{3}{figure.caption.6}
+\contentsline {figure}{\numberline {2}{\ignorespaces AWGN channel simulation}}{4}{figure.caption.7}
+\contentsline {figure}{\numberline {3}{\ignorespaces Synchronized raised-cosine response}}{5}{figure.caption.8}
+\contentsline {figure}{\numberline {4}{\ignorespaces Unsynchronized raised-cosine response}}{5}{figure.caption.9}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5}{\ignorespaces Symbol Error Rate versus timing error variance\relax }}{9}{figure.caption.10}
-\contentsline {figure}{\numberline {6}{\ignorespaces Overleaf, left: Comparison between simulated received signal PDF (solid) and Gram-Charlier approximation (dashed)\relax }}{9}{figure.caption.11}
-\contentsline {figure}{\numberline {7}{\ignorespaces Overleaf, right: Comparison between simulated received signal optimum decision region boundary (solid) and Gram-Charlier approximation (dashed)\relax }}{9}{figure.caption.12}
+\contentsline {figure}{\numberline {5}{\ignorespaces Non-fading received symbol PDF}}{9}{figure.caption.10}
+\contentsline {figure}{\numberline {6}{\ignorespaces MRC Symbol Error Rate}}{11}{figure.caption.11}
+\contentsline {figure}{\numberline {7}{\ignorespaces Received signal PDF: Gram-Charlier approximation vs simulation}}{11}{figure.caption.12}
+\contentsline {figure}{\numberline {8}{\ignorespaces Received signal optimum DRB: Gram-Charlier approximation vs simulation}}{11}{figure.caption.13}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9}{\ignorespaces Improved decoder implementation}}{15}{figure.caption.16}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {8}{\ignorespaces $g_k$ linear plot\relax }}{24}{figure.caption.15}
-\contentsline {figure}{\numberline {9}{\ignorespaces $g_k$ log plot\relax }}{25}{figure.caption.16}
-\contentsline {figure}{\numberline {10}{\ignorespaces kernel density estimation $\omega _0=1$\relax }}{25}{figure.caption.17}
-\contentsline {figure}{\numberline {11}{\ignorespaces kernel density estimation $\omega _0=-1$\relax }}{25}{figure.caption.18}
-\contentsline {figure}{\numberline {12}{\ignorespaces PDF for 4-PAM, $\omega _0 \in {-3,-1,1,2}$, $10^8$ samples\relax }}{28}{figure.caption.19}
-\contentsline {figure}{\numberline {13}{\ignorespaces PDF for 4-PAM, $\omega _0 \in {-3,-1,1,2}$\relax }}{29}{figure.caption.20}
-\contentsline {figure}{\numberline {14}{\ignorespaces Gram Charlier approximation of $P(\omega _0=1,R)-P(\omega _0=3,R)$\relax }}{31}{figure.caption.21}
-\contentsline {figure}{\numberline {15}{\ignorespaces Simulation of $P(\omega _0=1,R)-P(\omega _0=3,R)$, N=$3 \times 10^6$\relax }}{31}{figure.caption.22}
-\contentsline {figure}{\numberline {16}{\ignorespaces Comparison of Gram-Charlier Decision Region Boundaries and $2 g(\Delta )$ estimation ($0.01 \ge \Delta \ge 0.2$)\relax }}{32}{figure.caption.23}
-\contentsline {figure}{\numberline {17}{\ignorespaces Optimum Decision Region Boundary for various timing error probability distributions\relax }}{32}{figure.caption.24}
-\contentsline {figure}{\numberline {18}{\ignorespaces Optimum Decision Region Boundary for various timing error probability distributions. Black: estimate found by averaging fixed timing errors over Tikhonov distribution; Blue: analytical result determined by David Murphy; Red: simulation results.\relax }}{35}{figure.caption.25}
-\contentsline {figure}{\numberline {19}{\ignorespaces Plot of optimum decision region boundaries versus Tikhonov-distributed timing error variance, from Gram-Charlier approximation and simulation respectively\relax }}{37}{figure.caption.26}
-\contentsline {figure}{\numberline {20}{\ignorespaces EGC and MRC error rates, SNR=20dB\relax }}{40}{figure.caption.27}
-\contentsline {figure}{\numberline {21}{\ignorespaces EGC and MRC error rates, SNR=28dB\relax }}{41}{figure.caption.28}
-\contentsline {figure}{\numberline {22}{\ignorespaces ``Wiggles'' near the roots\relax }}{47}{figure.caption.29}
-\contentsline {figure}{\numberline {23}{\ignorespaces Sample comparison between simulation (solid) and analytic (dashed) received symbol PDF's\relax }}{52}{figure.caption.30}
-\contentsline {figure}{\numberline {24}{\ignorespaces Symbol Error Rate for 2-channel MRC system with Tikhonov-distributed timing error\relax }}{53}{figure.caption.31}
+\contentsline {figure}{\numberline {10}{\ignorespaces $g_k$ linear plot\relax }}{26}{figure.caption.17}
+\contentsline {figure}{\numberline {11}{\ignorespaces $g_k$ log plot\relax }}{27}{figure.caption.18}
+\contentsline {figure}{\numberline {12}{\ignorespaces Kernel density estimation $\omega _0=1$\relax }}{27}{figure.caption.19}
+\contentsline {figure}{\numberline {13}{\ignorespaces Kernel density estimation $\omega _0=-1$\relax }}{27}{figure.caption.20}
+\contentsline {figure}{\numberline {14}{\ignorespaces (Incorrect) non-fading received symbol PDF}}{30}{figure.caption.21}
+\contentsline {figure}{\numberline {15}{\ignorespaces Non-fading received symbol PDF}}{31}{figure.caption.22}
+\contentsline {figure}{\numberline {16}{\ignorespaces Gram Charlier approximation of $P(\omega _0=1,R)-P(\omega _0=3,R)$\relax }}{33}{figure.caption.23}
+\contentsline {figure}{\numberline {17}{\ignorespaces Simulation of $P(\omega _0=1,R)-P(\omega _0=3,R)$, N=$3 \times 10^6$\relax }}{33}{figure.caption.24}
+\contentsline {figure}{\numberline {18}{\ignorespaces Comparison of Gram-Charlier Decision Region Boundaries and $2 g(\Delta )$ estimation ($0.01 \ge \Delta \ge 0.2$)\relax }}{34}{figure.caption.25}
+\contentsline {figure}{\numberline {19}{\ignorespaces Optimum Decision Region Boundary for various timing error probability distributions\relax }}{34}{figure.caption.26}
+\contentsline {figure}{\numberline {20}{\ignorespaces Optimum Decision Region Boundary for various timing error probability distributions}}{37}{figure.caption.27}
+\contentsline {figure}{\numberline {21}{\ignorespaces Optimum DRb vs. timing error variance}}{39}{figure.caption.28}
+\contentsline {figure}{\numberline {22}{\ignorespaces EGC and MRC error rates, SNR=20dB\relax }}{42}{figure.caption.29}
+\contentsline {figure}{\numberline {23}{\ignorespaces EGC and MRC error rates, SNR=28dB\relax }}{43}{figure.caption.30}
+\contentsline {figure}{\numberline {24}{\ignorespaces "Wiggles" near the roots\relax }}{49}{figure.caption.31}
+\contentsline {figure}{\numberline {25}{\ignorespaces Simulation vs. analytical received symbol PDFs}}{54}{figure.caption.32}
+\contentsline {figure}{\numberline {26}{\ignorespaces Symbol Error Rate for 2-channel MRC system with Tikhonov-distributed timing error\relax }}{55}{figure.caption.33}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

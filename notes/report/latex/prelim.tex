@@ -49,15 +49,14 @@ sent signal amplitude, as shown below. If both symbols are equiprobable, their P
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{4-PAM_PDF.png}
-\caption{Gaussian noise corrupts a sent signal, resulting in a
+\caption[Ideal received signal PDF]{Gaussian noise corrupts a sent signal, resulting in a
 probability density function for each possible sent symbol}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{4-PAM_samples.png}
-\caption{As an example, 2000 of each symbol has been send down the
-communications channel. The received values distorted by noise are
+\caption[AWGN channel simulation]{As an example, 2000 of each symbol has been send down the communications channel. The received values distorted by noise are
 plotted above. Note the overlap in received values corresponding to both
 symbols: it is impossible to detect the signal with 100\% accuracy.}
 \end{figure}
@@ -92,7 +91,7 @@ the communications channel.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{rrc_sync.png}
-\caption{A filter with a root raised cosine function is often used, as
+\caption[Synchronized raised-cosine response]{A filter with a root raised cosine function is often used, as
 it evaluates to 1 at the current sample time and 0 at all other sample
 times}
 \end{figure}
@@ -100,7 +99,7 @@ times}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{rrc_err.png}
-\caption{If a timing offset is added to the root raised cosine it no
+\caption[Unsynchronized raised-cosine response]{If a timing offset is added to the root raised cosine it no
 longer evaluates to 0 or 1 at the sampling time. This results in
 reduced receiver performance when the receiver and transmitter are not
 properly synchronised.}
@@ -125,24 +124,64 @@ This project models channel noise as additive and Gaussian. Fading is assumed to
 
 A simplified model of a communications system ignoring fading was developed in order to allow the author to familiarise himself with the problem, its associated theory and the \emph{Mathematica} environment. This model was used to verify Proposition 1 above.
 
-The effects of fading were incorporated and the performance of the system in the presence of timing error was examined thoroughly through simulation. An analytical verification of these results was attempted by approximating the received symbol PDF conditioned on know timing offsets and channel gains by a Gram-Charlier series and averaging over the respective distributions.
+the ultimate goal was to prove the existence of sub-optimal performance in the system due to receiver timing errors, and demonstrate an optimum decoder with better performance than traditional decoders assuming perfect synchronisation. The effects of fading were incorporated into the model and the performance of the system in the presence of timing error was examined thoroughly through simulation, to determine the qualitative effects of timing error. The optimum decision region boundaries were then determined to inform the optimum decoder description. Finally, the resulting SER for both receivers was determined from the simulation results.
+
+An analytical verification of these results was attempted by approximating the received symbol PDF conditioned on know timing offsets and channel gains by a Gram-Charlier series and averaging over the respective distributions.
 
 \chapter{Results}
 
-Simulation found that, in all cases, the addition of timing offset results in a decrease in the amplitude of the received signal with respect to the perfectly synchronised case. The optimum decision boundary was therefore found to reduce accordingly.
+\section{Effects of timing error on the non-fading system}
 
-With a 4-PAM MRC system and Rayleigh channel, the Tikhonov-distributed timing offset was found to result a large increase in Symbol Error Rate regardless of decision region boundary. Use of an optimum decision region boundary informed by the timing error statistics resulted in gains of up to 11\%.
+The general effects of timing error were examined through simulation. A Mathematica simulation of the AWGN communications system with a variable timing error parameter was constructed, and run for a range of timing error parameters.
+
+Timing error was found to result in attenuation of the received signal The level of attenuation depends on the severity of the timing error and the response of the channel, as given be Proposition 1 given earlier.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\linewidth]{../../../plots/4pamdecisionerror.png}
+\caption[Non-fading received symbol PDF]{Recieved signal PDF for a number of timing offsets (4-PAM, AWGN channel, SNR=4dB))}
+\end{figure}
+
+The effects of timing error offset were significant enough to warrant a study using a more realistic fading model, in order to determine the effects in a typical system.
+
+\section{Effects of timing error on the Rayleigh-fading system}
+
+The previous model was extended to include the effects of Rayleigh-distributed fading. The receiver was extended to an l-antenna system, accompanied with selectable EGC or MRC techniques. Timing error was implemented as a Tikhonov-distributed stochastic process.
+
+Both EGC and MRC systems were similarly examined, and in both cases the effects of timing error were also present, to a lesser extent than in the non-fading case, as the antenna diversity has an averaging effect on the received signal. Nonetheless the presence of attenuation suggested that decoding performance was sub-optimal, and could be improved through decoder redesign.
+
+\section{Optimal decoding in the presence of timing error}
+
+The optimum decision region boundaries can be shown to be the intersection between adjacent symbol's PDFs at the input to the decoder. The received symbol histograms generated through simulation were used to determine the optimum decision region boundaries, and the Symol Error Rate defined as the probability of a symbol being incorrectly decoded by the decoder.
+
+\[
+\text{SER} = \int\limits_{Y_{DRB}}^{\infty} H_1 (Y) \; dY + \int\limits_{- \infty}^{Y_{DRB}} H_3 (Y) \; dY
+\]
+
+If the $\omega = 1, 3$ histograms $H_1$ and $H_3$ have a bin width $\Delta Y$, and a decision region boundary of $Y_{DRB}$ is chosen, where $Y_{DRB} \simeq (n + \frac{1}{2}) \Delta Y$, then the SER was approximated as
+
+\[
+\text{SER} \simeq \sum\limits_{i = (n+1) \Delta Y}^{N} H_1 [i] + \sum\limits_{j = 0}^{n \Delta Y} H_3 [j]
+\]
+
+The Symbol Error Rates were determined for a range of timing error variances. EGC was found to perform unsatisfactorily at the target SNR of 20dB, so the MRC system was focused on for the continuation of the project.  Timing offset was shown to increase Symbol Error Rates by up to two orders of magnitude\footnote{4-PAM signalling, l=2, SNR=20dB}.
+
+\marginpar{Note on determining the SER: In this project, symmetric 4-PAM signalling was used, so one of the three decision region boundaries is located at 0 and therefore unaffected by timing error. The overall SER presented here is therefore $\sfrac{2}{3}$ that calculated.}With the fall in received signal amplitude comes a fall in optimum decision region boundary. The optimum decision region boundary for the MRC system was found to drop with increasing timing error. Therefore, the traditional system performs sub-optimally. An optimum receiver was designed taking into account the variance of the timing error, and was found to result in a decrease of up to 11\% in SER, for the given number of diversity branches and SNR.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{MRC2_SER.png}
-\caption{Symbol Error Rate versus timing error variance}
+\caption[MRC Symbol Error Rate]{Symbol Error Rate versus timing error variance (4-PAM, Rayleigh-fading AWGN channel, MRC, l=2, SNR=20dB, N= $5 \times 10^{10}$))}
 \end{figure}
 
-The received signal PDF of the MRC system conditioned on timing offsets and channel gains was approximated using a Gram-Charlier series. Timing errors were found to result in similar reductions in signal amplitude and optimum decision region boundaries.
+While the simulation demonstrated the effects of timing error on the described system, a complementary analytical description of the problem would provide additional support to these findings.
+
+\section{Analytical study of timing error}
+
+By approximating the received signal PDF, conditional on set channel gains and timing errors, by a Gram-Charlier series\footnote{See Appendix TODO}, an analytic solution to the conditional PDF was developed. Simulation and analytical plots were compared and the latter was found to be a sufficiently strong approximation to provide an estimate for the optimum decision region boundary.
 
 \begin{figure}[htbp]
-\caption{Overleaf, left: Comparison between simulated received signal PDF (solid) and Gram-Charlier approximation (dashed)}
+\caption[Received signal PDF: Gram-Charlier approximation vs simulation]{Overleaf, left: Comparison between simulated received signal PDF (solid) and Gram-Charlier approximation (dashed)}
 \end{figure}
 
 {
@@ -150,7 +189,7 @@ The received signal PDF of the MRC system conditioned on timing offsets and chan
 \setlength{\textfloatsep}{2pt plus 1.0pt minus 2.0pt}
 \setlength{\intextsep}{2pt plus 1.0pt minus 2.0pt}
 \begin{figure}[htbp]
-\caption{Overleaf, right: Comparison between simulated received signal optimum decision region boundary (solid) and Gram-Charlier approximation (dashed)}
+\caption[Received signal optimum DRB: Gram-Charlier approximation vs simulation]{Overleaf, right: Comparison between simulated received signal optimum decision region boundary (solid) and Gram-Charlier approximation (dashed)}
 \end{figure}
 }
 
@@ -172,13 +211,21 @@ The proposition that the conditional effects of timing error on the received sym
 
 While the improvements may not seem massive, it is key to note that the change is made \emph{without adding any stages to the detector}. The proposed changes can be implemented with minimum complexity - the factor change in decision region boundary for a given timing error can be pre-determined and stored in a look-up table,  and current timing statistics can be used to address the relevant correction factor.
 
-TODO: system image
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{system.png}
+\caption[Improved decoder implementation]{Improved decoder implementing the described corrections as a LUT and multiplier block.}
+\end{figure}
 
 \chapter{Future Work}
 
-This project has theoreticized a fundamental issue present in amplitude-modulated communications systems prone to timing errors. It would be complemented with a practical description of the problem. The described 4-PAM MRC system could be implemented and either the timing offsets artificially added in or the hardware's own timing error monitored.
+Future work will be carried out by the author on extending the analytical solution to the conditional PDF to an analytical solution for the overall PDF, with a goal to deriving the optimum decision region boundary for a given timing error variance. This would allow the correction terms for a practical system to be determined without having to perform extensive simulation work.
 
-While the project was successful in determining through simulation the optimum decision region boundaries conditioned on the timing error variances, an analytical way of determining the same would be useful as a design tool. An attempt was made to determine the received symbol PDF by averaging the conditional Gram-Charlier approximation over the fading and timing error distributions, using Gauss-Legendre quadrature. Unfortunately a satisfactory result couldn't be determined within a reasonable timeframe, but future work using a different method could yield an analytical solution. With this solution, it would be possible to determine the correction factor conditioned on timing error variances and channel gains, which could provide a much more effective decoding method.
+Given a complete analytical solution for the overall received symbol PDF, it would be possible to generate the optimum decision region boundary conditioned on factors other than timing error variance, such as channel gain and channel SNR. The performance gains from such a system would have to be offset against system cost, but these parameters are readily available to the system.
+
+An extension of the theory presented here to other receiver architectures, channel models and conditions would be a logical continuation to this project, and would help determine the areas in which timing errors are of most concern. In particular, Nakagami-n fading and the effects of increased diversity were not studied, and could yield some interesting results.
+
+This project has theoreticized a fundamental issue present in amplitude-modulated communications systems prone to timing errors. It would be complemented with a practical description of the problem. The described 4-PAM MRC system could be implemented and either the timing offsets artificially added in or the hardware's own timing error monitored.
 
 \chapter{Conclusions}
 
