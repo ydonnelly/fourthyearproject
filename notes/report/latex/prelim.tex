@@ -133,11 +133,36 @@ Simulation found that, in all cases, the addition of timing offset results in a 
 
 With a 4-PAM MRC system and Rayleigh channel, the Tikhonov-distributed timing offset was found to result a large increase in Symbol Error Rate regardless of decision region boundary. Use of an optimum decision region boundary informed by the timing error statistics resulted in gains of up to 11\%.
 
-TODO: SER vs Tikh Var
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{MRC2_SER.png}
+\caption{Symbol Error Rate versus timing error variance}
+\end{figure}
 
 The received signal PDF of the MRC system conditioned on timing offsets and channel gains was approximated using a Gram-Charlier series. Timing errors were found to result in similar reductions in signal amplitude and optimum decision region boundaries.
 
-TODO: GC comparison
+\begin{figure}[htbp]
+\caption{Overleaf, left: Comparison between simulated received signal PDF (solid) and Gram-Charlier approximation (dashed)}
+\end{figure}
+
+{
+\setlength{\floatsep}{2pt plus 1.0pt minus 2.0pt}
+\setlength{\textfloatsep}{2pt plus 1.0pt minus 2.0pt}
+\setlength{\intextsep}{2pt plus 1.0pt minus 2.0pt}
+\begin{figure}[htbp]
+\caption{Overleaf, right: Comparison between simulated received signal optimum decision region boundary (solid) and Gram-Charlier approximation (dashed)}
+\end{figure}
+}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=\textheight]{comparison_full.png}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=\textheight]{comparison_boundary.png}
+\end{figure}
 
 \chapter{Discussion of results}
 

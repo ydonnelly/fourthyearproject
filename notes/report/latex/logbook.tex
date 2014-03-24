@@ -26,7 +26,7 @@ $g(t) = (u_T \ast h_l \ast u_R)(t) \times cos(\theta)$ and $\nu$ is a
 zero-mean Gaussian random variate with
 $\sigma_{\nu}^2 = N_0 \varepsilon_R$.
 
-I learnt the basics of the interface, and began inplementing the filter
+I learnt the basics of the interface, and began implementing the filter
 and channel impulse responses (I.R.). I need to double-check the
 definition of the Root-Raised Cosine (RRC) Filter, as the impulse
 response wasn't as expected.
@@ -70,7 +70,7 @@ figured out how to generate random noise vectors following a Gaussian
 distribution, as well as how to generate a list of random binary
 symbols.
 
-After discussing the convolution issue with David, he suggested that the
+After discussing the convolution issue with David Murphy, he suggested that the
 channel should be initially modelled as ideal and therefore the overall
 channel and filter I.R. $g(t)$ can be defined as a Raised Cosine
 function, as defined above. I should therefore be ready to implement the
@@ -130,9 +130,8 @@ and wrote some examples to figure out how to convert mathematical
 problems to Mathematica notation using matrices. I hope to convert the
 code to use matrices tomorrow to hopefully simplify and speed things up.
 
-I also implemented David's equation for properly calculating the AWGN
-function variance from SNR\footnote{See Dave's notes}, from last
-Friday's meeting.
+I also implemented PhD student David Murphy's equation for properly calculating the AWGN
+function variance from SNR\footnote{$\sigma_r^2 = \frac{L^2 - 1}{6 log_2(L) \left ( \dfrac{E_b}{N_0} \right )}$}, from last Friday's meeting.
 
 \subsection{08/10/13 - Fixed I.R. and Kernel Density Estimation}
 
@@ -179,7 +178,7 @@ calculated.
 \end{figure}
 
 Using \texttt{SmoothKernelDistribution} to perform Kernel Density
-Enstimation with 1 million points produced the following estimated PDFs
+Estimation with 1 million points produced the following estimated PDFs
 for both possible transmitted values. As the timing error increases, we
 note that the PDF spreads out, but the mean remains steady.
 
@@ -197,7 +196,7 @@ note that the PDF spreads out, but the mean remains steady.
 
 \subsection{09/10/13 - Setting up Digital Comms Lab PC}
 
-With Ger's help, I set up an account on \texttt{Digital Comms Lab 1} \&
+With Ger Houten's help, I set up an account on \texttt{Digital Comms Lab 1} \&
 \texttt{Digital Comms Lab 2} and got the internet working. Mathematica 8
 is installed and working on both machines, we will have to consider
 whether an upgrade to Mathematica 9 would be useful or not. Git and VNC
@@ -210,13 +209,13 @@ cluster for access for this machine, however the email given
 After finding out the Boole cluster was no more, I used today to examine
 what hardware I had available to me. I got access from Ger to the public
 \texttt{UEPC004} server, and from there I am able to access machines on
-the elec eng network. I set up a \emph{Remote Desktop Protocol} link to
+the Engineering network. I set up a \emph{Remote Desktop Protocol} link to
 \texttt{Digital Comms Lab 1} through this server, allowing me to control
 the machine from any location. I am also able to log remotely into EDA
 lab machines, and run Mathematica 6 on those machines.\marginpar{The GUI
   does not work when using \texttt{ssh} to access the EDA Lab machines,
   but using the command \texttt{math} to start and operate Mathematica
-  kernels does.} Ger has been known to tweak machines in response to
+  kernels does.} Ger Houten has been known to tweak machines in response to
 personal requests, so if asked nicely he may let me use two or three of
 these machines concurrently.
 
@@ -232,7 +231,7 @@ Given these resources, I feel there are three ways I could continue:
   would be the easiest to use, but would require considerate work to set
   up.
 \item
-  I could use the \texttt{MathLink} interface to acheive a similar,
+  I could use the \texttt{MathLink} interface to achieve a similar,
   lower-level version of the former, with the EDA Lab machines as
   independent, remote slaves and \texttt{Digital Comms Lab 1} sending
   commands to these slaves and collating the replies. This setup is
@@ -241,7 +240,7 @@ Given these resources, I feel there are three ways I could continue:
   between each of the nodes, and needs to be well designed to minimise
   network delays.
 \item
-  I could simply run the code in parralel on each of the machines
+  I could simply run the code in parallel on each of the machines
   available to me, dumping the results to text files, and collate the
   data at the end. This would require no setup, and code written on any
   machine would only require porting to another version of Mathematica.
@@ -280,7 +279,7 @@ module in a loop allows each pass to be recorded for later
 parsing\marginpar{Using the \texttt{Get} and \texttt{Put} methods. The
   \texttt{DumpSave} method is supposed to be more efficient, but was
   added after Mathematica 6.}. After running the code overnight, this
-system appears to work, and is scaleable over multiple machines. The
+system appears to work, and is scalable over multiple machines. The
 main disadvantage is the size of these files (7.7MB per 400,000 values),
 so I must either figure out how to transfer them over the network or see
 whether reducing the precision of the output values will reduce the file
@@ -326,7 +325,7 @@ onto PSK systems as the next steps in the process.
 Code was written that could be executed in parallel on multiple
 machines, and this was demonstrated in practice. The code was extended
 to the 4-PAM case, and showed no change in optimum decision region
-boundaries. Upon later consultation with Dave, it seems this is because
+boundaries. Upon later consultation with David Murphy, it seems this is because
 the decision region boundaries shift due to a change in the $g_0$ term,
 and not the appearance of ISI components due to the $g_k$ terms; the
 latter was believed to be the expected cause, and so the $g_0$ term was
@@ -366,8 +365,7 @@ I spent Monday carrying out two tasks:
 \def\labelenumi{\arabic{enumi}.}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  I re-wrote Dave's Gram-Charlier equations\footnote{See
-    Dave's notes} for Mathematica, and should be ready to try
+  I re-wrote David Murphy's Gram-Charlier equations for Mathematica, and should be ready to try
   them out tomorrow.
 \item
   I modified the PAM simulation with a coarser-grained histogram, but
@@ -400,7 +398,7 @@ generated previously.
 \subsection{Week 4 Summary}
 
 I implemented the Gram-Charlier series and was able to compare the
-results from the simulationa dn the Gram-Charlier series. These are
+results from the simulations to the Gram-Charlier series. These are
 close, but not exact, so we will have to look closely at where the
 differences may be coming from.
 
@@ -418,7 +416,7 @@ differences may be coming from.
 \subsection{29/10/13 - Comparing Gram-Charlier to Simulation}
 
 The simulations ended, and I was able to compare simulated and
-gram-charlier PDF plots. I extracted a rough estimate of the decision
+Gram-Charlier PDF plots. I extracted a rough estimate of the decision
 region boundaries given by both methods and compared them to the
 corresponding values of $2 g(\Delta)$, and found very close correlation.
 
@@ -504,7 +502,7 @@ distribution of timing offsets
 
 \subsection{04/11/13 - Fixing errors}
 
-Dave took a look at my code and spotted errors which I fixed. The fixed
+David Murphy took a look at my code and spotted errors which I fixed. The fixed
 Gram-Charlier implementation was found to match $2 g_k$ very closely.
 The fixed simulation was left to run overnight; unfortunately
 Mathematica 6.0 running on the Unix machines was unable to run it, so
@@ -521,7 +519,7 @@ days.
 A simulation was constructed that generated timing error offsets
 according to a Tikhonov distribution of predetermined variance, and used
 to produce received symbol PDFs. The simulation was found to run very
-slowly, and could only be run on Mathematica 9. Ger has been asked
+slowly, and could only be run on Mathematica 9. Ger Houten has been asked
 whether it would be possible to upgrade the Unix machines to this
 version and he will look into it.
 
@@ -539,8 +537,8 @@ version and he will look into it.
 \subsection{11/11/13 - Returning to the UNIX machines}
 
 The UNIX machines were upgraded to Mathematica 9 over the weekend, so I
-was able to port the code in order to run off these. In addition, Dave
-suggested that I look into paralllelising the code. Since these were
+was able to port the code in order to run off these. In addition, David Murphy
+suggested that I look into parallelizing the code. Since these were
 dual-core machines I was able to make use of Mathematica's
 \texttt{ParallelTable} function to reduce run times a little. The
 simulation will have to run over several days, however, as the expected
@@ -562,7 +560,7 @@ B_{\text{OPT}} \sim \sum_{\Delta} \text{P}(\Delta) B_{\text{OPT,}\Delta}
 \centering
 \includegraphics[width=\linewidth]{../../../plots/opt_dec_reg.png}
 \caption{Optimum Decision Region Boundary for various timing error
-probability distributions. Black: estimate found by averaging fixed timing errors over Tikhonov distribution; Blue: analytical result determined by Dave; Red: simulation results.}
+probability distributions. Black: estimate found by averaging fixed timing errors over Tikhonov distribution; Blue: analytical result determined by David Murphy; Red: simulation results.}
 \end{figure}
 
 \subsection{Week 7 Summary}
@@ -597,8 +595,8 @@ fading, mainly \emph{Proakis}, I implemented the Rayleigh distribution
 as a modified Nagakami-n distribution
 \marginpar{The Rayleigh distribution is a special case of the Nagakami-n distribution, with n=1}
 I implemented this as well as a multi-receiver combining system and
-added it to the existing simulation. Following a meeting with Dave and
-Colin, we decided to proceed as follows:
+added it to the existing simulation. Following a meeting with David Murphy and
+Colin Murphy, we decided to proceed as follows:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -627,7 +625,7 @@ Colin, we decided to proceed as follows:
   error.
 \item
   Attempt to describe the system analytically, ignoring fading. This
-  will be based on a Gram-Charlier aproximation.
+  will be based on a Gram-Charlier approximation.
 \end{itemize}
 
 \section{Week 9}
@@ -660,13 +658,13 @@ variances was commenced, and is expected to finish mid-week.
 case}
 
 I found an implementation of the Gram-Charlier series and Tikhonov
-distribution I had developped previously that could be used as a basis
+distribution I had developed previously that could be used as a basis
 for an analytical exploration of the project topic. The code produces a
 Gram-Charlier PDF for a range of timing offsets, calculates the optimum
 decision region boundary for each, and averages these boundaries over
-the Tikhonov distribution. Dave suggested that while this approach
+the Tikhonov distribution. David Murphy suggested that while this approach
 wasn't mathematically correct, if the Gram-Charlier PDF's were averaged
-over the Tikhonov distriution to provide an overall PDF, the optimum
+over the Tikhonov distribution to provide an overall PDF, the optimum
 decision region boundary could be calculated from this.
 
 \subsection{15/01/14 - Evaluating the Gram-Charlier distribution over
@@ -706,7 +704,7 @@ fading. This simulation was run over the course of the week and
 
 A rough analytical study of the non-fading timing error model examined
 before Christmas was carried out. The PDF's of various cases with a
-fixed timing offset were generated, and averaged over a discretised
+fixed timing offset were generated, and averaged over a discretized
 Tikhonov distribution to estimate the PDF of the system in the presence
 of Tikhonov distributed timing offsets. This was carried out for a range
 of Tikhonov distribution variances to examine different conditions. The
@@ -739,18 +737,18 @@ optimum decision region boundary is only loosely related to the Tikhonov
 variance, which would imply that knowledge of the timing statistics is
 less important in implementation than previously thought.
 
-Dave produced an analytical solution for the optimum decision region
+David Murphy produced an analytical solution for the optimum decision region
 boundary in the non-fading case, which demonstrated clear BER gains
 (20-33\%).
 
-\subsection{21/01/14 - Implementing Dave's suggestions}
+\subsection{21/01/14 - Implementing David's suggestions}
 
 Following some consideration, Dave suggested that the SNR of 8dB used in
 the simulation was too low for 4-PAM, and it's possible that the ODRB of
 1.72 seen was the lower bound for the ODRB. We settled on a more
 reasonable SNR of 20dB, and decided to apply each set of random
-conditions to both posble sent symbols $\omega_0$ = 1,3 so that we would
-only have to run the simulations once. Another suggestion made by Dave
+conditions to both possible sent symbols $\omega_0$ = 1,3 so that we would
+only have to run the simulations once. Another suggestion made by David Murphy
 was to apply a different timing offset to each channel, as each channel
 has a separate receiver, and therefore independent timing. I also
 implemented Maximal-Ratio Combining as an option in order to compare the
@@ -863,9 +861,9 @@ clarity of the descriptions.
 The simulation ended, but unfortunately it turned out that the EGC
 simulation had been ran with an SNR of 8dB, so had to be run again.
 
-Dave announced he has been able to start the analytical proof of the
+David Murphy announced he has been able to start the analytical proof of the
 timing offset, and we should be able to hear from him at the start of
-next week.
+next week. I am planning on using his code as a base to build upon for my project.
 
 \subsection{Week 12 Summary}
 
@@ -875,7 +873,7 @@ A relatively quiet week, with a focus on the seminar presentation.
 
 \subsection{11/02/14 - Analytical description of non-fading case}
 
-Dave provided a proof for the Gram-Charlier approximation of the
+David Murphy provided a proof for the Gram-Charlier approximation of the
 non-fading case, along with some accompanying code. Used the
 Gauss-Legendre method to combine the Gram-Charlier solution for a fixed
 timing offset with the Tikhonov timing offset distribution to provide a
@@ -918,12 +916,12 @@ I was unfortunately unable to test this code before end of day.
 
 \subsection{12/02/14 - Viability of independent variate route}
 
-During an email conversation with Dave, he suggested that the
+During an email conversation with David Murphy, he suggested that the
 convolution route might be difficult to implement in terms of processing
 requirements, and suggested instead that in the case of the MRC system,
 the independence of the timing error and fading statistics of each
-receive channel means that a ``joint'' PDF describing the probability of
-all timing and fading variabled can be constructed by taking the product
+receive channel means that a "joint" PDF describing the probability of
+all timing and fading variables can be constructed by taking the product
 of each timing and fading PDF. Therefore we can derive a Gram-Charlier
 distribution conditioned on a particular set of timing offsets and
 fading factors, calculate the BER of this theoretical system, and
@@ -932,7 +930,7 @@ described by the joint PDF.
 
 \subsection{13/04/14 - MRC adaptation of Gram-Charlier distribution}
 
-I went over the process described yesterday in more detail with Dave,
+I went over the process described yesterday in more detail with David Murphy to ensure I fully understood it,
 and began to implement it by replacing all the $g_k(\Delta)$ terms in
 his implementation of the non-fading Gram-Charlier series with
 $\alpha_1^2 g_k(\Delta_1) + \alpha_2^2 g_k(\Delta_2)$ to reflect the
@@ -945,9 +943,9 @@ Testing this model, I noticed oscillations at the tails of the
 distributions which made it impossible to calculate the optimum DRBs, as
 there were multiple PDF crossings.
 
-\subsection{14/04/14 - Explaning the oscillations}
+\subsection{14/04/14 - Explaining the oscillations}
 
-I raised the issue with Dave, and it turned out that I had forgotten the
+I raised the issue with David Murphy, and it turned out that I had forgotten the
 effects of fading on the channel Gaussian noise. The variance of this
 noise is scaled by the effects of noise, in this case by
 $(\alpha_1 + \alpha_2)$. Making this correction I was able to determine
@@ -956,7 +954,7 @@ $2(\alpha_1^2 g_0(\Delta_1) + \alpha_2^2 g_0(\Delta_2))$, as expected.
 
 \subsection{Week 13 Summary}
 
-In this week I examined Dave's derivation and modeling of the non-fading
+In this week I examined David Murphy's derivation and modelling of the non-fading
 case using the Gram-Charlier series, and make a start on my own piece of
 the analytical work. I successfully extended his derivation to describe
 the decoder input PDF for a 2 antenna MRC system given known fading
@@ -1007,7 +1005,7 @@ I noted that the \emph{FindRoot} method had difficulty converging for
 both very high and very low channel gains, as the optimum decision
 region boundary in these cases are much higher or lower than usual.
 Since the nature of the Rayleigh distribution dictates that these
-extreme gains are still likely, I used the oservation that the gain can
+extreme gains are still likely, I used the observation that the gain can
 be roughly given by $2(\alpha_1^2 + \alpha_2^2)$ for low timing error
 offsets, and instructed the \emph{FindRoot} method to start the search
 at this point. This improved both the speed and possibility of
@@ -1024,13 +1022,12 @@ some issues remained:
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   For very large timing error offsets, the algorithm converged to an
-  unlikely value. This is uninportant, as in these cases the system has
+  unlikely value. This is unimportant, as in these cases the system has
   failed to perform any sort of detection.
 \item
   The response is somewhat oscillatory. This could be due to the
   accuracy of the Gram-Charlier series, or less likely the
-  \emph{FindRoot} method. I must ask Dave if he has any idea of how to
-  fix this.
+  \emph{FindRoot} method.
 \item
   Even more complexing, the algorithm seems to fail to converge for
   certain combinations of timing error offset. At first glance it looks
@@ -1042,10 +1039,10 @@ some issues remained:
 
 \subsection{20/02/14 - Discussion of Gram-Charlier accuracy}
 
-I discussed the issue described above with Dave and Colin, and Dave
+I discussed the issue described above with David Murphy and Dr. Colin Murphy, and David Murphy
 suggested increasing that it could be a machine precision problem, and
 that increasing the precision of the variables used in the Gram-Charlier
-series calculation could solve the problem. Alternatively, Colin
+series calculation could solve the problem. Alternatively, Dr. Colin Murphy
 suggested that an acceptable answer could be obtained by truncating the
 sweep to remove the areas where the \emph{FindRoot} algorithm does not
 converge.
@@ -1114,7 +1111,7 @@ only made the oscillations much worse.
 
 \subsection{25/02/14 - Correct optimum DRB measurements}
 
-A brief email exchange with Dave helped me understand the source of the
+A brief email exchange with David Murphy helped me understand the source of the
 problem. In the model I had built, it was assumed that the instantaneous
 channel gains and timing offsets were known, and used to make an
 estimate of the optimum DRB, and the resulting BER was averaged over the
@@ -1136,7 +1133,7 @@ and Tikhonov distributions to determine the average BER.
 
 \subsection{26/02/14 - Integration}
 
-After a suggestion from Dave, I tried implementing a closed-form
+After a suggestion from David Murphy, I tried implementing a closed-form
 solution for the integration of the Gram-Charlier PDF approximation,
 given solutions for the integration of other identities. In this manner
 I hoped to significantly reduce the time to determine the average BER.
@@ -1179,13 +1176,13 @@ that the value found using \emph{NIntegrate} is correct, as the
 algorithm converges to a very precise result and I have very little
 confidence in my own mathematical abilities, so for the moment I will
 stick with it. Then again, it is possible that numerical integration is
-reflecting some unforeeseen innaccuracies in my implementation of the
+reflecting some unforeseen inaccuracies in my implementation of the
 Gram-Charlier series, and the closed-form solutions, being
 mathematically-based, are accurate.
 
 \subsection{Week 15 Summary}
 
-In week 15 I fixed a significant innaccuracy in the model I had built to
+In week 15 I fixed a significant inaccuracy in the model I had built to
 determine the average BER, stemming from a misconception I had acquired
 from getting caught up with implementation and forgetting the top-level
 picture. The numerical implementation of the analytical model seems to
@@ -1246,14 +1243,14 @@ error variances.
 \subsection{14/03/14 - Pre-open day progress}
 
 The past weekend was spent trying to account for differences between the
-analytical and simulation models. Both successdully demonstrated reduced
+analytical and simulation models. Both successfully demonstrated reduced
 optimum decision region boundaries in the presence of timing errors;
 however the reduction is much more severe in the simulation than using
 the analytically derived results. Since I was hoping to be able to
 derive the optimum DRB values analytically, this was and still remains a
 major stumbling block.
 
-Dave suggested a modification to the \emph{FindRoot} method which mixes
+David Murphy suggested a modification to the \emph{FindRoot} method which mixes
 Newton's Method and the Bisection Method in order to prevent divergence,
 however since this isn't currently an issue I doubt I'll have time to
 implement it.
@@ -1274,11 +1271,11 @@ characteristics to the simulation, just not to the same extent.
 
 Suspecting that this meant that there was a simple mistake in
 calculating the parameters of the Gram-Charlier approximation, I made a
-simplified version and asked Dave to look over it.
+simplified version and asked David Murphy to look over it.
 
 \subsection{18/03/14 - Fixing the Gram-Charlier code}
 
-Dave got back to me with two mistakes in the code:
+David Murphy got back to me with two mistakes in the code:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -1312,21 +1309,14 @@ the comparison zoomed into the boundary region, as can be seen below.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[height=\textheight]{../../../plots/comparison_f08.png}
-\caption{Sample comparison between simulation (solid) and analytic
-(dashed) received symbol PDF's}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[height=\textheight]{../../../plots/comparison_f08_boundary.png}
+\includegraphics[height=\textheight]{comparison_scaled.png}
 \caption{Sample comparison between simulation (solid) and analytic
 (dashed) received symbol PDF's}
 \end{figure}
 
 \subsection{21/03/14 - A slight mistake}
 
-The simulation ended, and I realised that I had accidently build on the
+The simulation ended, and I realised that I had accidentally build on the
 code used to determine the results for the EGC system. Substituting the
 description of the MRC system, I restarted the simulation.
 

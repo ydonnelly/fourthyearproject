@@ -1,6 +1,7 @@
 \select@language {american}
 \vspace {-\cftbeforepartskip }
 \select@language {american}
+\contentsline {chapter}{List of Figures}{viii}{chapter*.4}
 \contentsline {chapter}{\numberline {1}\spacedlowsmallcaps {Introduction and Objectives}}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}\spacedlowsmallcaps {Background Information}}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}The Communications system Model}{3}{section.2.1}
@@ -8,110 +9,110 @@
 \contentsline {section}{\numberline {2.3}Previous Work}{6}{section.2.3}
 \contentsline {chapter}{\numberline {3}\spacedlowsmallcaps {Methodology}}{7}{chapter.3}
 \contentsline {chapter}{\numberline {4}\spacedlowsmallcaps {Results}}{9}{chapter.4}
-\contentsline {chapter}{\numberline {5}\spacedlowsmallcaps {Discussion of results}}{11}{chapter.5}
-\contentsline {chapter}{\numberline {6}\spacedlowsmallcaps {Future Work}}{13}{chapter.6}
-\contentsline {chapter}{\numberline {7}\spacedlowsmallcaps {Conclusions}}{15}{chapter.7}
-\contentsline {part}{i\hspace {1em}\spacedlowsmallcaps {Appendix}}{17}{part.1}
-\contentsline {chapter}{\numberline {A}\spacedlowsmallcaps {Logbook}}{19}{appendix.A}
-\contentsline {section}{\numberline {A.1}Week 1}{19}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}30/09/13 - Exploring simple case with PAM modulation}{19}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}01/10/13 - Implementing Raised Cosine functions}{19}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}02/10/13 - Wrapping Up the Initial PAM Model}{20}{subsection.A.1.3}
-\contentsline {subsection}{\numberline {A.1.4}03/10/13 - Delving deeper into Mathematica}{20}{subsection.A.1.4}
-\contentsline {subsection}{\numberline {A.1.5}Week 1 Summary}{21}{subsection.A.1.5}
-\contentsline {subsection}{\numberline {A.1.6}Goals for Week 2}{21}{subsection.A.1.6}
-\contentsline {section}{\numberline {A.2}Week 2}{21}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}07/10/13 - Matrix manipulations}{21}{subsection.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}08/10/13 - Fixed I.R. and Kernel Density Estimation}{22}{subsection.A.2.2}
-\contentsline {subsection}{\numberline {A.2.3}09/10/13 - Setting up Digital Comms Lab PC}{22}{subsection.A.2.3}
-\contentsline {subsection}{\numberline {A.2.4}10/10/13 - Probing the Elec Eng network}{24}{subsection.A.2.4}
-\contentsline {subsection}{\numberline {A.2.5}Week 2 Summary}{25}{subsection.A.2.5}
-\contentsline {subsection}{\numberline {A.2.6}Goals for Week 3}{25}{subsection.A.2.6}
-\contentsline {section}{\numberline {A.3}Week 3}{25}{section.A.3}
-\contentsline {subsection}{\numberline {A.3.1}14/10/13 - Running longer scripts on the EDA machines}{25}{subsection.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}15/10/13 - Reducing output size}{25}{subsection.A.3.2}
-\contentsline {subsection}{\numberline {A.3.3}16/10/13 - Moving onto 4-PAM}{25}{subsection.A.3.3}
-\contentsline {subsection}{\numberline {A.3.4}Week 3 Summary}{26}{subsection.A.3.4}
-\contentsline {subsection}{\numberline {A.3.5}Goals for Week 4}{26}{subsection.A.3.5}
-\contentsline {section}{\numberline {A.4}Week 4}{27}{section.A.4}
-\contentsline {subsection}{\numberline {A.4.1}21/10/13 - Implementing the Gram-Charlier series}{27}{subsection.A.4.1}
-\contentsline {subsection}{\numberline {A.4.2}22/10/13 - More Gram-Charlier series}{27}{subsection.A.4.2}
-\contentsline {subsection}{\numberline {A.4.3}23/10/13 - Proper Gram-Charlier plots}{28}{subsection.A.4.3}
-\contentsline {subsection}{\numberline {A.4.4}Week 4 Summary}{28}{subsection.A.4.4}
-\contentsline {subsection}{\numberline {A.4.5}Goals for Week 5}{28}{subsection.A.4.5}
-\contentsline {section}{\numberline {A.5}Week 5}{28}{section.A.5}
-\contentsline {subsection}{\numberline {A.5.1}29/10/13 - Comparing Gram-Charlier to Simulation}{28}{subsection.A.5.1}
-\contentsline {subsection}{\numberline {A.5.2}30/10/13 - Applying the Tikhonov Distribution}{28}{subsection.A.5.2}
-\contentsline {subsection}{\numberline {A.5.3}Week 5 Summary}{30}{subsection.A.5.3}
-\contentsline {subsection}{\numberline {A.5.4}Goals for Week 6}{31}{subsection.A.5.4}
-\contentsline {section}{\numberline {A.6}Week 6}{31}{section.A.6}
-\contentsline {subsection}{\numberline {A.6.1}04/11/13 - Fixing errors}{31}{subsection.A.6.1}
-\contentsline {subsection}{\numberline {A.6.2}05/11/13 - Corrected simulation results}{32}{subsection.A.6.2}
-\contentsline {subsection}{\numberline {A.6.3}Week 6 Summary}{32}{subsection.A.6.3}
-\contentsline {subsection}{\numberline {A.6.4}Goals for Week 7}{32}{subsection.A.6.4}
-\contentsline {section}{\numberline {A.7}Week 7}{32}{section.A.7}
-\contentsline {subsection}{\numberline {A.7.1}11/11/13 - Returning to the UNIX machines}{32}{subsection.A.7.1}
-\contentsline {subsection}{\numberline {A.7.2}19/11/13 - Day 9 of Week 7}{32}{subsection.A.7.2}
-\contentsline {subsection}{\numberline {A.7.3}Week 7 Summary}{33}{subsection.A.7.3}
-\contentsline {subsection}{\numberline {A.7.4}Goals for Week 8 onwards}{33}{subsection.A.7.4}
-\contentsline {section}{\numberline {A.8}Week 8}{34}{section.A.8}
-\contentsline {subsection}{\numberline {A.8.1}Week 8 Summary}{34}{subsection.A.8.1}
-\contentsline {subsection}{\numberline {A.8.2}Goals for Week 9}{34}{subsection.A.8.2}
-\contentsline {section}{\numberline {A.9}Week 9}{34}{section.A.9}
-\contentsline {subsection}{\numberline {A.9.1}13/01/14 - Examining combining and fading}{34}{subsection.A.9.1}
-\contentsline {subsection}{\numberline {A.9.2}14/01/14 - Planning an analytical analysis of the non-fading case}{35}{subsection.A.9.2}
-\contentsline {subsection}{\numberline {A.9.3}15/01/14 - Evaluating the Gram-Charlier distribution over the Tikhonov distribution}{35}{subsection.A.9.3}
-\contentsline {subsection}{\numberline {A.9.4}16/01/14 - Results for the above}{35}{subsection.A.9.4}
-\contentsline {subsection}{\numberline {A.9.5}Week 9 Summary}{35}{subsection.A.9.5}
-\contentsline {subsection}{\numberline {A.9.6}Goals for Week 10}{36}{subsection.A.9.6}
-\contentsline {section}{\numberline {A.10}Week 10}{37}{section.A.10}
-\contentsline {subsection}{\numberline {A.10.1}20/01/14 - Rayleigh Fading Results}{37}{subsection.A.10.1}
-\contentsline {subsection}{\numberline {A.10.2}21/01/14 - Implementing Dave's suggestions}{37}{subsection.A.10.2}
-\contentsline {subsection}{\numberline {A.10.3}Week 10 Summary}{37}{subsection.A.10.3}
-\contentsline {subsection}{\numberline {A.10.4}Goals for Week 11}{37}{subsection.A.10.4}
-\contentsline {section}{\numberline {A.11}Week 11}{38}{section.A.11}
-\contentsline {subsection}{\numberline {A.11.1}27/01/14 - Simulating EGC and MRC}{38}{subsection.A.11.1}
-\contentsline {subsection}{\numberline {A.11.2}30/01/14 - EGC vs MRC results}{38}{subsection.A.11.2}
-\contentsline {subsection}{\numberline {A.11.3}01/02/14 - SNR increase to 28dB}{39}{subsection.A.11.3}
-\contentsline {subsection}{\numberline {A.11.4}Week 11 Summary}{39}{subsection.A.11.4}
-\contentsline {subsection}{\numberline {A.11.5}Goals for Week 12}{39}{subsection.A.11.5}
-\contentsline {section}{\numberline {A.12}Week 12}{39}{section.A.12}
-\contentsline {subsection}{\numberline {A.12.1}03/02/14 - Presentation work}{39}{subsection.A.12.1}
-\contentsline {subsection}{\numberline {A.12.2}06/02/14 - Presentation test run and rework}{39}{subsection.A.12.2}
-\contentsline {subsection}{\numberline {A.12.3}Week 12 Summary}{40}{subsection.A.12.3}
-\contentsline {section}{\numberline {A.13}Week 13}{40}{section.A.13}
-\contentsline {subsection}{\numberline {A.13.1}11/02/14 - Analytical description of non-fading case}{40}{subsection.A.13.1}
-\contentsline {subsection}{\numberline {A.13.2}12/02/14 - Viability of independent variate route}{41}{subsection.A.13.2}
-\contentsline {subsection}{\numberline {A.13.3}13/04/14 - MRC adaptation of Gram-Charlier distribution}{41}{subsection.A.13.3}
-\contentsline {subsection}{\numberline {A.13.4}14/04/14 - Explaning the oscillations}{42}{subsection.A.13.4}
-\contentsline {subsection}{\numberline {A.13.5}Week 13 Summary}{42}{subsection.A.13.5}
-\contentsline {subsection}{\numberline {A.13.6}Goals for Week 14}{42}{subsection.A.13.6}
-\contentsline {section}{\numberline {A.14}Week 14}{42}{section.A.14}
-\contentsline {subsection}{\numberline {A.14.1}16/02/14 - Bit Error Rate Calculation}{42}{subsection.A.14.1}
-\contentsline {subsection}{\numberline {A.14.2}18/02/14 - Averaging BER over Tikhonov and Rayleigh distributions}{42}{subsection.A.14.2}
-\contentsline {subsection}{\numberline {A.14.3}19/02/14 - Root-finding tweaks}{43}{subsection.A.14.3}
-\contentsline {subsection}{\numberline {A.14.4}20/02/14 - Discussion of Gram-Charlier accuracy}{43}{subsection.A.14.4}
-\contentsline {subsection}{\numberline {A.14.5}21/02/14 - Overcoming the timing error problems}{44}{subsection.A.14.5}
-\contentsline {subsection}{\numberline {A.14.6}22/02/14 - Further problems for high timing offsets}{44}{subsection.A.14.6}
-\contentsline {subsection}{\numberline {A.14.7}Week 14 Summary}{44}{subsection.A.14.7}
-\contentsline {subsection}{\numberline {A.14.8}Goals for Week 15}{44}{subsection.A.14.8}
-\contentsline {section}{\numberline {A.15}Week 15}{45}{section.A.15}
-\contentsline {subsection}{\numberline {A.15.1}24/02/14 - Root-finding-defying wiggles}{45}{subsection.A.15.1}
-\contentsline {subsection}{\numberline {A.15.2}25/02/14 - Correct optimum DRB measurements}{45}{subsection.A.15.2}
-\contentsline {subsection}{\numberline {A.15.3}26/02/14 - Integration}{46}{subsection.A.15.3}
-\contentsline {subsection}{\numberline {A.15.4}Week 15 Summary}{47}{subsection.A.15.4}
-\contentsline {subsection}{\numberline {A.15.5}Goals for Week 16}{47}{subsection.A.15.5}
-\contentsline {section}{\numberline {A.16}Week 16}{47}{section.A.16}
-\contentsline {subsection}{\numberline {A.16.1}03/03/14 - Rewriting analytical implementation}{47}{subsection.A.16.1}
-\contentsline {subsection}{\numberline {A.16.2}04/03/14 - Strengthening the implementation}{47}{subsection.A.16.2}
-\contentsline {subsection}{\numberline {A.16.3}05/03/14 - Assessing the accuracy of the implementation}{47}{subsection.A.16.3}
-\contentsline {section}{\numberline {A.17}Week 17}{48}{section.A.17}
-\contentsline {subsection}{\numberline {A.17.1}14/03/14 - Pre-open day progress}{48}{subsection.A.17.1}
-\contentsline {section}{\numberline {A.18}Week 18}{48}{section.A.18}
-\contentsline {subsection}{\numberline {A.18.1}17/03/14 - Comparing Analytic and Simulation results side-by-side}{48}{subsection.A.18.1}
-\contentsline {subsection}{\numberline {A.18.2}18/03/14 - Fixing the Gram-Charlier code}{49}{subsection.A.18.2}
-\contentsline {subsection}{\numberline {A.18.3}20/03/14 - A much closer match}{49}{subsection.A.18.3}
-\contentsline {subsection}{\numberline {A.18.4}21/03/14 - A slight mistake}{49}{subsection.A.18.4}
-\contentsline {subsection}{\numberline {A.18.5}22/03/14 - Revised MRC simulation results}{49}{subsection.A.18.5}
-\contentsline {chapter}{\numberline {B}\spacedlowsmallcaps {Example source code listing}}{53}{appendix.B}
-\contentsline {chapter}{\numberline {C}\spacedlowsmallcaps {Bibliography}}{55}{appendix.C}
+\contentsline {chapter}{\numberline {5}\spacedlowsmallcaps {Discussion of results}}{13}{chapter.5}
+\contentsline {chapter}{\numberline {6}\spacedlowsmallcaps {Future Work}}{15}{chapter.6}
+\contentsline {chapter}{\numberline {7}\spacedlowsmallcaps {Conclusions}}{17}{chapter.7}
+\contentsline {part}{i\hspace {1em}\spacedlowsmallcaps {Appendix}}{19}{part.1}
+\contentsline {chapter}{\numberline {A}\spacedlowsmallcaps {Logbook}}{21}{appendix.A}
+\contentsline {section}{\numberline {A.1}Week 1}{21}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}30/09/13 - Exploring simple case with PAM modulation}{21}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}01/10/13 - Implementing Raised Cosine functions}{21}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}02/10/13 - Wrapping Up the Initial PAM Model}{22}{subsection.A.1.3}
+\contentsline {subsection}{\numberline {A.1.4}03/10/13 - Delving deeper into Mathematica}{22}{subsection.A.1.4}
+\contentsline {subsection}{\numberline {A.1.5}Week 1 Summary}{23}{subsection.A.1.5}
+\contentsline {subsection}{\numberline {A.1.6}Goals for Week 2}{23}{subsection.A.1.6}
+\contentsline {section}{\numberline {A.2}Week 2}{23}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}07/10/13 - Matrix manipulations}{23}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}08/10/13 - Fixed I.R. and Kernel Density Estimation}{24}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}09/10/13 - Setting up Digital Comms Lab PC}{24}{subsection.A.2.3}
+\contentsline {subsection}{\numberline {A.2.4}10/10/13 - Probing the Elec Eng network}{26}{subsection.A.2.4}
+\contentsline {subsection}{\numberline {A.2.5}Week 2 Summary}{27}{subsection.A.2.5}
+\contentsline {subsection}{\numberline {A.2.6}Goals for Week 3}{27}{subsection.A.2.6}
+\contentsline {section}{\numberline {A.3}Week 3}{27}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}14/10/13 - Running longer scripts on the EDA machines}{27}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}15/10/13 - Reducing output size}{27}{subsection.A.3.2}
+\contentsline {subsection}{\numberline {A.3.3}16/10/13 - Moving onto 4-PAM}{27}{subsection.A.3.3}
+\contentsline {subsection}{\numberline {A.3.4}Week 3 Summary}{28}{subsection.A.3.4}
+\contentsline {subsection}{\numberline {A.3.5}Goals for Week 4}{28}{subsection.A.3.5}
+\contentsline {section}{\numberline {A.4}Week 4}{29}{section.A.4}
+\contentsline {subsection}{\numberline {A.4.1}21/10/13 - Implementing the Gram-Charlier series}{29}{subsection.A.4.1}
+\contentsline {subsection}{\numberline {A.4.2}22/10/13 - More Gram-Charlier series}{29}{subsection.A.4.2}
+\contentsline {subsection}{\numberline {A.4.3}23/10/13 - Proper Gram-Charlier plots}{30}{subsection.A.4.3}
+\contentsline {subsection}{\numberline {A.4.4}Week 4 Summary}{30}{subsection.A.4.4}
+\contentsline {subsection}{\numberline {A.4.5}Goals for Week 5}{30}{subsection.A.4.5}
+\contentsline {section}{\numberline {A.5}Week 5}{30}{section.A.5}
+\contentsline {subsection}{\numberline {A.5.1}29/10/13 - Comparing Gram-Charlier to Simulation}{30}{subsection.A.5.1}
+\contentsline {subsection}{\numberline {A.5.2}30/10/13 - Applying the Tikhonov Distribution}{30}{subsection.A.5.2}
+\contentsline {subsection}{\numberline {A.5.3}Week 5 Summary}{33}{subsection.A.5.3}
+\contentsline {subsection}{\numberline {A.5.4}Goals for Week 6}{33}{subsection.A.5.4}
+\contentsline {section}{\numberline {A.6}Week 6}{33}{section.A.6}
+\contentsline {subsection}{\numberline {A.6.1}04/11/13 - Fixing errors}{33}{subsection.A.6.1}
+\contentsline {subsection}{\numberline {A.6.2}05/11/13 - Corrected simulation results}{33}{subsection.A.6.2}
+\contentsline {subsection}{\numberline {A.6.3}Week 6 Summary}{33}{subsection.A.6.3}
+\contentsline {subsection}{\numberline {A.6.4}Goals for Week 7}{34}{subsection.A.6.4}
+\contentsline {section}{\numberline {A.7}Week 7}{34}{section.A.7}
+\contentsline {subsection}{\numberline {A.7.1}11/11/13 - Returning to the UNIX machines}{34}{subsection.A.7.1}
+\contentsline {subsection}{\numberline {A.7.2}19/11/13 - Day 9 of Week 7}{34}{subsection.A.7.2}
+\contentsline {subsection}{\numberline {A.7.3}Week 7 Summary}{34}{subsection.A.7.3}
+\contentsline {subsection}{\numberline {A.7.4}Goals for Week 8 onwards}{35}{subsection.A.7.4}
+\contentsline {section}{\numberline {A.8}Week 8}{35}{section.A.8}
+\contentsline {subsection}{\numberline {A.8.1}Week 8 Summary}{35}{subsection.A.8.1}
+\contentsline {subsection}{\numberline {A.8.2}Goals for Week 9}{36}{subsection.A.8.2}
+\contentsline {section}{\numberline {A.9}Week 9}{36}{section.A.9}
+\contentsline {subsection}{\numberline {A.9.1}13/01/14 - Examining combining and fading}{36}{subsection.A.9.1}
+\contentsline {subsection}{\numberline {A.9.2}14/01/14 - Planning an analytical analysis of the non-fading case}{36}{subsection.A.9.2}
+\contentsline {subsection}{\numberline {A.9.3}15/01/14 - Evaluating the Gram-Charlier distribution over the Tikhonov distribution}{37}{subsection.A.9.3}
+\contentsline {subsection}{\numberline {A.9.4}16/01/14 - Results for the above}{37}{subsection.A.9.4}
+\contentsline {subsection}{\numberline {A.9.5}Week 9 Summary}{38}{subsection.A.9.5}
+\contentsline {subsection}{\numberline {A.9.6}Goals for Week 10}{38}{subsection.A.9.6}
+\contentsline {section}{\numberline {A.10}Week 10}{38}{section.A.10}
+\contentsline {subsection}{\numberline {A.10.1}20/01/14 - Rayleigh Fading Results}{38}{subsection.A.10.1}
+\contentsline {subsection}{\numberline {A.10.2}21/01/14 - Implementing David's suggestions}{38}{subsection.A.10.2}
+\contentsline {subsection}{\numberline {A.10.3}Week 10 Summary}{39}{subsection.A.10.3}
+\contentsline {subsection}{\numberline {A.10.4}Goals for Week 11}{39}{subsection.A.10.4}
+\contentsline {section}{\numberline {A.11}Week 11}{39}{section.A.11}
+\contentsline {subsection}{\numberline {A.11.1}27/01/14 - Simulating EGC and MRC}{39}{subsection.A.11.1}
+\contentsline {subsection}{\numberline {A.11.2}30/01/14 - EGC vs MRC results}{39}{subsection.A.11.2}
+\contentsline {subsection}{\numberline {A.11.3}01/02/14 - SNR increase to 28dB}{40}{subsection.A.11.3}
+\contentsline {subsection}{\numberline {A.11.4}Week 11 Summary}{40}{subsection.A.11.4}
+\contentsline {subsection}{\numberline {A.11.5}Goals for Week 12}{40}{subsection.A.11.5}
+\contentsline {section}{\numberline {A.12}Week 12}{41}{section.A.12}
+\contentsline {subsection}{\numberline {A.12.1}03/02/14 - Presentation work}{41}{subsection.A.12.1}
+\contentsline {subsection}{\numberline {A.12.2}06/02/14 - Presentation test run and rework}{41}{subsection.A.12.2}
+\contentsline {subsection}{\numberline {A.12.3}Week 12 Summary}{42}{subsection.A.12.3}
+\contentsline {section}{\numberline {A.13}Week 13}{42}{section.A.13}
+\contentsline {subsection}{\numberline {A.13.1}11/02/14 - Analytical description of non-fading case}{42}{subsection.A.13.1}
+\contentsline {subsection}{\numberline {A.13.2}12/02/14 - Viability of independent variate route}{43}{subsection.A.13.2}
+\contentsline {subsection}{\numberline {A.13.3}13/04/14 - MRC adaptation of Gram-Charlier distribution}{43}{subsection.A.13.3}
+\contentsline {subsection}{\numberline {A.13.4}14/04/14 - Explaining the oscillations}{43}{subsection.A.13.4}
+\contentsline {subsection}{\numberline {A.13.5}Week 13 Summary}{43}{subsection.A.13.5}
+\contentsline {subsection}{\numberline {A.13.6}Goals for Week 14}{44}{subsection.A.13.6}
+\contentsline {section}{\numberline {A.14}Week 14}{44}{section.A.14}
+\contentsline {subsection}{\numberline {A.14.1}16/02/14 - Bit Error Rate Calculation}{44}{subsection.A.14.1}
+\contentsline {subsection}{\numberline {A.14.2}18/02/14 - Averaging BER over Tikhonov and Rayleigh distributions}{44}{subsection.A.14.2}
+\contentsline {subsection}{\numberline {A.14.3}19/02/14 - Root-finding tweaks}{44}{subsection.A.14.3}
+\contentsline {subsection}{\numberline {A.14.4}20/02/14 - Discussion of Gram-Charlier accuracy}{45}{subsection.A.14.4}
+\contentsline {subsection}{\numberline {A.14.5}21/02/14 - Overcoming the timing error problems}{45}{subsection.A.14.5}
+\contentsline {subsection}{\numberline {A.14.6}22/02/14 - Further problems for high timing offsets}{45}{subsection.A.14.6}
+\contentsline {subsection}{\numberline {A.14.7}Week 14 Summary}{46}{subsection.A.14.7}
+\contentsline {subsection}{\numberline {A.14.8}Goals for Week 15}{46}{subsection.A.14.8}
+\contentsline {section}{\numberline {A.15}Week 15}{46}{section.A.15}
+\contentsline {subsection}{\numberline {A.15.1}24/02/14 - Root-finding-defying wiggles}{46}{subsection.A.15.1}
+\contentsline {subsection}{\numberline {A.15.2}25/02/14 - Correct optimum DRB measurements}{46}{subsection.A.15.2}
+\contentsline {subsection}{\numberline {A.15.3}26/02/14 - Integration}{47}{subsection.A.15.3}
+\contentsline {subsection}{\numberline {A.15.4}Week 15 Summary}{48}{subsection.A.15.4}
+\contentsline {subsection}{\numberline {A.15.5}Goals for Week 16}{48}{subsection.A.15.5}
+\contentsline {section}{\numberline {A.16}Week 16}{49}{section.A.16}
+\contentsline {subsection}{\numberline {A.16.1}03/03/14 - Rewriting analytical implementation}{49}{subsection.A.16.1}
+\contentsline {subsection}{\numberline {A.16.2}04/03/14 - Strengthening the implementation}{49}{subsection.A.16.2}
+\contentsline {subsection}{\numberline {A.16.3}05/03/14 - Assessing the accuracy of the implementation}{49}{subsection.A.16.3}
+\contentsline {section}{\numberline {A.17}Week 17}{49}{section.A.17}
+\contentsline {subsection}{\numberline {A.17.1}14/03/14 - Pre-open day progress}{49}{subsection.A.17.1}
+\contentsline {section}{\numberline {A.18}Week 18}{50}{section.A.18}
+\contentsline {subsection}{\numberline {A.18.1}17/03/14 - Comparing Analytic and Simulation results side-by-side}{50}{subsection.A.18.1}
+\contentsline {subsection}{\numberline {A.18.2}18/03/14 - Fixing the Gram-Charlier code}{50}{subsection.A.18.2}
+\contentsline {subsection}{\numberline {A.18.3}20/03/14 - A much closer match}{51}{subsection.A.18.3}
+\contentsline {subsection}{\numberline {A.18.4}21/03/14 - A slight mistake}{51}{subsection.A.18.4}
+\contentsline {subsection}{\numberline {A.18.5}22/03/14 - Revised MRC simulation results}{51}{subsection.A.18.5}
+\contentsline {chapter}{\numberline {B}\spacedlowsmallcaps {Example source code listing}}{55}{appendix.B}
+\contentsline {chapter}{\numberline {C}\spacedlowsmallcaps {Bibliography}}{57}{appendix.C}
