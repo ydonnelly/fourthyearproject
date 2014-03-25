@@ -114,7 +114,52 @@
 
 \chapter{Gram-Charlier series}
 
-TODO
+The Gram-Charlier series, in the context of this project, is a method of approximating a probability density function as a Gaussian distribution, with a number of \emph{correction} terms derived from the PDF's cumulants.\cite{[1]}
+
+A common first-order approximation to a measured histogram function is the Gaussian distribution, given by:
+
+$$
+f(y) = \frac{1}{\sqrt{2 \pi} \sigma_X} \: \text{exp} \left ( - \frac{(y - \omega_0 g_0)^2}{2 \sigma_X^2} \right )
+$$
+
+A more precise approximation can be found by evaluating the cumulants of the PDF, $\kappa_m$, and deriving the Gram-Charlier approximation as follows:
+
+$$
+f_{X|\Delta}(y) = \frac{1}{\sqrt{2 \pi} \sigma_X} \: \text{exp} \left ( - \frac{(y - \omega_0 g_0)^2}{2 \sigma_X^2} \right ) \times \qquad \qquad \qquad \qquad \qquad
+$$
+$$
+\qquad \qquad \qquad \qquad \qquad \qquad \left [ 1 + \sum \limits_{m=2}^{\infty} \frac{\alpha_{2m}}{(2m)! \sigma_X^{2m}}  \: H_{2m} \! \left ( \frac{y-\omega_0 g_0}{\sigma_X} \right ) \right ]
+$$
+
+Where the variance is given by:
+
+$$
+\sigma_X^2 = \sigma_{\mu}^2 + \frac{1}{3} \left ( L^2 - 1 \right ) \sum\limits_{i=2}^{m-2} \binom{2m-1}{wi} \kappa_{2(m-i)} \alpha_{2i} \: \: m \ge 2
+$$
+
+The cumulants can be derived using:
+
+$$
+\kappa_m = - j^m T_{m-1} \frac{L^m - 1}{2^m - 1} \sum\limits_{k=1}^{\infty} \left ( g_{-k}^m + g_k^m \right ) \: \: m \ge 2
+$$
+
+$$
+\textit{where   } T_m = \left . \frac{d^m}{d t^m} tan (t) \right |_{t=0}
+$$
+
+$H_m$ refers to the $m$'th root of the Hermite polynomial
+
+$$
+H_m (y) = (-1)^m e^{y^2 / 2} \frac{d^m}{d y^m} e^{- y^2 / 2}
+$$
+
+$$
+\textit{or}
+$$
+
+$$
+H_m (y) = \sum\limits_{i=0}^{m / 2} (-1)^i \frac{m!}{(m-2i)!} \frac{1}{2^i i!} y^{m-2i}
+$$
 
 \chapter{Example source code listing}
 

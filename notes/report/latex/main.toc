@@ -5,7 +5,7 @@
 \contentsline {part}{i\hspace {1em}\spacedlowsmallcaps {Introduction}}{1}{part.1}
 \contentsline {chapter}{\numberline {1}\spacedlowsmallcaps {Introduction and Objectives}}{3}{chapter.1}
 \contentsline {chapter}{\numberline {2}\spacedlowsmallcaps {Background Information}}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}The Communications system Model}{5}{section.2.1}
+\contentsline {section}{\numberline {2.1}The Communications System Model}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Transmitter-Receiver Synchronisation}{6}{section.2.2}
 \contentsline {section}{\numberline {2.3}Previous Work}{8}{section.2.3}
 \contentsline {part}{ii\hspace {1em}\spacedlowsmallcaps {Project}}{9}{part.2}
@@ -121,5 +121,9 @@
 \contentsline {subsection}{\numberline {A.18.3}20/03/14 - A much closer match}{59}{subsection.A.18.3}
 \contentsline {subsection}{\numberline {A.18.4}21/03/14 - A slight mistake}{59}{subsection.A.18.4}
 \contentsline {subsection}{\numberline {A.18.5}22/03/14 - Revised MRC simulation results}{59}{subsection.A.18.5}
-\contentsline {chapter}{\numberline {B}\spacedlowsmallcaps {Example source code listing}}{63}{appendix.B}
-\contentsline {chapter}{\numberline {C}\spacedlowsmallcaps {Bibliography}}{67}{appendix.C}
+\contentsline {subsection}{\numberline {A.18.6}24/03/14 - Reduced channel gain steps}{59}{subsection.A.18.6}
+\contentsline {subsection}{\numberline {A.18.7}25/03/14 - Calculating the overall SER}{62}{subsection.A.18.7}
+\contentsline {section}{\numberline {A.19}Closing summary}{62}{section.A.19}
+\contentsline {chapter}{\numberline {B}\spacedlowsmallcaps {Gram-Charlier series}}{63}{appendix.B}
+\contentsline {chapter}{\numberline {C}\spacedlowsmallcaps {Example source code listing}}{65}{appendix.C}
+\contentsline {chapter}{\numberline {D}\spacedlowsmallcaps {Bibliography}}{69}{appendix.D}

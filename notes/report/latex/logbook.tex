@@ -459,17 +459,17 @@ using
 B_{\text{OPT}} \sim \sum_{\Delta} \text{P}(\Delta) B_{\text{OPT,}\Delta}
 \]
 
+It is important to note that with increasing variance, the probability
+density function places more weight on larger timing errors outside the
+range simulated, so these results are less accurate for higher
+variances.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\linewidth]{../../../plots/odrb_vs_tikhvar.png}
 \caption{Optimum Decision Region Boundary for various timing error
 probability distributions}
 \end{figure}
-
-It is important to note that with increasing variance, the probability
-density function places more weight on larger timing errors outside the
-range simulated, so these results are less accurate for higher
-variances.
 
 \subsection{Week 5 Summary}
 
@@ -1324,8 +1324,28 @@ description of the MRC system, I restarted the simulation.
 \subsection{22/03/14 - Revised MRC simulation results}
 
 The MRC simulation finished, and I was able to observe that our revised
-system still gave us gains of up to 14\% in the presence of strong
+system still gave us gains of up to 17\% in the presence of strong
 timing offsets, for a 2-channel diversity system.
+
+\begin{table}
+\myfloatalign
+\begin{tabularx}{\textwidth}{Xllr} \toprule
+\tableheadline{$\sigma_{\delta t}$} & \tableheadline{P\textsubscript{e} old}
+& \tableheadline{P\textsubscript{e} old} & \tableheadline{Improvement (\%)} \\ \midrule
+$0.001$ & $1.49 \times 10^{-4}$ & $1.49 \times 10^{-4}$ & $0$ \\
+$0.002$ & $1.69 \times 10^{-4}$ & $1.68 \times 10^{-4}$ & $0.41$ \\
+$0.003$ & $2.67 \times 10^{-4}$ & $2.47 \times 10^{-4}$ & $7.69$ \\
+$0.004$ & $5.94 \times 10^{-4}$ & $5.02 \times 10^{-4}$ & $15.51$ \\
+$0.005$ & $1.28 \times 10^{-3}$ & $1.07 \times 10^{-3}$ & $16.43$ \\
+$0.006$ & $2.67 \times 10^{-3}$ & $2.29 \times 10^{-3}$ & $14.30$ \\
+$0.007$ & $5.08 \times 10^{-3}$ & $4.18 \times 10^{-3}$ & $17.88$ \\
+$0.008$ & $7.95 \times 10^{-3}$ & $6.71 \times 10^{-3}$ & $15.61$ \\
+$0.009$ & $1.09 \times 10^{-2}$ & $9.42 \times 10^{-3}$ & $13.90$ \\
+$0.010$ & $1.49 \times 10^{-2}$ & $1.30 \times 10^{-2}$ & $12.71$ \\
+\bottomrule
+\end{tabularx}
+\caption[Simulated Symbol Error Rates]{Simulated Symbol Error Rates, 4-PAM signalling, AWGN Rayleigh channel, SNR=20dB, l=2 MRC receiver, N =$\; 5 \times 10^7$} 
+\end{table}
 
 For added precision, I ran the simulation again. I also returned to the
 analytical description to see if the optimum decision region boundaries
@@ -1337,3 +1357,31 @@ could be determined from the latter.
 \caption{Symbol Error Rate for 2-channel MRC system with
 Tikhonov-distributed timing error}
 \end{figure}
+
+\subsection{24/03/14 - Reduced channel gain steps}
+
+Turning back to the analytical derivation, I made a guess that the oscillatory output could be explained by the channel gain step size being two large. While different timing offsets only marginally change the PDF, different channel gains scale the entire PDF, so averaging over two few choices of channel gain would logically produce a very oscillatory function. I therefore reduced the number of timing error choices to 5 per channel and increased the number of  channel gains to 30, and re-generated the overall PDF. While it seemed scaled compared to what we would expect, it is at least the same shape, so it seems that my intuition was correct.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{../../../plots/overall_test.png}
+\caption{Overall received signal PDF}
+\end{figure}
+
+\subsection{25/03/14 - Calculating the overall SER}
+
+I had a discussion with David Murphy, and we decided that calculating the overall PDF was not the right approach to take, as the decoder has knowledge from the MRC system of the channel gains and therefore decodes differently for each channel gain. Instead, we decided to determine the PDF's conditional on each channel gain, determine the SER's for each PDF, and averaging over the fading distributions to determine the overall SER.
+
+\section{Closing summary}
+
+In order to close the logbook, the simulation work is entirely wrapped up an demonstrated gains of up to 17\%. An analytical description of the received symbol PDF at the input of the decoder, conditioned on the instantaneous channel gain, has been derived, and this can be used to determine the conditional Symbol Error Rate, and therefore the overall SER. Thus, method for analytically determining both the performance of the system and the optimum roots for the improved decoder has been described.
+
+
+
+
+
+
+
+
+
+

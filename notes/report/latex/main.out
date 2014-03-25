@@ -9,7 +9,7 @@
 \BOOKMARK [-1][]{part.1}{Introduction}{}% 9
 \BOOKMARK [0][]{chapter.1}{1 Introduction and Objectives}{part.1}% 10
 \BOOKMARK [0][]{chapter.2}{2 Background Information}{part.1}% 11
-\BOOKMARK [1][-]{section.2.1}{2.1 The Communications system Model}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.1}{2.1 The Communications System Model}{chapter.2}% 12
 \BOOKMARK [1][-]{section.2.2}{2.2 Transmitter-Receiver Synchronisation}{chapter.2}% 13
 \BOOKMARK [1][-]{section.2.3}{2.3 Previous Work}{chapter.2}% 14
 \BOOKMARK [-1][]{part.2}{Project}{}% 15
@@ -43,5 +43,7 @@
 \BOOKMARK [1][-]{section.A.16}{A.16 Week 16}{appendix.A}% 43
 \BOOKMARK [1][-]{section.A.17}{A.17 Week 17}{appendix.A}% 44
 \BOOKMARK [1][-]{section.A.18}{A.18 Week 18}{appendix.A}% 45
-\BOOKMARK [0][]{appendix.B}{B Example source code listing}{part.4}% 46
-\BOOKMARK [0][]{appendix.C}{C Bibliography}{part.4}% 47
+\BOOKMARK [1][-]{section.A.19}{A.19 Closing summary}{appendix.A}% 46
+\BOOKMARK [0][]{appendix.B}{B Gram-Charlier series}{part.4}% 47
+\BOOKMARK [0][]{appendix.C}{C Example source code listing}{part.4}% 48
+\BOOKMARK [0][]{appendix.D}{D Bibliography}{part.4}% 49
