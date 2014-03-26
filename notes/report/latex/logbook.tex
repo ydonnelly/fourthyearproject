@@ -1036,8 +1036,6 @@ some issues remained:
   could suggest a fix for these points.
 \end{itemize}
 
-\emph{Insert timing error 2D density plot}
-
 \subsection{20/02/14 - Discussion of Gram-Charlier accuracy}
 
 I discussed the issue described above with David Murphy and Dr. Colin Murphy, and David Murphy
@@ -1061,8 +1059,6 @@ timing error offsets. Noting that it definitely converged for timing
 offsets of 0.3 and below, and that timing offsets greater than this were
 extremely unlikely, I decided to truncate the timing offset averaging to
 $-0.3 \le \Delta \le 0.3$.
-
-\emph{Plot of roots verses timing error}
 
 After implementing this I discovered that the root-finding algorithm
 results still became increasingly inaccurate for higher timing offsets.
@@ -1148,7 +1144,7 @@ f_{X\vert \Delta}(y) = \frac{1}{\sigma_X} \: \phi \! \left ( \frac{y-\mu_X}{\sig
 \; \; \; \; \; \; \; \; + \sum \limits_{m=2}^M \frac{\alpha_{2m}}{(2m)! \sigma_X^{2m}} \left [ \frac{1}{\sigma_X} \: \phi \! \left ( \frac{y-\mu_X}{\sigma} \right ) \: H_{2m} \! \left ( \frac{y-\mu_X}{\sigma_X} \right ) \right ]
 \]
 
-and incorporating the given identites,
+and incorporating the given identities,
 
 \[
 \int \limits_{-\infty}^x \frac{1}{\sigma} \: \phi \! \left ( \frac{y-\mu}{\sigma} \right ) dy =
@@ -1331,7 +1327,7 @@ timing offsets, for a 2-channel diversity system.
 \myfloatalign
 \begin{tabularx}{\textwidth}{Xllr} \toprule
 \tableheadline{$\sigma_{\delta t}$} & \tableheadline{P\textsubscript{e} old}
-& \tableheadline{P\textsubscript{e} old} & \tableheadline{Improvement (\%)} \\ \midrule
+& \tableheadline{P\textsubscript{e} new} & \tableheadline{Improvement (\%)} \\ \midrule
 $0.001$ & $1.49 \times 10^{-4}$ & $1.49 \times 10^{-4}$ & $0$ \\
 $0.002$ & $1.69 \times 10^{-4}$ & $1.68 \times 10^{-4}$ & $0.41$ \\
 $0.003$ & $2.67 \times 10^{-4}$ & $2.47 \times 10^{-4}$ & $7.69$ \\

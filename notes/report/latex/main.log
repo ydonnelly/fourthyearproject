@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.12.31)  25 MAR 2014 19:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.12.31)  25 MAR 2014 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1918,10 +1918,10 @@ File: ../../../plots/rootfindingconfusion_M20_cropped.png Graphic file (type pn
 g)
  <use ../../../plots/rootfindingconfusion_M20_cropped.png>
 Package pdftex.def Info: ../../../plots/rootfindingconfusion_M20_cropped.png us
-ed on input line 1109.
+ed on input line 1105.
 (pdftex.def)             Requested size: 340.27042pt x 222.83195pt.
 
-Overfull \hbox (4.27042pt too wide) in paragraph at lines 1109--1110
+Overfull \hbox (4.27042pt too wide) in paragraph at lines 1105--1106
  [][] 
  []
 
@@ -1930,17 +1930,17 @@ Overfull \hbox (4.27042pt too wide) in paragraph at lines 1109--1110
 File: comparison_scaled.png Graphic file (type png)
 
 <use comparison_scaled.png>
-Package pdftex.def Info: comparison_scaled.png used on input line 1313.
+Package pdftex.def Info: comparison_scaled.png used on input line 1309.
 (pdftex.def)             Requested size: 331.25708pt x 666.04997pt.
 
 
-LaTeX Warning: Float too large for page by 35.20006pt on input line 1316.
+LaTeX Warning: Float too large for page by 35.20006pt on input line 1312.
 
 <../../../plots/MRC_SER.png, id=769, 663.98062pt x 374.71996pt>
 File: ../../../plots/MRC_SER.png Graphic file (type png)
 
 <use ../../../plots/MRC_SER.png>
-Package pdftex.def Info: ../../../plots/MRC_SER.png used on input line 1356.
+Package pdftex.def Info: ../../../plots/MRC_SER.png used on input line 1352.
 (pdftex.def)             Requested size: 336.0pt x 189.62373pt.
  [59] [60 <./comparison_scaled.png>]
 <../../../plots/overall_test.png, id=783, 578.16pt x 341.8371pt>
@@ -1948,7 +1948,7 @@ File: ../../../plots/overall_test.png Graphic file (type png)
 
 <use ../../../plots/overall_test.png>
 Package pdftex.def Info: ../../../plots/overall_test.png used on input line 136
-7.
+3.
 (pdftex.def)             Requested size: 336.0pt x 198.65685pt.
  [61 <../../../plots/MRC_SER.png (PNG copy)> <../../../plots/overall_test.png (
 PNG copy)>]) [62]
@@ -2036,7 +2036,7 @@ e1/public/bera/fvmro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palati
 no/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (79 pages, 2990960 bytes).
+Output written on main.pdf (79 pages, 2990897 bytes).
 PDF statistics:
  1043 PDF objects out of 1200 (max. 8388607)
  891 compressed objects within 9 object streams
